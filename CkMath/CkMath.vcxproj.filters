@@ -13,45 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\math">
-      <UniqueIdentifier>{029754ca-a12b-4a41-a7c4-667b91d1552f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\math\Headers">
-      <UniqueIdentifier>{95b76ea9-3653-44f3-97aa-01c65010de25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\math\Source">
-      <UniqueIdentifier>{dddf1064-6d26-48fb-83c2-429035d048ea}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="math_geometry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="math_vector.cpp">
-      <Filter>Source Files\math\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="math_geometry.cpp">
-      <Filter>Source Files\math\Source</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="math_vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="math.h">
-      <Filter>Source Files\math\Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="math_constants.h">
-      <Filter>Source Files\math\Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="math_geometry.h">
-      <Filter>Source Files\math\Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="math_scalar.h">
-      <Filter>Source Files\math\Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="math_types.h">
-      <Filter>Source Files\math\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="math_vector.h">
-      <Filter>Source Files\math\Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
