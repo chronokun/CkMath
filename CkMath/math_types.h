@@ -130,6 +130,13 @@ struct TMatrix4d
 {
 	union
 	{
+		struct
+		{
+			double m_d11, m_d21, m_d31, m_d41;
+			double m_d12, m_d22, m_d32, m_d42;
+			double m_d13, m_d23, m_d33, m_d43;
+			double m_d14, m_d24, m_d34, m_d44;
+		};
 		TVector4d m_Columns[4];
 		double m_dItems[4][4];
 	};
@@ -139,6 +146,13 @@ struct TMatrix4f
 {
 	union
 	{
+		struct
+		{
+			float m_f11, m_f21, m_f31, m_f41;
+			float m_f12, m_f22, m_f32, m_f42;
+			float m_f13, m_f23, m_f33, m_f43;
+			float m_f14, m_f24, m_f34, m_f44;
+		};
 		TVector4f m_Columns[4];
 		float m_fItems[4][4];
 	};
@@ -148,6 +162,12 @@ struct TMatrix3d
 {
 	union
 	{
+		struct
+		{
+			double m_d11, m_d21, m_d31;
+			double m_d12, m_d22, m_d32;
+			double m_d13, m_d23, m_d33;
+		};
 		TVector3d m_Columns[3];
 		double m_dItems[3][3];
 	};
@@ -157,6 +177,12 @@ struct TMatrix3f
 {
 	union
 	{
+		struct
+		{
+			float m_f11, m_f21, m_f31;
+			float m_f12, m_f22, m_f32;
+			float m_f13, m_f23, m_f33;
+		};
 		TVector3f m_Columns[3];
 		float m_fItems[3][3];
 	};
@@ -166,6 +192,11 @@ struct TMatrix2d
 {
 	union
 	{
+		struct
+		{
+			double m_d11, m_d21;
+			double m_d12, m_d22;
+		};
 		TVector2d m_Columns[2];
 		double m_dItems[2][2];
 	};
@@ -175,6 +206,11 @@ struct TMatrix2f
 {
 	union
 	{
+		struct
+		{
+			float m_f11, m_f21;
+			float m_f12, m_f22;
+		};
 		TVector2f m_Columns[2];
 		float m_fItems[2][2];
 	};
