@@ -40,4 +40,6 @@ TODO:
 	
 	* Constraints
 	
+	* Noise sources and signal processing filters
+	
 	* Testing & Optimization
