@@ -65,12 +65,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="math_geometry.cpp" />
+    <ClCompile Include="math_matrix.cpp" />
     <ClCompile Include="math_vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math.h" />
     <ClInclude Include="math_constants.h" />
     <ClInclude Include="math_geometry.h" />
+    <ClInclude Include="math_matrix.h" />
     <ClInclude Include="math_scalar.h" />
     <ClInclude Include="math_types.h" />
     <ClInclude Include="math_vector.h" />
