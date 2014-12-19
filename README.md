@@ -2,7 +2,7 @@ CkMath
 ======
 
 Simple math library with vector, matrix, geometric and trigonometric functions & types intended
-to for use in developing a game engine.
+to for use in developing 3d game engines.
 
 Released as Public Domain.
 
