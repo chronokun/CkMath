@@ -30,16 +30,8 @@ TODO:
 	
 	* Cylinders
 	
-	* BVH & Octrees
+	* Curves & surfaces
 	
-	* Voxels & Metablobs
-	
-	* Polygon generation & Clipping
-	
-	* Integrators
-	
-	* Constraints
-	
-	* Noise sources and signal processing filters
+	* Interpolation
 	
 	* Testing & Optimization
