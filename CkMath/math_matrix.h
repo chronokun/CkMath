@@ -63,6 +63,87 @@ namespace math
 
 	const TMatrix4f& Transpose(	TMatrix4f& _rResult,
 								const TMatrix4f& _krMatrix);
+
+	const TMatrix3d& Submatrix(	TMatrix3d& _rResult, 
+								const TMatrix4d& _krMatrix,
+								const size_t _kDeletedRow,
+								const size_t _kDeletedColumn);
+
+	const TMatrix3f& Submatrix(	TMatrix3f& _rResult, 
+								const TMatrix4f& _krMatrix,
+								const size_t _kDeletedRow,
+								const size_t _kDeletedColumn);
+
+	const double FirstMinor(const TMatrix4d& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const float FirstMinor(const TMatrix4f& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const TMatrix4d& MatrixOfMinors(TMatrix4d& _rResult,
+									const TMatrix4d& _krMatrix);
+
+	const TMatrix4f& MatrixOfMinors(TMatrix4f& _rResult,
+									const TMatrix4f& _krMatrix);
+
+	const double Determinant(const TMatrix4d& _krMatrix);
+
+	const float Determinant(const TMatrix4f& _krMatrix);
+
+	const TMatrix4d& Inverse(	TMatrix4d& _rResult,
+								const TMatrix4d& _krMatrix);
+
+	const TMatrix4f& Inverse(	TMatrix4f& _rResult,
+								const TMatrix4f& _krMatrix);
+
+	//
+	// Matrix 3
+	//
+
+	const TMatrix2d& Submatrix(	TMatrix2d& _rResult, 
+								const TMatrix3d& _krMatrix,
+								const size_t _kDeletedRow,
+								const size_t _kDeletedColumn);
+
+	const TMatrix2f& Submatrix(	TMatrix2f& _rResult, 
+								const TMatrix3f& _krMatrix,
+								const size_t _kDeletedRow,
+								const size_t _kDeletedColumn);
+
+	const double Determinant(const TMatrix3d& _krMatrix);
+
+	const float Determinant(const TMatrix3f& _krMatrix);
+
+	const double FirstMinor(const TMatrix3d& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const float FirstMinor(	const TMatrix3f& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const TMatrix3d& MatrixOfMinors(TMatrix3d& _rResult,
+									const TMatrix3d& _krMatrix);
+
+	const TMatrix3f& MatrixOfMinors(TMatrix3f& _rResult,
+									const TMatrix3f& _krMatrix);
+
+	const TMatrix3d& MatrixOfCofactors(	TMatrix3d& _rResult,
+										const TMatrix3d& _krMatrix);
+
+	const TMatrix3f& MatrixOfCofactors(	TMatrix3f& _rResult,
+										const TMatrix3f& _krMatrix);
+
+	//
+	// Matrix 2
+	//
+
+	const double Determinant(const TMatrix2d& _krMatrix);
+
+	const float Determinant(const TMatrix2f& _krMatrix);
+
 }
 
 #endif

@@ -273,3 +273,367 @@ const TMatrix4f& math::Transpose(	TMatrix4f& _rResult,
 
 	return(_rResult);
 }
+
+const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult, 
+									const TMatrix4d& _krMatrix,
+									const size_t _kDeletedRow,
+									const size_t _kDeletedColumn)
+{
+	for(size_t i = 0; i < 4; ++i)
+	{
+		for(size_t j = 0; j < 4; ++j)
+		{
+			if(		(i != _kDeletedRow)
+				&&	(j != _kDeletedColumn))
+			{
+				size_t InsertI;
+				size_t InsertJ;
+				if(i < _kDeletedRow)
+				{
+					InsertI = i;
+				}
+				else
+				{
+					InsertI = i-1;
+				}
+				if(j < _kDeletedColumn)
+				{
+					InsertJ = j;
+				}
+				else
+				{
+					InsertJ = j-1;
+				}
+
+				_rResult.m_dItems[InsertI][InsertJ] = _krMatrix.m_dItems[i][j];
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult, 
+									const TMatrix4f& _krMatrix,
+									const size_t _kDeletedRow,
+									const size_t _kDeletedColumn)
+{
+	for(size_t i = 0; i < 4; ++i)
+	{
+		for(size_t j = 0; j < 4; ++j)
+		{
+			if(		(i != _kDeletedRow)
+				&&	(j != _kDeletedColumn))
+			{
+				size_t InsertI;
+				size_t InsertJ;
+				if(i < _kDeletedRow)
+				{
+					InsertI = i;
+				}
+				else
+				{
+					InsertI = i-1;
+				}
+				if(j < _kDeletedColumn)
+				{
+					InsertJ = j;
+				}
+				else
+				{
+					InsertJ = j-1;
+				}
+
+				_rResult.m_fItems[InsertI][InsertJ] = _krMatrix.m_fItems[i][j];
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+const double math::FirstMinor(	const TMatrix4d& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	const TMatrix3d kSubmatrix = math::Submatrix(TMatrix3d(), _krMatrix, _kRow, _kColumn);
+	
+	return(math::Determinant(kSubmatrix));
+}
+
+const float math::FirstMinor(	const TMatrix4f& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	const TMatrix3f kSubmatrix = math::Submatrix(TMatrix3f(), _krMatrix, _kRow, _kColumn);
+	
+	return(math::Determinant(kSubmatrix));
+}
+
+const TMatrix4d& math::MatrixOfMinors(	TMatrix4d& _rResult,
+										const TMatrix4d& _krMatrix)
+{
+	for(size_t i = 0; i < 4; ++i)
+	{
+		for(size_t j = 0; j < 4; ++j)
+		{
+			_rResult.m_dItems[i][j] = math::FirstMinor(_krMatrix, i, j);
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix4f& math::MatrixOfMinors(	TMatrix4f& _rResult,
+										const TMatrix4f& _krMatrix)
+{
+	for(size_t i = 0; i < 4; ++i)
+	{
+		for(size_t j = 0; j < 4; ++j)
+		{
+			_rResult.m_fItems[i][j] = math::FirstMinor(_krMatrix, i, j);
+		}
+	}
+
+	return(_rResult);
+}
+
+const double math::Determinant(const TMatrix4d& _krMatrix)
+{
+	const double kdDeterminant =	(_krMatrix.m_d11 * math::FirstMinor(_krMatrix, 1, 1))
+								-	(_krMatrix.m_d12 * math::FirstMinor(_krMatrix, 1, 2))
+								+	(_krMatrix.m_d13 * math::FirstMinor(_krMatrix, 1, 3))
+								-	(_krMatrix.m_d14 * math::FirstMinor(_krMatrix, 1, 4));
+
+	return(kdDeterminant);
+}
+
+const float math::Determinant(const TMatrix4f& _krMatrix)
+{
+	const float kfDeterminant =		(_krMatrix.m_f11 * math::FirstMinor(_krMatrix, 1, 1))
+								-	(_krMatrix.m_f12 * math::FirstMinor(_krMatrix, 1, 2))
+								+	(_krMatrix.m_f13 * math::FirstMinor(_krMatrix, 1, 3))
+								-	(_krMatrix.m_f14 * math::FirstMinor(_krMatrix, 1, 4));
+
+	return(kfDeterminant);
+}
+
+const TMatrix4d& math::Inverse(	TMatrix4d& _rResult,
+								const TMatrix4d& _krMatrix)
+{
+	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix4d(), _krMatrix), 1.0/math::Determinant(_krMatrix));
+
+	return(_rResult);
+}
+
+const TMatrix4f& math::Inverse(	TMatrix4f& _rResult,
+								const TMatrix4f& _krMatrix)
+{
+	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix4f(), _krMatrix), 1.0f/math::Determinant(_krMatrix));
+
+	return(_rResult);
+}
+
+//
+// Matrix 3
+//
+
+const TMatrix2d& math::Submatrix(	TMatrix2d& _rResult, 
+									const TMatrix3d& _krMatrix,
+									const size_t _kDeletedRow,
+									const size_t _kDeletedColumn)
+{
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			if(		(i != _kDeletedRow)
+				&&	(j != _kDeletedColumn))
+			{
+				size_t InsertI;
+				size_t InsertJ;
+				if(i < _kDeletedRow)
+				{
+					InsertI = i;
+				}
+				else
+				{
+					InsertI = i-1;
+				}
+				if(j < _kDeletedColumn)
+				{
+					InsertJ = j;
+				}
+				else
+				{
+					InsertJ = j-1;
+				}
+
+				_rResult.m_dItems[InsertI][InsertJ] = _krMatrix.m_dItems[i][j];
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::Submatrix(	TMatrix2f& _rResult, 
+									const TMatrix3f& _krMatrix,
+									const size_t _kDeletedRow,
+									const size_t _kDeletedColumn)
+{
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			if(		(i != _kDeletedRow)
+				&&	(j != _kDeletedColumn))
+			{
+				size_t InsertI;
+				size_t InsertJ;
+				if(i < _kDeletedRow)
+				{
+					InsertI = i;
+				}
+				else
+				{
+					InsertI = i-1;
+				}
+				if(j < _kDeletedColumn)
+				{
+					InsertJ = j;
+				}
+				else
+				{
+					InsertJ = j-1;
+				}
+
+				_rResult.m_fItems[InsertI][InsertJ] = _krMatrix.m_fItems[i][j];
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+const double math::Determinant(const TMatrix3d& _krMatrix)
+{
+	const double kdDeterminant =	(_krMatrix.m_d11 * _krMatrix.m_d22 * _krMatrix.m_d33)
+								+	(_krMatrix.m_d12 * _krMatrix.m_d23 * _krMatrix.m_d31)
+								+	(_krMatrix.m_d13 * _krMatrix.m_d21 * _krMatrix.m_d32)
+								-	(_krMatrix.m_d13 * _krMatrix.m_d22 * _krMatrix.m_d31)
+								-	(_krMatrix.m_d12 * _krMatrix.m_d21 * _krMatrix.m_d33)
+								-	(_krMatrix.m_d11 * _krMatrix.m_d23 * _krMatrix.m_d32);
+
+	return(kdDeterminant);
+}
+
+const float math::Determinant(const TMatrix3f& _krMatrix)
+{
+	const float kfDeterminant =		(_krMatrix.m_f11 * _krMatrix.m_f22 * _krMatrix.m_f33)
+								+	(_krMatrix.m_f12 * _krMatrix.m_f23 * _krMatrix.m_f31)
+								+	(_krMatrix.m_f13 * _krMatrix.m_f21 * _krMatrix.m_f32)
+								-	(_krMatrix.m_f13 * _krMatrix.m_f22 * _krMatrix.m_f31)
+								-	(_krMatrix.m_f12 * _krMatrix.m_f21 * _krMatrix.m_f33)
+								-	(_krMatrix.m_f11 * _krMatrix.m_f23 * _krMatrix.m_f32);
+
+	return(kfDeterminant);
+}
+
+const double math::FirstMinor(	const TMatrix3d& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	const TMatrix2d kSubmatrix = math::Submatrix(TMatrix2d(), _krMatrix, _kRow, _kColumn);
+	
+	return(math::Determinant(kSubmatrix));
+}
+
+const float math::FirstMinor(	const TMatrix3f& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	const TMatrix2f kSubmatrix = math::Submatrix(TMatrix2f(), _krMatrix, _kRow, _kColumn);
+	
+	return(math::Determinant(kSubmatrix));
+}
+
+const TMatrix3d& math::MatrixOfMinors(	TMatrix3d& _rResult,
+										const TMatrix3d& _krMatrix)
+{
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			_rResult.m_dItems[i][j] = math::FirstMinor(_krMatrix, i, j);
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix3f& math::MatrixOfMinors(	TMatrix3f& _rResult,
+										const TMatrix3f& _krMatrix)
+{
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			_rResult.m_fItems[i][j] = math::FirstMinor(_krMatrix, i, j);
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix3d& math::MatrixOfCofactors(	TMatrix3d& _rResult,
+											const TMatrix3d& _krMatrix)
+{
+	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			if(((i % 2) == 1) ^ ((j % 2) == 1))
+			{
+				_rResult.m_dItems[i][j] *= -1.0;
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix3f& math::MatrixOfCofactors(	TMatrix3f& _rResult,
+											const TMatrix3f& _krMatrix)
+{
+	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	for(size_t i = 0; i < 3; ++i)
+	{
+		for(size_t j = 0; j < 3; ++j)
+		{
+			if(((i % 2) == 1) ^ ((j % 2) == 1))
+			{
+				_rResult.m_fItems[i][j] *= -1.0f;
+			}
+		}
+	}
+
+	return(_rResult);
+}
+
+//
+// Matrix 2
+//
+
+const double math::Determinant(const TMatrix2d& _krMatrix)
+{
+	return(		(_krMatrix.m_d11 * _krMatrix.m_d22)
+			-	(_krMatrix.m_d12 * _krMatrix.m_d21));
+}
+
+const float math::Determinant(const TMatrix2f& _krMatrix)
+{
+	return(		(_krMatrix.m_f11 * _krMatrix.m_f22)
+			-	(_krMatrix.m_f12 * _krMatrix.m_f21));
+}
