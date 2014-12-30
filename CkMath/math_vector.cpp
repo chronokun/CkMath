@@ -471,6 +471,36 @@ const float math::Distance(	const TVector3f& _krA,
 	return(kfDistance);
 }
 
+const double math::ScalarTripleProduct(	const TVector3d& _krA,
+										const TVector3d& _krB,
+										const TVector3d& _krC)
+{
+	return(math::DotProduct(_krA, math::CrossProduct(TVector3d(), _krB, _krC)));
+}
+
+const float math::ScalarTripleProduct(	const TVector3f& _krA,
+										const TVector3f& _krB,
+										const TVector3f& _krC)
+{
+	return(math::DotProduct(_krA, math::CrossProduct(TVector3f(), _krB, _krC)));
+}
+
+const TVector3d& math::VectorTripleProduct(	TVector3d& _rResult,
+											const TVector3d& _krA,
+											const TVector3d& _krB,
+											const TVector3d& _krC)
+{
+	return(math::CrossProduct(_rResult, _krA, math::CrossProduct(TVector3d(), _krB, _krC)));
+}
+
+const TVector3f& math::VectorTripleProduct(	TVector3f& _rResult,
+											const TVector3f& _krA,
+											const TVector3f& _krB,
+											const TVector3f& _krC)
+{
+	return(math::CrossProduct(_rResult, _krA, math::CrossProduct(TVector3f(), _krB, _krC)));
+}
+
 //
 // Vector 2
 //

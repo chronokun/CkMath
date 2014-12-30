@@ -174,6 +174,24 @@ namespace math
 	const float Distance(	const TVector3f& _krA,
 							const TVector3f& _krB);
 
+	const double ScalarTripleProduct(	const TVector3d& _krA,
+										const TVector3d& _krB,
+										const TVector3d& _krC);
+
+	const float ScalarTripleProduct(	const TVector3f& _krA,
+										const TVector3f& _krB,
+										const TVector3f& _krC);
+
+	const TVector3d& VectorTripleProduct(	TVector3d& _rResult,
+											const TVector3d& _krA,
+											const TVector3d& _krB,
+											const TVector3d& _krC);
+
+	const TVector3f& VectorTripleProduct(	TVector3f& _rResult,
+											const TVector3f& _krA,
+											const TVector3f& _krB,
+											const TVector3f& _krC);
+
 	//
 	// Vector 2
 	//
