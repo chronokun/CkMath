@@ -1,8 +1,9 @@
 CkMath
 ======
 
-Simple math library with vector, matrix, geometric and trigonometric functions & types intended
-to for use in developing 3d game engines.
+Simple C++ math library with vector, matrix, geometric and trigonometric functions & types intended
+to for use in developing 3d game engines. Matrices and vectors are column major and functions assume 
+a right handed coordinate system for compatibility with opengl.
 
 Released as Public Domain.
 
@@ -33,5 +34,9 @@ TODO:
 	* Curves & surfaces
 	
 	* Interpolation
+	
+	* Multiple precision integers
+	
+	* Rationals
 	
 	* Testing & Optimization
