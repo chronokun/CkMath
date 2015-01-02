@@ -102,6 +102,52 @@ namespace math
 	// Matrix 3
 	//
 
+	const TMatrix3d& ZeroMatrix(TMatrix3d& _rResult);
+
+	const TMatrix3f& ZeroMatrix(TMatrix3f& _rResult);
+
+	const TMatrix3d& IdentityMatrix(TMatrix3d& _rResult);
+
+	const TMatrix3f& IdentityMatrix(TMatrix3f& _rResult);
+
+	const TMatrix3d& Multiply(	TMatrix3d& _rResult,
+								const TMatrix3d& _krA,
+								const TMatrix3d& _krB);
+
+	const TMatrix3f& Multiply(	TMatrix3f& _rResult,
+								const TMatrix3f& _krA,
+								const TMatrix3f& _krB);
+
+	const TMatrix3d& ScalarMultiply(TMatrix3d& _rResult,
+									const TMatrix3d& _krMatrix,
+									const double _kdScalar);
+
+	const TMatrix3f& ScalarMultiply(TMatrix3f& _rResult,
+									const TMatrix3f& _krMatrix,
+									const float _kfScalar);
+
+	const TVector3d& VectorMultiply(TVector3d& _rResult,
+									const TMatrix3d& _krA,
+									const TVector3d& _krB);
+
+	const TVector3f& VectorMultiply(TVector3f& _rResult,
+									const TMatrix3f& _krA,
+									const TVector3f& _krB);
+
+	const TMatrix3d& Add(	TMatrix3d& _rResult,
+							const TMatrix3d& _krA,
+							const TMatrix3d& _krB);
+
+	const TMatrix3f& Add(	TMatrix3f& _rResult,
+							const TMatrix3f& _krA,
+							const TMatrix3f& _krB);
+
+	const TMatrix3d& Transpose(	TMatrix3d& _rResult,
+								const TMatrix3d& _krMatrix);
+
+	const TMatrix3f& Transpose(	TMatrix3f& _rResult,
+								const TMatrix3f& _krMatrix);
+
 	const TMatrix2d& Submatrix(	TMatrix2d& _rResult, 
 								const TMatrix3d& _krMatrix,
 								const size_t _kDeletedRow,
@@ -135,6 +181,12 @@ namespace math
 
 	const TMatrix3f& MatrixOfCofactors(	TMatrix3f& _rResult,
 										const TMatrix3f& _krMatrix);
+
+	const TMatrix3d& Inverse(	TMatrix3d& _rResult,
+								const TMatrix3d& _krMatrix);
+
+	const TMatrix3f& Inverse(	TMatrix3f& _rResult,
+								const TMatrix3f& _krMatrix);
 
 	//
 	// Matrix 2
