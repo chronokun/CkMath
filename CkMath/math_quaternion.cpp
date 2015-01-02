@@ -179,3 +179,57 @@ const TVector3f& QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVecto
 
 	return(_rResult);
 }
+
+const TVector4d& math::Slerp(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB, const double _kdT)
+{
+	const double kdCosOmega = math::DotProduct(_krA, _krB);
+
+	double dK0, dK1;
+	if(math::Magnitude(kdCosOmega) == 1.0) // Avoid divide by zero using lerp
+	{
+		dK0 = 1.0 - _kdT;
+		dK1 = _kdT;
+	}
+	else
+	{
+		const double kdSinOmega = math::SquareRoot(1.0 - math::Square(kdCosOmega));
+		const double kdOmega = math::ArcTan2(kdSinOmega, kdCosOmega);
+
+		dK0 = math::Sine((1.0 - _kdT) * kdOmega) * (1.0 / kdSinOmega);
+		dK1 = math::Sine(_kdT * kdOmega) * (1.0 / kdSinOmega);
+	}
+
+	_rResult.m_dW = (_krA.m_dW * dK0) + (_krB.m_dW * dK1);
+	_rResult.m_dX = (_krA.m_dX * dK0) + (_krB.m_dX * dK1);
+	_rResult.m_dY = (_krA.m_dY * dK0) + (_krB.m_dY * dK1);
+	_rResult.m_dZ = (_krA.m_dZ * dK0) + (_krB.m_dZ * dK1);
+
+	return(_rResult);
+}
+
+const TVector4f& math::Slerp(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB, const float _kfT)
+{
+	const float kfCosOmega = math::DotProduct(_krA, _krB);
+
+	float fK0, fK1;
+	if(math::Magnitude(kfCosOmega) == 1.0f) // Avoid divide by zero using lerp
+	{
+		fK0 = 1.0f - _kfT;
+		fK1 = _kfT;
+	}
+	else
+	{
+		const float kfSinOmega = math::SquareRoot(1.0f - math::Square(kfCosOmega));
+		const float kfOmega = math::ArcTan2(kfSinOmega, kfCosOmega);
+
+		fK0 = math::Sine((1.0f - _kfT) * kfOmega) * (1.0f / kfSinOmega);
+		fK1 = math::Sine(_kfT * kfOmega) * (1.0f / kfSinOmega);
+	}
+
+	_rResult.m_fW = (_krA.m_fW * fK0) + (_krB.m_fW * fK1);
+	_rResult.m_fX = (_krA.m_fX * fK0) + (_krB.m_fX * fK1);
+	_rResult.m_fY = (_krA.m_fY * fK0) + (_krB.m_fY * fK1);
+	_rResult.m_fZ = (_krA.m_fZ * fK0) + (_krB.m_fZ * fK1);
+
+	return(_rResult);
+}

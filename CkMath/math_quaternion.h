@@ -45,6 +45,10 @@ namespace math
 	const TVector3d& QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVector, const TVector4d& _krQuaternion);
 
 	const TVector3f& QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVector, const TVector4f& _krQuaternion);
+
+	const TVector4d& Slerp(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB, const double _kdT);
+
+	const TVector4f& Slerp(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB, const float _kfT);
 }
 
 #endif
