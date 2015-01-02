@@ -59,12 +59,14 @@ const TVector4d& math::Add(	TVector4d& _rResult,
 							const TVector4d& _krA, 
 							const TVector4d& _krB)
 {
-	//_rResult.m_dX = _krA.m_dX + _krB.m_dX;
-	//_rResult.m_dY = _krA.m_dY + _krB.m_dY;
-	//_rResult.m_dZ = _krA.m_dZ + _krB.m_dZ;
-	//_rResult.m_dW = _krA.m_dW + _krB.m_dW;
-
+#ifdef __CKMATH_USE_AVX__
 	_rResult.m_Vec = _mm256_add_pd(_krA.m_Vec, _krB.m_Vec); 
+#else
+	_rResult.m_dX = _krA.m_dX + _krB.m_dX;
+	_rResult.m_dY = _krA.m_dY + _krB.m_dY;
+	_rResult.m_dZ = _krA.m_dZ + _krB.m_dZ;
+	_rResult.m_dW = _krA.m_dW + _krB.m_dW;
+#endif
 
 	return(_rResult);
 }
@@ -73,12 +75,14 @@ const TVector4f& math::Add(	TVector4f& _rResult,
 							const TVector4f& _krA, 
 							const TVector4f& _krB)
 {
-	//_rResult.m_fX = _krA.m_fX + _krB.m_fX;
-	//_rResult.m_fY = _krA.m_fY + _krB.m_fY;
-	//_rResult.m_fZ = _krA.m_fZ + _krB.m_fZ;
-	//_rResult.m_fW = _krA.m_fW + _krB.m_fW;
-
-	_rResult.m_Vec = _mm_add_ps(_krA.m_Vec, _krB.m_Vec); 
+#ifdef __CKMATH_USE_AVX__
+	_rResult.m_Vec = _mm_add_ps(_krA.m_Vec, _krB.m_Vec);
+#else
+	_rResult.m_fX = _krA.m_fX + _krB.m_fX;
+	_rResult.m_fY = _krA.m_fY + _krB.m_fY;
+	_rResult.m_fZ = _krA.m_fZ + _krB.m_fZ;
+	_rResult.m_fW = _krA.m_fW + _krB.m_fW;
+#endif
 
 	return(_rResult);
 }
