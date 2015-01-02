@@ -8,6 +8,10 @@
 #ifndef __MATH_TYPES_H__
 #define __MATH_TYPES_H__
 
+// Include Intel intinsics
+#include <immintrin.h>
+#include <intrin.h>
+
 //
 //
 // Enums
@@ -43,6 +47,7 @@ struct TVector4d
 {
 	union
 	{
+		__m256d m_Vec;
 		struct
 		{
 			double m_dX;
@@ -58,6 +63,7 @@ struct TVector4f
 {
 	union
 	{
+		__m128 m_Vec;
 		struct
 		{
 			float m_fX;

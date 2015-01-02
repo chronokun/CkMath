@@ -150,7 +150,7 @@ const TVector4f& math::QuaternionProduct(TVector4f& _rResult, const TVector4f& _
 	return(_rResult);
 }
 
-const TVector3d& QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVector, const TVector4d& _krQuaternion)
+const TVector3d& math::QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVector, const TVector4d& _krQuaternion)
 {
 	const TVector4d kVecAsQuat{_krVector.m_dX, _krVector.m_dY, _krVector.m_dZ, 0.0};
 
@@ -165,7 +165,7 @@ const TVector3d& QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVecto
 	return(_rResult);
 }
 
-const TVector3f& QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVector, const TVector4f& _krQuaternion)
+const TVector3f& math::QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVector, const TVector4f& _krQuaternion)
 {
 	const TVector4f kVecAsQuat{_krVector.m_fX, _krVector.m_fY, _krVector.m_fZ, 0.0f};
 
