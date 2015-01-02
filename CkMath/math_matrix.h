@@ -298,6 +298,58 @@ namespace math
 	// Matrix 2
 	//
 
+	const TMatrix2d& ZeroMatrix(TMatrix2d& _rResult);
+
+	const TMatrix2f& ZeroMatrix(TMatrix2f& _rResult);
+
+	const TMatrix2d& IdentityMatrix(TMatrix2d& _rResult);
+
+	const TMatrix2f& IdentityMatrix(TMatrix2f& _rResult);
+
+	const TMatrix2d& Multiply(	TMatrix2d& _rResult,
+								const TMatrix2d& _krA,
+								const TMatrix2d& _krB);
+
+	const TMatrix2f& Multiply(	TMatrix2f& _rResult,
+								const TMatrix2f& _krA,
+								const TMatrix2f& _krB);
+
+	const TMatrix2d& ScalarMultiply(TMatrix2d& _rResult,
+									const TMatrix2d& _krMatrix,
+									const double _kdScalar);
+
+	const TMatrix2f& ScalarMultiply(TMatrix2f& _rResult,
+									const TMatrix2f& _krMatrix,
+									const float _kfScalar);
+
+	const TVector2d& VectorMultiply(TVector2d& _rResult,
+									const TMatrix2d& _krA,
+									const TVector2d& _krB);
+
+	const TVector2f& VectorMultiply(TVector2f& _rResult,
+									const TMatrix2f& _krA,
+									const TVector2f& _krB);
+
+	const TMatrix2d& Add(	TMatrix2d& _rResult,
+							const TMatrix2d& _krA,
+							const TMatrix2d& _krB);
+
+	const TMatrix2f& Add(	TMatrix2f& _rResult,
+							const TMatrix2f& _krA,
+							const TMatrix2f& _krB);
+
+	const TMatrix2d& Transpose(	TMatrix2d& _rResult,
+								const TMatrix2d& _krMatrix);
+
+	const TMatrix2f& Transpose(	TMatrix2f& _rResult,
+								const TMatrix2f& _krMatrix);
+
+	const TMatrix2d& Inverse(	TMatrix2d& _rResult,
+								const TMatrix2d& _krMatrix);
+
+	const TMatrix2f& Inverse(	TMatrix2f& _rResult,
+								const TMatrix2f& _krMatrix);
+
 	const double Determinant(const TMatrix2d& _krMatrix);
 
 	const float Determinant(const TMatrix2f& _krMatrix);

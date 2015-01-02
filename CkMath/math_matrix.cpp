@@ -1095,6 +1095,196 @@ const TMatrix3f& math::Inverse(	TMatrix3f& _rResult,
 // Matrix 2
 //
 
+const TMatrix2d& math::ZeroMatrix(TMatrix2d& _rResult)
+{
+	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0;
+	_rResult.m_d21 = 0.0; _rResult.m_d22 = 0.0;
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::ZeroMatrix(TMatrix2f& _rResult)
+{
+	_rResult.m_f11 = 0.0f; _rResult.m_f12 = 0.0f;
+	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 0.0f;
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::IdentityMatrix(TMatrix2d& _rResult)
+{
+	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0;
+	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0;
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::IdentityMatrix(TMatrix2f& _rResult)
+{
+	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f;
+	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f;
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::Multiply(TMatrix2d& _rResult,
+								const TMatrix2d& _krA,
+								const TMatrix2d& _krB)
+{
+	for(size_t x = 0; x < 2; ++x)
+	{
+		for(size_t y = 0; y < 2; ++y)
+		{
+			double dAccumulate = 0.0;
+			for(size_t n = 0; n < 2; ++n)
+			{
+				dAccumulate += (_krA.m_dItems[n][y] * _krB.m_dItems[x][y]);
+			}
+			_rResult.m_dItems[x][y] = dAccumulate;
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::Multiply(TMatrix2f& _rResult,
+								const TMatrix2f& _krA,
+								const TMatrix2f& _krB)
+{
+	for(size_t x = 0; x < 2; ++x)
+	{
+		for(size_t y = 0; y < 2; ++y)
+		{
+			float fAccumulate = 0.0f;
+			for(size_t n = 0; n < 2; ++n)
+			{
+				fAccumulate += (_krA.m_fItems[n][y] * _krB.m_fItems[x][y]);
+			}
+			_rResult.m_fItems[x][y] = fAccumulate;
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::ScalarMultiply(	TMatrix2d& _rResult,
+										const TMatrix2d& _krMatrix,
+										const double _kdScalar)
+{
+	_rResult.m_d11 = _krMatrix.m_d11 * _kdScalar; _rResult.m_d12 = _krMatrix.m_d12 * _kdScalar;
+	_rResult.m_d21 = _krMatrix.m_d21 * _kdScalar; _rResult.m_d22 = _krMatrix.m_d22 * _kdScalar;
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::ScalarMultiply(	TMatrix2f& _rResult,
+										const TMatrix2f& _krMatrix,
+										const float _kfScalar)
+{
+	_rResult.m_f11 = _krMatrix.m_f11 * _kfScalar; _rResult.m_f12 = _krMatrix.m_f12 * _kfScalar;
+	_rResult.m_f21 = _krMatrix.m_f21 * _kfScalar; _rResult.m_f22 = _krMatrix.m_f22 * _kfScalar;
+
+	return(_rResult);
+}
+
+const TVector2d& math::VectorMultiply(	TVector2d& _rResult,
+										const TMatrix2d& _krA,
+										const TVector2d& _krB)
+{
+	for(size_t y = 0; y < 2; ++y)
+	{
+		double dAccumulate = 0.0;
+		for(size_t n = 0; n < 2; ++n)
+		{
+			dAccumulate += (_krA.m_dItems[n][y] * _krB.m_dV[n]);
+		}
+		_rResult.m_dV[y] = dAccumulate;
+	}
+
+	return(_rResult);
+}
+
+const TVector2f& math::VectorMultiply(	TVector2f& _rResult,
+										const TMatrix2f& _krA,
+										const TVector2f& _krB)
+{
+	for(size_t y = 0; y < 2; ++y)
+	{
+		float fAccumulate = 0.0f;
+		for(size_t n = 0; n < 2; ++n)
+		{
+			fAccumulate += (_krA.m_fItems[n][y] * _krB.m_fV[n]);
+		}
+		_rResult.m_fV[y] = fAccumulate;
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::Add(	TMatrix2d& _rResult,
+							const TMatrix2d& _krA,
+							const TMatrix2d& _krB)
+{
+	_rResult.m_d11 = _krA.m_d11 + _krB.m_d11; _rResult.m_d12 = _krA.m_d12 + _krB.m_d12;
+	_rResult.m_d21 = _krA.m_d21 + _krB.m_d21; _rResult.m_d22 = _krA.m_d22 + _krB.m_d22;
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::Add(	TMatrix2f& _rResult,
+							const TMatrix2f& _krA,
+							const TMatrix2f& _krB)
+{
+	_rResult.m_f11 = _krA.m_f11 + _krB.m_f11; _rResult.m_f12 = _krA.m_f12 + _krB.m_f12;
+	_rResult.m_f21 = _krA.m_f21 + _krB.m_f21; _rResult.m_f22 = _krA.m_f22 + _krB.m_f22;
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::Transpose(	TMatrix2d& _rResult,
+									const TMatrix2d& _krMatrix)
+{
+	for(size_t x = 0; x < 2; ++x)
+	{
+		for(size_t y = 0; y < 2; ++y)
+		{
+			_rResult.m_dItems[y][x] = _krMatrix.m_dItems[x][y];
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::Transpose(	TMatrix2f& _rResult,
+									const TMatrix2f& _krMatrix)
+{
+	for(size_t x = 0; x < 2; ++x)
+	{
+		for(size_t y = 0; y < 2; ++y)
+		{
+			_rResult.m_fItems[y][x] = _krMatrix.m_fItems[x][y];
+		}
+	}
+
+	return(_rResult);
+}
+
+const TMatrix2d& math::Inverse(	TMatrix2d& _rResult,
+								const TMatrix2d& _krMatrix)
+{
+	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix2d(), _krMatrix), 1.0/math::Determinant(_krMatrix));
+
+	return(_rResult);
+}
+
+const TMatrix2f& math::Inverse(	TMatrix2f& _rResult,
+								const TMatrix2f& _krMatrix)
+{
+	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix2f(), _krMatrix), 1.0f/math::Determinant(_krMatrix));
+
+	return(_rResult);
+}
+
 const double math::Determinant(const TMatrix2d& _krMatrix)
 {
 	return(		(_krMatrix.m_d11 * _krMatrix.m_d22)
