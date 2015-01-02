@@ -35,6 +35,16 @@ namespace math
 		return(acos(_kdScalar));
 	}
 
+	inline const double Sine(const double _kdScalar)
+	{
+		return(sin(_kdScalar));
+	}
+
+	inline const double Cosine(const double _kdScalar)
+	{
+		return(cos(_kdScalar));
+	}
+
 	// float
 	inline const float Square(const float _kfScalar)
 	{
@@ -54,6 +64,16 @@ namespace math
 	inline const float ArcCos(const float _kfScalar)
 	{
 		return(acosf(_kfScalar));
+	}
+
+	inline const float Sine(const float _kfScalar)
+	{
+		return(sinf(_kfScalar));
+	}
+
+	inline const float Cosine(const float _kfScalar)
+	{
+		return(cosf(_kfScalar));
 	}
 }
 
