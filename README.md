@@ -23,8 +23,6 @@ TODO:
 	
 	* Distance functions
 	
-	* Quaternion functions
-	
 	* Triangle Intersection functions
 	
 	* Barycentric coordinate functions
