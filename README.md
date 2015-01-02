@@ -8,8 +8,6 @@ a right handed coordinate system for compatibility with opengl.
 Released as Public Domain.
 
 TODO:
-
-	* Matrix functions
 	
 	* GJK & SAT Collision/Intersection functions
 	
@@ -31,7 +29,7 @@ TODO:
 	
 	* Curves & surfaces
 	
-	* Interpolation
+	* Interpolation: SLERP, SQUAD, Linear, Bilinear, Cubic, Bicubic etc.
 	
 	* Multiple precision integers
 	

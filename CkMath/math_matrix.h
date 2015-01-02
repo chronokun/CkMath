@@ -98,6 +98,112 @@ namespace math
 	const TMatrix4f& Inverse(	TMatrix4f& _rResult,
 								const TMatrix4f& _krMatrix);
 
+	const TMatrix4d& TranslationMatrix(	TMatrix4d& _rResult,
+										const TVector3d& _krVector);
+
+	const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
+										const TVector3f& _krVector);
+
+	const TMatrix4d& TranslationMatrix(	TMatrix4d& _rResult,
+										const double _kdX,
+										const double _kdY,
+										const double _kdZ);
+
+	const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
+										const float _kfX,
+										const float _kfY,
+										const float _kfZ);
+
+	const TMatrix4d& ScalingMatrix(	TMatrix4d& _rResult,
+									const double _kdX,
+									const double _kdY,
+									const double _kdZ);
+
+	const TMatrix4f& ScalingMatrix(	TMatrix4f& _rResult,
+									const float _kfX,
+									const float _kfY,
+									const float _kfZ);
+
+	const TMatrix4d& TransformationMatrix(	TMatrix4d& _rResult,
+											const TVector3d& _krBasisX,
+											const TVector3d& _krBasisY,
+											const TVector3d& _krBasisZ,
+											const TVector3d& _krTranslation);
+
+	const TMatrix4f& TransformationMatrix(	TMatrix4f& _rResult,
+											const TVector3f& _krBasisX,
+											const TVector3f& _krBasisY,
+											const TVector3f& _krBasisZ,
+											const TVector3f& _krTranslation);
+
+	const TMatrix4d& OrientationMatrix(	TMatrix4d& _rResult,
+										const TVector4d& _krQuaternion);
+
+	const TMatrix4f& OrientationMatrix(	TMatrix4f& _rResult,
+										const TVector4f& _krQuaternion);
+
+	const TMatrix4d& OrientationMatrix(	TMatrix4d& _rResult,
+										const TVector3d& _krAxis,
+										const double _kdAngle);
+
+	const TMatrix4f& OrientationMatrix(	TMatrix4f& _rResult,
+										const TVector3f& _krAxis,
+										const float _kfAngle);
+
+	const TMatrix4d& AxisOrientationXMatrix(TMatrix4d& _rResult,
+											const double _kdAngle);
+
+	const TMatrix4f& AxisOrientationXMatrix(TMatrix4f& _rResult,
+											const float _kfAngle);
+
+	const TMatrix4d& AxisOrientationYMatrix(TMatrix4d& _rResult,
+											const double _kdAngle);
+
+	const TMatrix4f& AxisOrientationYMatrix(TMatrix4f& _rResult,
+											const float _kfAngle);
+
+	const TMatrix4d& AxisOrientationZMatrix(TMatrix4d& _rResult,
+											const double _kdAngle);
+
+	const TMatrix4f& AxisOrientationZMatrix(TMatrix4f& _rResult,
+											const float _kfAngle);
+
+	const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
+										const double _kdLeft,	const double _kdRight,
+										const double _kdBottom,	const double _kdTop,
+										const double _kdFar,	const double _kdNear);
+
+	const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
+										const float _kfLeft,	const float _kfRight,
+										const float _kfBottom,	const float _kfTop,
+										const float _kfFar,		const float _kfNear);
+
+	const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
+										const double _kdFovX, const double _kdFovY,
+										const double _kdFar,	const double _kdNear);
+
+	const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
+										const float _kfFovX, const float _kfFovY,
+										const float _kfFar,	const float _kfNear);
+
+	const TMatrix4d& OrthographicMatrix(TMatrix4d& _rResult,
+										const double _kdLeft,	const double _kdRight,
+										const double _kdBottom,	const double _kdTop,
+										const double _kdFar,	const double _kdNear);
+
+	const TMatrix4f& OrthographicMatrix(TMatrix4f& _rResult,
+										const float _kfLeft,	const float _kfRight,
+										const float _kfBottom,	const float _kfTop,
+										const float _kfFar,		const float _kfNear);
+
+	const TMatrix4d& OrthographicMatrix(TMatrix4d& _rResult,
+										const double _kdWidth,	const double _kdHeight,
+										const double _kdFar,	const double _kdNear);
+
+	const TMatrix4f& OrthographicMatrix(TMatrix4f& _rResult,
+										const float _kfWidth,	const float _kfHeight,
+										const float _kfFar,		const float _kfNear);
+
 	//
 	// Matrix 3
 	//
