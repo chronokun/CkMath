@@ -59,7 +59,7 @@ const TVector4d& math::Add(	TVector4d& _rResult,
 							const TVector4d& _krA, 
 							const TVector4d& _krB)
 {
-#ifdef __CKMATH_USE_AVX__
+#ifdef __AVX__
 	_rResult.m_Vec = _mm256_add_pd(_krA.m_Vec, _krB.m_Vec); 
 #else
 	_rResult.m_dX = _krA.m_dX + _krB.m_dX;
@@ -75,7 +75,7 @@ const TVector4f& math::Add(	TVector4f& _rResult,
 							const TVector4f& _krA, 
 							const TVector4f& _krB)
 {
-#ifdef __CKMATH_USE_AVX__
+#ifdef __AVX__
 	_rResult.m_Vec = _mm_add_ps(_krA.m_Vec, _krB.m_Vec);
 #else
 	_rResult.m_fX = _krA.m_fX + _krB.m_fX;

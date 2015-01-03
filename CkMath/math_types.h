@@ -8,7 +8,7 @@
 #ifndef __MATH_TYPES_H__
 #define __MATH_TYPES_H__
 
-#ifdef __CKMATH_USE_AVX__
+#ifdef __AVX__
 // Include Intel intinsics
 #include <immintrin.h>
 #include <intrin.h>
@@ -49,7 +49,7 @@ struct TVector4d
 {
 	union
 	{
-#ifdef __CKMATH_USE_AVX__
+#ifdef __AVX__
 		__m256d m_Vec;
 #endif
 		struct
@@ -67,7 +67,7 @@ struct TVector4f
 {
 	union
 	{
-#ifdef __CKMATH_USE_AVX__
+#ifdef __AVX__
 		__m128 m_Vec;
 #endif
 		struct
