@@ -4,7 +4,7 @@ CkMath
 Simple C++ math library with vector, matrix, geometric and trigonometric functions & types intended
 to for use in developing 3d game engines. Matrices and vectors are column major and functions assume 
 a right handed coordinate system for compatibility with opengl. All angles are in radians unless
-otherwise specified. Optionally uses AVX intrinsics.
+otherwise specified.
 
 Released as Public Domain.
 

@@ -41,42 +41,47 @@ const double Random(const double _kdMin, const double _kdMax)
 	return(kdResult);
 }
 
-static const size_t s_kInputSize = 10000000;
+const float Random(const float _kfMin, const float _kfMax)
+{
+	const float kfValue = (float)rand() / (float)RAND_MAX;
+	const float kfScale = _kfMax - _kfMin;
+	const float kfResult = _kfMin + (kfValue * kfScale);
+	return(kfResult);
+}
+
+static const size_t s_kInputSize = 40000000;
 
 int main()
 {
 	InitTimer();
 
-	std::vector<TVector4d> InputA(s_kInputSize);
-	std::vector<TVector4d> InputB(s_kInputSize);
+	std::vector<TVector4f> InputA(s_kInputSize);
+	std::vector<TVector4f> InputB(s_kInputSize);
 
-	std::vector<TVector4d> Output(s_kInputSize);
+	std::vector<float> Output(s_kInputSize);
 
 	for(size_t i = 0; i < s_kInputSize; ++i)
 	{
 		for(size_t j = 0; j < 4; ++j)
 		{
-			InputA[i].m_dV[j] = Random(-1.0, 1.0);
-			InputB[i].m_dV[j] = Random(-1.0, 1.0);
+			InputA[i].m_fV[j] = Random(-1.0f, 1.0f);
+			InputB[i].m_fV[j] = Random(-1.0f, 1.0f);
 		}
 	}
 
 	StartTimer();
 	for(size_t i = 0; i < s_kInputSize; ++i)
 	{
-		Output[i] = math::Add(Output[i], InputA[i], InputB[i]);
+		Output[i] = math::DotProduct(InputA[i], InputB[i]);
 	}
 	StopTimer();
 
-	double dMax = -2.0;
+	float fMax = -2.0f;
 	for(size_t i = 0; i < s_kInputSize; ++i)
 	{
-		for(size_t j = 0; j < 4; ++j)
+		if(Output[i] > fMax)
 		{
-			if(Output[i].m_dV[j] > dMax)
-			{
-				dMax = Output[i].m_dV[j];
-			}
+			fMax = Output[i];
 		}
 	}
 
