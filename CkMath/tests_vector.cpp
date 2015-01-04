@@ -48,5 +48,44 @@ const char* Test_Vector_ZeroVector()
 
 const char* Test_Vector_Equal()
 {
-	return("FAIL: Vector_ZeroVector\n");
+	const TVector4d kA4d{1.0, 0.0, 0.0, 2.5};
+	const TVector4d kB4d{0.0, 1.0, 2.0, 0.9};
+
+	const TVector4f kA4f{1.0f, 0.0f, 0.0f, 2.5f};
+	const TVector4f kB4f{0.0f, 1.0f, 2.0f, 0.9f};
+
+	const TVector3d kA3d{1.0, 0.0, 0.0};
+	const TVector3d kB3d{0.0, 1.0, 2.0};
+
+	const TVector3f kA3f{1.0f, 0.0f, 0.0f};
+	const TVector3f kB3f{0.0f, 1.0f, 2.0f};
+
+	const TVector2d kA2d{1.0, 0.0};
+	const TVector2d kB2d{-1.0, 0.0};
+
+	const TVector2f kA2f{1.0, 0.0};
+	const TVector2f kB2f{-1.0, 0.0};
+
+	const bool kbPass4d = (!math::Equal(kA4d, kB4d, s_kdEpsilon)) && math::Equal(kA4d, kA4d, s_kdEpsilon);
+	const bool kbPass4f = (!math::Equal(kA4f, kB4f, s_kfEpsilon)) && math::Equal(kA4f, kA4f, s_kfEpsilon);
+
+	const bool kbPass3d = (!math::Equal(kA3d, kB3d, s_kdEpsilon)) && math::Equal(kA3d, kA3d, s_kdEpsilon);
+	const bool kbPass3f = (!math::Equal(kA3f, kB3f, s_kfEpsilon)) && math::Equal(kA3f, kA3f, s_kfEpsilon);
+
+	const bool kbPass2d = (!math::Equal(kA2d, kB2d, s_kdEpsilon)) && math::Equal(kA2d, kA2d, s_kdEpsilon);
+	const bool kbPass2f = (!math::Equal(kA2f, kB2f, s_kfEpsilon)) && math::Equal(kA2f, kA2f, s_kfEpsilon);
+
+	if(		kbPass4d
+		&&	kbPass4f
+		&&	kbPass3d
+		&&	kbPass3f
+		&&	kbPass2d
+		&&	kbPass2f)
+	{
+		return("PASS: Vector_Equal\n");
+	}
+	else
+	{
+		return("FAIL: Vector_Equal\n");
+	}
 }
