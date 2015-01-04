@@ -126,6 +126,7 @@
     <ClCompile Include="math_matrix.cpp" />
     <ClCompile Include="math_quaternion.cpp" />
     <ClCompile Include="math_vector.cpp" />
+    <ClCompile Include="tests_vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math.h" />
@@ -137,6 +138,8 @@
     <ClInclude Include="math_types.h" />
     <ClInclude Include="math_vector.h" />
     <ClInclude Include="tests.h" />
+    <ClInclude Include="tests_vector.h" />
+    <ClInclude Include="test_constants.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

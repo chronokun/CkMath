@@ -10,28 +10,6 @@
 
 //
 //
-// Enums
-//
-//
-
-enum EVectorComponent
-{
-	COMPONENT_X = 0,
-	COMPONENT_Y = 1,
-	COMPONENT_Z = 2,
-	COMPONENT_W = 3
-};
-
-enum EIntersections
-{
-	INTERSECTION_NOINTERSECT = 0,
-	INTERSECTION_ONE = 1,
-	INTERSECTION_TWO = 2
-};
-
-
-//
-//
 // Struct Prototypes
 //
 //
