@@ -64,6 +64,26 @@ namespace math
 	const TMatrix4f& Transpose(	TMatrix4f& _rResult,
 								const TMatrix4f& _krMatrix);
 
+	const double GetElement(const TMatrix4d& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const float GetElement(const TMatrix4f& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	TMatrix4d& SetElement(	TMatrix4d& _rResult,
+							const TMatrix4d& _krMatrix,
+							const double _kdValue,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	TMatrix4f& SetElement(	TMatrix4f& _rResult,
+							const TMatrix4f& _krMatrix,
+							const float _kfValue,
+							const size_t _kRow,
+							const size_t _kColumn);
+
 	const TMatrix3d& Submatrix(	TMatrix3d& _rResult, 
 								const TMatrix4d& _krMatrix,
 								const size_t _kDeletedRow,
@@ -253,6 +273,18 @@ namespace math
 
 	const TMatrix3f& Transpose(	TMatrix3f& _rResult,
 								const TMatrix3f& _krMatrix);
+
+	TMatrix3d& SetElement(	TMatrix3d& _rResult,
+							const TMatrix3d& _krMatrix,
+							const double _kdValue,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	TMatrix3f& SetElement(	TMatrix3f& _rResult,
+							const TMatrix3f& _krMatrix,
+							const float _kfValue,
+							const size_t _kRow,
+							const size_t _kColumn);
 
 	const TMatrix2d& Submatrix(	TMatrix2d& _rResult, 
 								const TMatrix3d& _krMatrix,

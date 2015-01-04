@@ -19,86 +19,44 @@
 //
 struct TVector4d
 {
-	union
-	{
-		struct
-		{
-			double m_dX;
-			double m_dY;
-			double m_dZ;
-			double m_dW;
-		};
-		double m_dV[4];
-	};
+	double m_dX;
+	double m_dY;
+	double m_dZ;
+	double m_dW;
 };
 
 struct TVector4f
 {
-	union
-	{
-		struct
-		{
-			float m_fX;
-			float m_fY;
-			float m_fZ;
-			float m_fW;
-		};
-		float m_fV[4];
-	};
+	float m_fX;
+	float m_fY;
+	float m_fZ;
+	float m_fW;
 };
 
 struct TVector3d
 {
-	union
-	{
-		struct
-		{
-			double m_dX;
-			double m_dY;
-			double m_dZ;
-		};
-		double m_dV[3];
-	};
+	double m_dX;
+	double m_dY;
+	double m_dZ;
 };
 
 struct TVector3f
 {
-	union
-	{
-		struct
-		{
-			float m_fX;
-			float m_fY;
-			float m_fZ;
-		};
-		float m_fV[3];
-	};
+	float m_fX;
+	float m_fY;
+	float m_fZ;
 };
 
 struct TVector2d
 {
-	union
-	{
-		struct
-		{
-			double m_dX;
-			double m_dY;
-		};
-		double m_dV[2];
-	};
+	double m_dX;
+	double m_dY;
 };
 
 struct TVector2f
 {
-	union
-	{
-		struct
-		{
-			float m_fX;
-			float m_fY;
-		};
-		float m_fV[2];
-	};
+	float m_fX;
+	float m_fY;
 };
 
 //
@@ -106,92 +64,44 @@ struct TVector2f
 //
 struct TMatrix4d
 {
-	union
-	{
-		struct
-		{
-			double m_d11, m_d21, m_d31, m_d41;
-			double m_d12, m_d22, m_d32, m_d42;
-			double m_d13, m_d23, m_d33, m_d43;
-			double m_d14, m_d24, m_d34, m_d44;
-		};
-		TVector4d m_Columns[4];
-		double m_dItems[4][4];
-	};
+	double m_d11, m_d21, m_d31, m_d41;
+	double m_d12, m_d22, m_d32, m_d42;
+	double m_d13, m_d23, m_d33, m_d43;
+	double m_d14, m_d24, m_d34, m_d44;
 };
 
 struct TMatrix4f
 {
-	union
-	{
-		struct
-		{
-			float m_f11, m_f21, m_f31, m_f41;
-			float m_f12, m_f22, m_f32, m_f42;
-			float m_f13, m_f23, m_f33, m_f43;
-			float m_f14, m_f24, m_f34, m_f44;
-		};
-		TVector4f m_Columns[4];
-		float m_fItems[4][4];
-	};
+	float m_f11, m_f21, m_f31, m_f41;
+	float m_f12, m_f22, m_f32, m_f42;
+	float m_f13, m_f23, m_f33, m_f43;
+	float m_f14, m_f24, m_f34, m_f44;
 };
 
 struct TMatrix3d
 {
-	union
-	{
-		struct
-		{
-			double m_d11, m_d21, m_d31;
-			double m_d12, m_d22, m_d32;
-			double m_d13, m_d23, m_d33;
-		};
-		TVector3d m_Columns[3];
-		double m_dItems[3][3];
-	};
+	double m_d11, m_d21, m_d31;
+	double m_d12, m_d22, m_d32;
+	double m_d13, m_d23, m_d33;
 };
 
 struct TMatrix3f
 {
-	union
-	{
-		struct
-		{
-			float m_f11, m_f21, m_f31;
-			float m_f12, m_f22, m_f32;
-			float m_f13, m_f23, m_f33;
-		};
-		TVector3f m_Columns[3];
-		float m_fItems[3][3];
-	};
+	float m_f11, m_f21, m_f31;
+	float m_f12, m_f22, m_f32;
+	float m_f13, m_f23, m_f33;
 };
 
 struct TMatrix2d
 {
-	union
-	{
-		struct
-		{
-			double m_d11, m_d21;
-			double m_d12, m_d22;
-		};
-		TVector2d m_Columns[2];
-		double m_dItems[2][2];
-	};
+	double m_d11, m_d21;
+	double m_d12, m_d22;
 };
 
 struct TMatrix2f
 {
-	union
-	{
-		struct
-		{
-			float m_f11, m_f21;
-			float m_f12, m_f22;
-		};
-		TVector2f m_Columns[2];
-		float m_fItems[2][2];
-	};
+	float m_f11, m_f21;
+	float m_f12, m_f22;
 };
 
 //
@@ -227,58 +137,30 @@ struct TPlane2f
 //
 struct TTriangle3d
 {
-	union
-	{
-		struct
-		{
-			TVector3d m_A;
-			TVector3d m_B;
-			TVector3d m_C;
-		};
-		TVector3d m_V[3];
-	};
+	TVector3d m_A;
+	TVector3d m_B;
+	TVector3d m_C;
 };
 
 struct TTriangle3f
 {
-	union
-	{
-		struct
-		{
-			TVector3f m_A;
-			TVector3f m_B;
-			TVector3f m_C;
-		};
-		TVector3f m_V[3];
-	};
+	TVector3f m_A;
+	TVector3f m_B;
+	TVector3f m_C;
 };
 
 struct TTriangle2d
 {
-	union
-	{
-		struct
-		{
-			TVector2d m_A;
-			TVector2d m_B;
-			TVector2d m_C;
-		};
-		TVector2d m_V[3];
-	};
+	TVector2d m_A;
+	TVector2d m_B;
+	TVector2d m_C;
 };
 
 struct TTriangle2f
 {
-	union
-	{
-		struct
-		{
-			TVector2f m_A;
-			TVector2f m_B;
-			TVector2f m_C;
-		};
-		TVector2f m_V[3];
-	};
+	TVector2f m_A;
+	TVector2f m_B;
+	TVector2f m_C;
 };
 
 //
