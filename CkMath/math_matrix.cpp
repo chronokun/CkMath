@@ -66,7 +66,7 @@ const TMatrix4d& math::Multiply(TMatrix4d& _rResult,
 			{
 				dAccumulate += math::GetElement(_krA, n, y) * math::GetElement(_krB, x, y);
 			}
-			math::SetElement(_rResult, _rResult, dAccumulate, x, y);
+			math::SetElement(_rResult, dAccumulate, x, y);
 		}
 	}
 
@@ -86,7 +86,7 @@ const TMatrix4f& math::Multiply(TMatrix4f& _rResult,
 			{
 				fAccumulate += math::GetElement(_krA, n, y) * math::GetElement(_krB, x, y);
 			}
-			math::SetElement(_rResult, _rResult, fAccumulate, x, y);
+			math::SetElement(_rResult, fAccumulate, x, y);
 		}
 	}
 
@@ -421,13 +421,10 @@ const float math::GetElement(	const TMatrix4f& _krMatrix,
 
 
 TMatrix4d& math::SetElement(	TMatrix4d& _rResult,
-								const TMatrix4d& _krMatrix,
 								const double _kdValue,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	_rResult = _krMatrix;
-
 	if(_kRow == 1)
 	{
 		if(_kColumn == 1)
@@ -509,13 +506,10 @@ TMatrix4d& math::SetElement(	TMatrix4d& _rResult,
 }
 
 TMatrix4f& math::SetElement(	TMatrix4f& _rResult,
-								const TMatrix4f& _krMatrix,
 								const float _kfValue,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	_rResult = _krMatrix;
-
 	if(_kRow == 1)
 	{
 		if(_kColumn == 1)
@@ -627,7 +621,7 @@ const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult,
 					InsertJ = j-1;
 				}
 
-				math::SetElement(_rResult, _rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
+				math::SetElement(_rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
 			}
 		}
 	}
@@ -666,7 +660,7 @@ const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult,
 					InsertJ = j-1;
 				}
 
-				math::SetElement(_rResult, _rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
+				math::SetElement(_rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
 			}
 		}
 	}
@@ -1275,13 +1269,10 @@ const TMatrix3f& math::Transpose(	TMatrix3f& _rResult,
 }
 
 TMatrix3d& math::SetElement(	TMatrix3d& _rResult,
-								const TMatrix3d& _krMatrix,
 								const double _kdValue,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	_rResult = _krMatrix;
-
 	if(_kRow == 1)
 	{
 		if(_kColumn == 1)
@@ -1332,13 +1323,10 @@ TMatrix3d& math::SetElement(	TMatrix3d& _rResult,
 }
 
 TMatrix3f& math::SetElement(	TMatrix3f& _rResult,
-								const TMatrix3f& _krMatrix,
 								const float _kfValue,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	_rResult = _krMatrix;
-
 	if(_kRow == 1)
 	{
 		if(_kColumn == 1)

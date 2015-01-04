@@ -73,13 +73,11 @@ namespace math
 							const size_t _kColumn);
 
 	TMatrix4d& SetElement(	TMatrix4d& _rResult,
-							const TMatrix4d& _krMatrix,
 							const double _kdValue,
 							const size_t _kRow,
 							const size_t _kColumn);
 
 	TMatrix4f& SetElement(	TMatrix4f& _rResult,
-							const TMatrix4f& _krMatrix,
 							const float _kfValue,
 							const size_t _kRow,
 							const size_t _kColumn);
@@ -275,13 +273,11 @@ namespace math
 								const TMatrix3f& _krMatrix);
 
 	TMatrix3d& SetElement(	TMatrix3d& _rResult,
-							const TMatrix3d& _krMatrix,
 							const double _kdValue,
 							const size_t _kRow,
 							const size_t _kColumn);
 
 	TMatrix3f& SetElement(	TMatrix3f& _rResult,
-							const TMatrix3f& _krMatrix,
 							const float _kfValue,
 							const size_t _kRow,
 							const size_t _kColumn);
