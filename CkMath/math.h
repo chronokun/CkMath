@@ -15,5 +15,6 @@
 #include "math_vector.h"
 #include "math_scalar.h"
 #include "math_matrix.h"
+#include "math_quaternion.h"
 
 #endif
