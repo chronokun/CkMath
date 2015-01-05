@@ -26,4 +26,6 @@ const bool Test_Vector_CrossProduct();
 
 const bool Test_Vector_Normalize();
 
+const bool Test_Vector_Projection();
+
 #endif

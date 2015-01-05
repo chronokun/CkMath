@@ -35,7 +35,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Vector_VectorMagnitude),
 	TEST(Test_Vector_DotProduct),
 	TEST(Test_Vector_CrossProduct),
-	TEST(Test_Vector_Normalize)
+	TEST(Test_Vector_Normalize),
+	TEST(Test_Vector_Projection)
 };
 
 #endif
