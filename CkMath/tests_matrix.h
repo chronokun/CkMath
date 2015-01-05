@@ -10,4 +10,6 @@
 
 const bool Test_Matrix_Equal();
 
+const bool Test_Matrix_ZeroMatrix();
+
 #endif
