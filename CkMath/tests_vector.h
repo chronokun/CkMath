@@ -8,14 +8,16 @@
 #ifndef __TESTS_VECTOR_H__
 #define __TESTS_VECTOR_H__
 
-const char* Test_Vector_ZeroVector();
+const bool Test_Vector_ZeroVector();
 
-const char* Test_Vector_Equal();
+const bool Test_Vector_Equal();
 
-const char* Test_Vector_Add();
+const bool Test_Vector_Add();
 
-const char* Test_Vector_Subtract();
+const bool Test_Vector_Subtract();
 
-const char* Test_Vector_ScalarMultiply();
+const bool Test_Vector_ScalarMultiply();
+
+const bool Test_Vector_VectorMagnitude();
 
 #endif

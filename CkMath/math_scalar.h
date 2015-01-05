@@ -55,6 +55,11 @@ namespace math
 		return(cos(_kdScalar));
 	}
 
+	inline const bool Equal(const double _kdA, const double _kdB, const double _kdEpsilon)
+	{
+		return((math::Magnitude(_kdA - _kdB) < _kdEpsilon));
+	}
+
 	// float
 	inline const float Square(const float _kfScalar)
 	{
@@ -94,6 +99,11 @@ namespace math
 	inline const float Cosine(const float _kfScalar)
 	{
 		return(cosf(_kfScalar));
+	}
+
+	inline const bool Equal(const float _kfA, const float _kfB, const float _kfEpsilon)
+	{
+		return((math::Magnitude(_kfA - _kfB) < _kfEpsilon));
 	}
 }
 

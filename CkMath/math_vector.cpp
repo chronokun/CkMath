@@ -128,7 +128,7 @@ const TVector4f& math::ScalarMultiply(	TVector4f& _rResult,
 	return(_rResult);
 }
 
-const double math::Magnitude(const TVector4d& _krV)
+const double math::VectorMagnitude(const TVector4d& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_dX)
 							+	math::Square(_krV.m_dY)
@@ -136,7 +136,7 @@ const double math::Magnitude(const TVector4d& _krV)
 							+	math::Square(_krV.m_dW)));
 }
 
-const float math::Magnitude(const TVector4f& _krV)
+const float math::VectorMagnitude(const TVector4f& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_fX)
 							+	math::Square(_krV.m_fY)
@@ -169,14 +169,14 @@ const float math::DotProduct(	const TVector4f& _krA,
 const TVector4d& math::Normalize(	TVector4d& _rResult,
 									const TVector4d& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0 / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0 / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector4f& math::Normalize(	TVector4f& _rResult,
 									const TVector4f& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0f / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0f / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -184,7 +184,7 @@ const TVector4d& math::Projection(	TVector4d& _rResult,
 									const TVector4d& _krA,
 									const TVector4d& _krB)
 {
-	const double kdDenom = math::Square(math::Magnitude(_krB));
+	const double kdDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector4d kNumer = math::ScalarMultiply(TVector4d(), _krB, DotProduct(_krA, _krB));
 
@@ -197,7 +197,7 @@ const TVector4f& math::Projection(	TVector4f& _rResult,
 									const TVector4f& _krA,
 									const TVector4f& _krB)
 {
-	const float kfDenom = math::Square(math::Magnitude(_krB));
+	const float kfDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector4f kNumer = math::ScalarMultiply(TVector4f(), _krB, DotProduct(_krA, _krB));
 
@@ -210,7 +210,7 @@ const double math::AngleBetween(const TVector4d& _krA,
 								const TVector4d& _krB)
 {
 	const double kdAngle = math::ArcCos(	math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -219,7 +219,7 @@ const float math::AngleBetween(	const TVector4f& _krA,
 								const TVector4f& _krB)
 {
 	const float kfAngle = math::ArcCos(		math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -227,7 +227,7 @@ const float math::AngleBetween(	const TVector4f& _krA,
 const double math::Distance(const TVector4d& _krA,
 							const TVector4d& _krB)
 {
-	const double kdDistance = math::Magnitude(math::Subtract(TVector4d(), _krA, _krB));
+	const double kdDistance = math::VectorMagnitude(math::Subtract(TVector4d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -235,7 +235,7 @@ const double math::Distance(const TVector4d& _krA,
 const float math::Distance(	const TVector4f& _krA,
 							const TVector4f& _krB)
 {
-	const float kfDistance = math::Magnitude(math::Subtract(TVector4f(), _krA, _krB));
+	const float kfDistance = math::VectorMagnitude(math::Subtract(TVector4f(), _krA, _krB));
 
 	return(kfDistance);
 }
@@ -350,14 +350,14 @@ const TVector3f& math::ScalarMultiply(	TVector3f& _rResult,
 	return(_rResult);
 }
 
-const double math::Magnitude(const TVector3d& _krV)
+const double math::VectorMagnitude(const TVector3d& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_dX)
 							+	math::Square(_krV.m_dY)
 							+	math::Square(_krV.m_dZ)));
 }
 
-const float math::Magnitude(const TVector3f& _krV)
+const float math::VectorMagnitude(const TVector3f& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_fX)
 							+	math::Square(_krV.m_fY)
@@ -405,14 +405,14 @@ const TVector3f& math::CrossProduct(TVector3f& _rResult,
 const TVector3d& math::Normalize(	TVector3d& _rResult,
 									const TVector3d& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0 / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0 / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector3f& math::Normalize(	TVector3f& _rResult,
 									const TVector3f& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0f / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0f / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -420,7 +420,7 @@ const TVector3d& math::Projection(	TVector3d& _rResult,
 									const TVector3d& _krA,
 									const TVector3d& _krB)
 {
-	const double kdDenom = math::Square(math::Magnitude(_krB));
+	const double kdDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector3d kNumer = math::ScalarMultiply(TVector3d(), _krB, DotProduct(_krA, _krB));
 
@@ -433,7 +433,7 @@ const TVector3f& math::Projection(	TVector3f& _rResult,
 									const TVector3f& _krA,
 									const TVector3f& _krB)
 {
-	const float kfDenom = math::Square(math::Magnitude(_krB));
+	const float kfDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector3f kNumer = math::ScalarMultiply(TVector3f(), _krB, DotProduct(_krA, _krB));
 
@@ -446,7 +446,7 @@ const double math::AngleBetween(const TVector3d& _krA,
 								const TVector3d& _krB)
 {
 	const double kdAngle = math::ArcCos(	math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -455,7 +455,7 @@ const float math::AngleBetween(	const TVector3f& _krA,
 								const TVector3f& _krB)
 {
 	const float kfAngle = math::ArcCos(		math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -463,7 +463,7 @@ const float math::AngleBetween(	const TVector3f& _krA,
 const double math::Distance(const TVector3d& _krA,
 							const TVector3d& _krB)
 {
-	const double kdDistance = math::Magnitude(math::Subtract(TVector3d(), _krA, _krB));
+	const double kdDistance = math::VectorMagnitude(math::Subtract(TVector3d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -471,7 +471,7 @@ const double math::Distance(const TVector3d& _krA,
 const float math::Distance(	const TVector3f& _krA,
 							const TVector3f& _krB)
 {
-	const float kfDistance = math::Magnitude(math::Subtract(TVector3f(), _krA, _krB));
+	const float kfDistance = math::VectorMagnitude(math::Subtract(TVector3f(), _krA, _krB));
 
 	return(kfDistance);
 }
@@ -606,13 +606,13 @@ const TVector2f& math::ScalarMultiply(	TVector2f& _rResult,
 	return(_rResult);
 }
 
-const double math::Magnitude(const TVector2d& _krV)
+const double math::VectorMagnitude(const TVector2d& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_dX)
 							+	math::Square(_krV.m_dY)));
 }
 
-const float math::Magnitude(const TVector2f& _krV)
+const float math::VectorMagnitude(const TVector2f& _krV)
 {
 	return(math::SquareRoot(	math::Square(_krV.m_fX)
 							+	math::Square(_krV.m_fY)));
@@ -635,14 +635,14 @@ const float math::DotProduct(	const TVector2f& _krA,
 const TVector2d& math::Normalize(	TVector2d& _rResult,
 									const TVector2d& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0 / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0 / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector2f& math::Normalize(	TVector2f& _rResult,
 									const TVector2f& _krV)
 {
-	math::ScalarMultiply(_rResult, _krV, (1.0f / math::Magnitude(_krV)) );
+	math::ScalarMultiply(_rResult, _krV, (1.0f / math::VectorMagnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -650,7 +650,7 @@ const TVector2d& math::Projection(	TVector2d& _rResult,
 									const TVector2d& _krA,
 									const TVector2d& _krB)
 {
-	const double kdDenom = math::Square(math::Magnitude(_krB));
+	const double kdDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector2d kNumer = math::ScalarMultiply(TVector2d(), _krB, DotProduct(_krA, _krB));
 
@@ -663,7 +663,7 @@ const TVector2f& math::Projection(	TVector2f& _rResult,
 									const TVector2f& _krA,
 									const TVector2f& _krB)
 {
-	const float kfDenom = math::Square(math::Magnitude(_krB));
+	const float kfDenom = math::Square(math::VectorMagnitude(_krB));
 
 	const TVector2f kNumer = math::ScalarMultiply(TVector2f(), _krB, DotProduct(_krA, _krB));
 
@@ -676,7 +676,7 @@ const double math::AngleBetween(const TVector2d& _krA,
 								const TVector2d& _krB)
 {
 	const double kdAngle = math::ArcCos(	math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -685,7 +685,7 @@ const float math::AngleBetween(	const TVector2f& _krA,
 								const TVector2f& _krB)
 {
 	const float kfAngle = math::ArcCos(		math::DotProduct(_krA, _krB) 
-										/	( math::Magnitude(_krA) * math::Magnitude(_krB) ) );
+										/	( math::VectorMagnitude(_krA) * math::VectorMagnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -693,7 +693,7 @@ const float math::AngleBetween(	const TVector2f& _krA,
 const double math::Distance(const TVector2d& _krA,
 							const TVector2d& _krB)
 {
-	const double kdDistance = math::Magnitude(math::Subtract(TVector2d(), _krA, _krB));
+	const double kdDistance = math::VectorMagnitude(math::Subtract(TVector2d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -701,7 +701,7 @@ const double math::Distance(const TVector2d& _krA,
 const float math::Distance(	const TVector2f& _krA,
 							const TVector2f& _krB)
 {
-	const float kfDistance = math::Magnitude(math::Subtract(TVector2f(), _krA, _krB));
+	const float kfDistance = math::VectorMagnitude(math::Subtract(TVector2f(), _krA, _krB));
 
 	return(kfDistance);
 }

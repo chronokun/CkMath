@@ -12,14 +12,23 @@
 #include "tests_vector.h"
 
 // Typedefs
-typedef const char* (*TestFuncType)(void);
+typedef const bool (*TestFuncType)(void);
 
-static const TestFuncType s_kpTestFunctions[] = {
-	Test_Vector_ZeroVector,
-	Test_Vector_Equal,
-	Test_Vector_Add,
-	Test_Vector_Subtract,
-	Test_Vector_ScalarMultiply
+// Structs
+struct TFuncStrPair
+{
+	TestFuncType m_pFuncPtr;
+	const char* m_kpcStr;
+};
+#define TEST(f) {f, #f}
+static const TFuncStrPair s_kTestFunctions[] = {
+	TEST(Test_Vector_ZeroVector),
+	TEST(Test_Vector_ZeroVector),
+	TEST(Test_Vector_Equal),
+	TEST(Test_Vector_Add),
+	TEST(Test_Vector_Subtract),
+	TEST(Test_Vector_ScalarMultiply),
+	TEST(Test_Vector_VectorMagnitude)
 };
 
 #endif

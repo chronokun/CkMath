@@ -8,7 +8,7 @@
 #include "math.h"
 #include "test_constants.h"
 
-const char* Test_Vector_ZeroVector()
+const bool Test_Vector_ZeroVector()
 {
 	const TVector4d kZero4dRef = TVector4d{0.0, 0.0, 0.0, 0.0};
 	const TVector4f kZero4fRef = TVector4f{0.0f, 0.0f, 0.0f, 0.0f};
@@ -31,22 +31,15 @@ const char* Test_Vector_ZeroVector()
 	const bool kbPass2d = math::Equal(kZero2dRef, kZero2dTest, s_kdEpsilon);
 	const bool kbPass2f = math::Equal(kZero2fRef, kZero2fTest, s_kfEpsilon);
 
-	if(		kbPass4d
-		&&	kbPass4f
-		&&	kbPass3d
-		&&	kbPass3f
-		&&	kbPass2d
-		&&	kbPass2f)
-	{
-		return("PASS: Vector_ZeroVector\n");
-	}
-	else
-	{
-		return("FAIL: Vector_ZeroVector\n");
-	}
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
 }
 
-const char* Test_Vector_Equal()
+const bool Test_Vector_Equal()
 {
 	const TVector4d kA4d{1.0, 0.0, 0.0, 2.5};
 	const TVector4d kB4d{0.0, 1.0, 2.0, 0.9};
@@ -75,22 +68,15 @@ const char* Test_Vector_Equal()
 	const bool kbPass2d = (!math::Equal(kA2d, kB2d, s_kdEpsilon)) && math::Equal(kA2d, kA2d, s_kdEpsilon);
 	const bool kbPass2f = (!math::Equal(kA2f, kB2f, s_kfEpsilon)) && math::Equal(kA2f, kA2f, s_kfEpsilon);
 
-	if(		kbPass4d
-		&&	kbPass4f
-		&&	kbPass3d
-		&&	kbPass3f
-		&&	kbPass2d
-		&&	kbPass2f)
-	{
-		return("PASS: Vector_Equal\n");
-	}
-	else
-	{
-		return("FAIL: Vector_Equal\n");
-	}
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
 }
 
-const char* Test_Vector_Add()
+const bool Test_Vector_Add()
 {
 	const TVector4d kA4d{1.0, 0.0, 0.0, 2.5};
 	const TVector4d kB4d{0.0, 1.0, 2.0, 1.0};
@@ -125,22 +111,15 @@ const char* Test_Vector_Add()
 	const bool kbPass2d = math::Equal(kC2d, math::Add(TVector2d(), kA2d, kB2d), s_kdEpsilon);
 	const bool kbPass2f = math::Equal(kC2f, math::Add(TVector2f(), kA2f, kB2f), s_kfEpsilon);
 
-	if(		kbPass4d
-		&&	kbPass4f
-		&&	kbPass3d
-		&&	kbPass3f
-		&&	kbPass2d
-		&&	kbPass2f)
-	{
-		return("PASS: Vector_Add\n");
-	}
-	else
-	{
-		return("FAIL: Vector_Add\n");
-	}
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
 }
 
-const char* Test_Vector_Subtract()
+const bool Test_Vector_Subtract()
 {
 	const TVector4d kA4d{1.0, 0.0, 0.0, 2.5};
 	const TVector4d kB4d{0.0, 1.0, 2.0, 1.0};
@@ -175,22 +154,15 @@ const char* Test_Vector_Subtract()
 	const bool kbPass2d = math::Equal(kC2d, math::Subtract(TVector2d(), kA2d, kB2d), s_kdEpsilon);
 	const bool kbPass2f = math::Equal(kC2f, math::Subtract(TVector2f(), kA2f, kB2f), s_kfEpsilon);
 
-	if(		kbPass4d
-		&&	kbPass4f
-		&&	kbPass3d
-		&&	kbPass3f
-		&&	kbPass2d
-		&&	kbPass2f)
-	{
-		return("PASS: Vector_Subtract\n");
-	}
-	else
-	{
-		return("FAIL: Vector_Subtract\n");
-	}
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
 }
 
-const char* Test_Vector_ScalarMultiply()
+const bool Test_Vector_ScalarMultiply()
 {
 	const TVector4d kA4d{1.0, -1.0, 0.0, 2.0};
 	const TVector4d kB4d{2.0, -2.0, 0.0, 4.0};
@@ -219,17 +191,47 @@ const char* Test_Vector_ScalarMultiply()
 	const bool kbPass2d = math::Equal(math::ScalarMultiply(TVector2d(), kA2d, 2.0), kB2d, s_kdEpsilon);
 	const bool kbPass2f = math::Equal(math::ScalarMultiply(TVector2f(), kA2f, 2.0f), kB2f, s_kfEpsilon);
 
-	if(		kbPass4d
-		&&	kbPass4f
-		&&	kbPass3d
-		&&	kbPass3f
-		&&	kbPass2d
-		&&	kbPass2f)
-	{
-		return("PASS: Vector_ScalarMultiply\n");
-	}
-	else
-	{
-		return("FAIL: Vector_ScalarMultiply\n");
-	}
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
+
+const bool Test_Vector_VectorMagnitude()
+{
+	const TVector4d kA4d{1.0, 1.0, 1.0, 1.0};
+	const double kB4d = 2.0;
+
+	const TVector4f kA4f{1.0f, 1.0f, 1.0f, 1.0f};
+	const float kB4f = 2.0f;
+
+	const TVector3d kA3d{2.0, 2.0, 1.0};
+	const double kB3d = 3.0;
+
+	const TVector3f kA3f{2.0f, 2.0f, 1.0f};
+	const float kB3f = 3.0f;
+
+	const TVector2d kA2d{1.0, 1.0};
+	const double kB2d = math::SquareRoot(2.0);
+
+	const TVector2f kA2f{1.0f, 1.0f};
+	const float kB2f = math::SquareRoot(2.0f);
+
+	const bool kbPass4d = math::Equal(math::VectorMagnitude(kA4d), kB4d, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::VectorMagnitude(kA4f), kB4f, s_kfEpsilon);
+
+	const bool kbPass3d = math::Equal(math::VectorMagnitude(kA3d), kB3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::VectorMagnitude(kA3f), kB3f, s_kfEpsilon);
+
+	const bool kbPass2d = math::Equal(math::VectorMagnitude(kA2d), kB2d, s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::VectorMagnitude(kA2f), kB2f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
 }
