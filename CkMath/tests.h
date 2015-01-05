@@ -18,7 +18,8 @@ static const TestFuncType s_kpTestFunctions[] = {
 	Test_Vector_ZeroVector,
 	Test_Vector_Equal,
 	Test_Vector_Add,
-	Test_Vector_Subtract
+	Test_Vector_Subtract,
+	Test_Vector_ScalarMultiply
 };
 
 #endif

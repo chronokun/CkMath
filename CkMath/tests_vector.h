@@ -16,4 +16,6 @@ const char* Test_Vector_Add();
 
 const char* Test_Vector_Subtract();
 
+const char* Test_Vector_ScalarMultiply();
+
 #endif
