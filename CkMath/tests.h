@@ -10,6 +10,7 @@
 
 // Local Includes
 #include "tests_vector.h"
+#include "tests_matrix.h"
 
 // Typedefs
 typedef const bool (*TestFuncType)(void);
