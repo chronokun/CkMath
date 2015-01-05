@@ -89,3 +89,54 @@ const char* Test_Vector_Equal()
 		return("FAIL: Vector_Equal\n");
 	}
 }
+
+const char* Test_Vector_Add()
+{
+	const TVector4d kA4d{1.0, 0.0, 0.0, 2.5};
+	const TVector4d kB4d{0.0, 1.0, 2.0, 1.0};
+	const TVector4d kC4d{1.0, 1.0, 2.0, 3.5};
+
+	const TVector4f kA4f{1.0f, 0.0f, 0.0f, 2.5f};
+	const TVector4f kB4f{0.0f, 1.0f, 2.0f, 1.0f};
+	const TVector4f kC4f{1.0f, 1.0f, 2.0f, 3.5f};
+
+	const TVector3d kA3d{1.0, 0.0, 1.0};
+	const TVector3d kB3d{0.0, 1.0, 2.0};
+	const TVector3d kC3d{1.0, 1.0, 3.0};
+
+	const TVector3f kA3f{1.0f, 0.5f, -1.0f};
+	const TVector3f kB3f{0.0f, 1.0f, 2.0f};
+	const TVector3f kC3f{1.0f, 1.5f, 1.0f};
+
+	const TVector2d kA2d{1.0, 0.0};
+	const TVector2d kB2d{-1.0, 0.0};
+	const TVector2d kC2d{0.0, 0.0};
+
+	const TVector2f kA2f{1.0, 0.0};
+	const TVector2f kB2f{-1.0, 0.0};
+	const TVector2f kC2f{0.0, 0.0};
+
+	const bool kbPass4d = math::Equal(kC4d, math::Add(TVector4d(), kA4d, kB4d), s_kdEpsilon);
+	const bool kbPass4f = math::Equal(kC4f, math::Add(TVector4f(), kA4f, kB4f), s_kfEpsilon);
+
+	const bool kbPass3d = math::Equal(kC3d, math::Add(TVector3d(), kA3d, kB3d), s_kdEpsilon);
+	const bool kbPass3f = math::Equal(kC3f, math::Add(TVector3f(), kA3f, kB3f), s_kfEpsilon);
+
+	const bool kbPass2d = math::Equal(kC2d, math::Add(TVector2d(), kA2d, kB2d), s_kdEpsilon);
+	const bool kbPass2f = math::Equal(kC2f, math::Add(TVector2f(), kA2f, kB2f), s_kfEpsilon);
+
+	if(		kbPass4d
+		&&	kbPass4f
+		&&	kbPass3d
+		&&	kbPass3f
+		&&	kbPass2d
+		&&	kbPass2f)
+	{
+		return("PASS: Vector_Add\n");
+	}
+	else
+	{
+		return("FAIL: Vector_Add\n");
+	}
+}
+

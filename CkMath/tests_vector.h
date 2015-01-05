@@ -12,5 +12,7 @@ const char* Test_Vector_ZeroVector();
 
 const char* Test_Vector_Equal();
 
+const char* Test_Vector_Add();
+
 
 #endif
