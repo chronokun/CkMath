@@ -34,4 +34,6 @@ const bool Test_Vector_Distance();
 
 const bool Test_Vector_ScalarTripleProduct();
 
+const bool Test_Vector_VectorTripleProduct();
+
 #endif

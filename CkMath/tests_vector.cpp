@@ -454,3 +454,25 @@ const bool Test_Vector_ScalarTripleProduct()
 
 	return(kbPass3d && kbPass3f);
 }
+
+const bool Test_Vector_VectorTripleProduct()
+{
+	const TVector3d kA3d{2.0, 0.0, 0.0};
+	const TVector3d kB3d{0.0, 2.0, 0.0};
+	const TVector3d kC3d{0.0, 0.0, 2.0};
+	const TVector3d kD3d = math::Subtract(	TVector3d(),
+											math::ScalarMultiply(TVector3d(), kB3d, math::DotProduct(kA3d, kC3d)),
+											math::ScalarMultiply(TVector3d(), kC3d, math::DotProduct(kA3d, kB3d)));
+
+	const TVector3f kA3f{2.0f, 0.0f, 0.0f};
+	const TVector3f kB3f{0.0f, 2.0f, 0.0f};
+	const TVector3f kC3f{0.0f, 0.0f, 2.0f};
+	const TVector3f kD3f = math::Subtract(	TVector3f(),
+											math::ScalarMultiply(TVector3f(), kB3f, math::DotProduct(kA3f, kC3f)),
+											math::ScalarMultiply(TVector3f(), kC3f, math::DotProduct(kA3f, kB3f)));
+
+	const bool kbPass3d = math::Equal(math::VectorTripleProduct(TVector3d(), kA3d, kB3d, kC3d), kD3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::VectorTripleProduct(TVector3f(), kA3f, kB3f, kC3f), kD3f, s_kfEpsilon);
+
+	return(kbPass3d && kbPass3f);
+}
