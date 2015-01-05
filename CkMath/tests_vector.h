@@ -28,4 +28,6 @@ const bool Test_Vector_Normalize();
 
 const bool Test_Vector_Projection();
 
+const bool Test_Vector_AngleBetween();
+
 #endif
