@@ -30,4 +30,6 @@ const bool Test_Vector_Projection();
 
 const bool Test_Vector_AngleBetween();
 
+const bool Test_Vector_Distance();
+
 #endif
