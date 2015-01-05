@@ -235,3 +235,46 @@ const bool Test_Vector_VectorMagnitude()
 			&&	kbPass2d
 			&&	kbPass2f);
 }
+
+const bool Test_Vector_DotProduct()
+{
+	const TVector4d kA4d{1.0, -1.0, 1.0, -1.0};
+	const TVector4d kB4d{1.0, 1.0, 1.0, 1.0};
+	const double kC4d = 0.0;
+
+	const TVector4f kA4f{1.0f, -1.0f, 1.0f, -1.0f};
+	const TVector4f kB4f{1.0f, 1.0f, 1.0f, 1.0f};
+	const float kC4f = 0.0f;
+
+	const TVector3d kA3d{1.0, -1.0, 1.0};
+	const TVector3d kB3d{1.0, 1.0, 1.0};
+	const double kC3d = 1.0;
+
+	const TVector3f kA3f{1.0f, -1.0f, 1.0f};
+	const TVector3f kB3f{1.0f, 1.0f, 1.0f};
+	const float kC3f = 1.0f;
+
+	const TVector2d kA2d{-1.0, -1.0};
+	const TVector2d kB2d{1.0, 1.0};
+	const double kC2d = -2.0f;
+
+	const TVector2f kA2f{-1.0f, -1.0f};
+	const TVector2f kB2f{1.0f, 1.0f};
+	const float kC2f = -2.0f;
+
+	const bool kbPass4d = math::Equal(math::DotProduct(kA4d, kB4d), kC4d, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::DotProduct(kA4f, kB4f), kC4f, s_kfEpsilon);
+
+	const bool kbPass3d = math::Equal(math::DotProduct(kA3d, kB3d), kC3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::DotProduct(kA3f, kB3f), kC3f, s_kfEpsilon);
+
+	const bool kbPass2d = math::Equal(math::DotProduct(kA2d, kB2d), kC2d, s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::DotProduct(kA2f, kB2f), kC2f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}

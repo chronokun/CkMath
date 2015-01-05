@@ -20,4 +20,6 @@ const bool Test_Vector_ScalarMultiply();
 
 const bool Test_Vector_VectorMagnitude();
 
+const bool Test_Vector_DotProduct();
+
 #endif
