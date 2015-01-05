@@ -17,7 +17,8 @@ typedef const char* (*TestFuncType)(void);
 static const TestFuncType s_kpTestFunctions[] = {
 	Test_Vector_ZeroVector,
 	Test_Vector_Equal,
-	Test_Vector_Add
+	Test_Vector_Add,
+	Test_Vector_Subtract
 };
 
 #endif
