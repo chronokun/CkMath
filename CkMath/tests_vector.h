@@ -32,4 +32,6 @@ const bool Test_Vector_AngleBetween();
 
 const bool Test_Vector_Distance();
 
+const bool Test_Vector_ScalarTripleProduct();
+
 #endif

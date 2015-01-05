@@ -438,3 +438,19 @@ const bool Test_Vector_Distance()
 			&&	kbPass2d
 			&&	kbPass2f);
 }
+
+const bool Test_Vector_ScalarTripleProduct()
+{
+	const TVector3d kA3d{2.0, 0.0, 0.0};
+	const TVector3d kB3d{0.0, 2.0, 0.0};
+	const TVector3d kC3d{0.0, 0.0, 2.0};
+
+	const TVector3f kA3f{2.0f, 0.0f, 0.0f};
+	const TVector3f kB3f{0.0f, 2.0f, 0.0f};
+	const TVector3f kC3f{0.0f, 0.0f, 2.0f};
+
+	const bool kbPass3d = math::Equal(math::ScalarTripleProduct(kA3d, kB3d, kC3d), 8.0, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::ScalarTripleProduct(kA3f, kB3f, kC3f), 8.0f, s_kfEpsilon);
+
+	return(kbPass3d && kbPass3f);
+}
