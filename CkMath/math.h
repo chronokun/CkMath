@@ -14,5 +14,6 @@
 #include "math_geometry.h"
 #include "math_vector.h"
 #include "math_scalar.h"
+#include "math_matrix.h"
 
 #endif

@@ -8,6 +8,6 @@
 #ifndef __TESTS_MATRIX_H__
 #define __TESTS_MATRIX_H__
 
-
+const bool Test_Matrix_Equal();
 
 #endif
