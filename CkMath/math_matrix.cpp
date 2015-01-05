@@ -13,6 +13,50 @@
 // Matrix 4
 //
 
+const bool math::Equal(const TMatrix4d& _krA, const TMatrix4d& _krB, const double _kdEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d14 - _krB.m_d14) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d24 - _krB.m_d24) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d34 - _krB.m_d34) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d41 - _krB.m_d41) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d42 - _krB.m_d42) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d43 - _krB.m_d43) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d44 - _krB.m_d44) < _kdEpsilon);
+
+	return(kbEqual);
+}
+
+const bool math::Equal(const TMatrix4f& _krA, const TMatrix4f& _krB, const float _kfEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f14 - _krB.m_f14) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f24 - _krB.m_f24) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f34 - _krB.m_f34) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f41 - _krB.m_f41) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f42 - _krB.m_f42) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f43 - _krB.m_f43) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f44 - _krB.m_f44) < _kfEpsilon);
+
+	return(kbEqual);
+}
+
 const TMatrix4d& math::ZeroMatrix(TMatrix4d& _rResult)
 {
 	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = 0.0;
@@ -1108,6 +1152,36 @@ const TMatrix4f& math::OrthographicMatrix(	TMatrix4f& _rResult,
 // Matrix 3
 //
 
+const bool math::Equal(const TMatrix3d& _krA, const TMatrix3d& _krB, const double _kdEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon);
+
+	return(kbEqual);
+}
+
+const bool math::Equal(const TMatrix3f& _krA, const TMatrix3f& _krB, const float _kfEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon);
+
+	return(kbEqual);
+}
+
 const TMatrix3d& math::ZeroMatrix(TMatrix3d& _rResult)
 {
 	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0;
@@ -1629,6 +1703,26 @@ const TMatrix3f& math::Inverse(	TMatrix3f& _rResult,
 //
 // Matrix 2
 //
+
+const bool math::Equal(const TMatrix2d& _krA, const TMatrix2d& _krB, const double _kdEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon);
+
+	return(kbEqual);
+}
+
+const bool math::Equal(const TMatrix2f& _krA, const TMatrix2f& _krB, const float _kfEpsilon)
+{
+	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon);
+
+	return(kbEqual);
+}
 
 const TMatrix2d& math::ZeroMatrix(TMatrix2d& _rResult)
 {

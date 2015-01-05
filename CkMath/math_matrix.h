@@ -18,6 +18,10 @@ namespace math
 	// Matrix 4
 	//
 
+	const bool Equal(const TMatrix4d& _krA, const TMatrix4d& _krB, const double _kdEpsilon);
+
+	const bool Equal(const TMatrix4f& _krA, const TMatrix4f& _krB, const float _kfEpsilon);
+
 	const TMatrix4d& ZeroMatrix(TMatrix4d& _rResult);
 
 	const TMatrix4f& ZeroMatrix(TMatrix4f& _rResult);
@@ -226,6 +230,10 @@ namespace math
 	// Matrix 3
 	//
 
+	const bool Equal(const TMatrix3d& _krA, const TMatrix3d& _krB, const double _kdEpsilon);
+
+	const bool Equal(const TMatrix3f& _krA, const TMatrix3f& _krB, const float _kfEpsilon);
+
 	const TMatrix3d& ZeroMatrix(TMatrix3d& _rResult);
 
 	const TMatrix3f& ZeroMatrix(TMatrix3f& _rResult);
@@ -325,6 +333,10 @@ namespace math
 	//
 	// Matrix 2
 	//
+
+	const bool Equal(const TMatrix2d& _krA, const TMatrix2d& _krB, const double _kdEpsilon);
+
+	const bool Equal(const TMatrix2f& _krA, const TMatrix2f& _krB, const float _kfEpsilon);
 
 	const TMatrix2d& ZeroMatrix(TMatrix2d& _rResult);
 
