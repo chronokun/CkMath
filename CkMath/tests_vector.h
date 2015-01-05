@@ -24,4 +24,6 @@ const bool Test_Vector_DotProduct();
 
 const bool Test_Vector_CrossProduct();
 
+const bool Test_Vector_Normalize();
+
 #endif

@@ -295,3 +295,29 @@ const bool Test_Vector_CrossProduct()
 	return(		kbPass3d
 			&&	kbPass3f);
 }
+
+const bool Test_Vector_Normalize()
+{
+	const TVector4d kA4d{1.0, 1.0, 1.0, 1.0};
+	const TVector4f kA4f{1.0f, 1.0f, 1.0f, 1.0f};
+
+	const TVector3d kA3d{1.0, 1.0, 1.0};
+	const TVector3f kA3f{1.0f, 1.0f, 1.0f};
+
+	const TVector2d kA2d{1.0, 1.0};
+	const TVector2f kA2f{1.0f, 1.0f};
+
+	const bool kbPass4d = math::Equal(math::VectorMagnitude(math::Normalize(TVector4d(), kA4d)), 1.0, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::VectorMagnitude(math::Normalize(TVector4f(), kA4f)), 1.0f, s_kfEpsilon);
+	const bool kbPass3d = math::Equal(math::VectorMagnitude(math::Normalize(TVector3d(), kA3d)), 1.0, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::VectorMagnitude(math::Normalize(TVector3f(), kA3f)), 1.0f, s_kfEpsilon);
+	const bool kbPass2d = math::Equal(math::VectorMagnitude(math::Normalize(TVector2d(), kA2d)), 1.0, s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::VectorMagnitude(math::Normalize(TVector2f(), kA2f)), 1.0f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
