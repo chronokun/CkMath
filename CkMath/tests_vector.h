@@ -22,4 +22,6 @@ const bool Test_Vector_VectorMagnitude();
 
 const bool Test_Vector_DotProduct();
 
+const bool Test_Vector_CrossProduct();
+
 #endif

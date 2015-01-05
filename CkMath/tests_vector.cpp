@@ -278,3 +278,20 @@ const bool Test_Vector_DotProduct()
 			&&	kbPass2d
 			&&	kbPass2f);
 }
+
+const bool Test_Vector_CrossProduct()
+{
+	const TVector3d kA3d{1.0, 0.0, 0.0};
+	const TVector3d kB3d{0.0, 1.0, 0.0};
+	const TVector3d kC3d{0.0, 0.0, 1.0};
+
+	const TVector3f kA3f{1.0f, 0.0f, 0.0f};
+	const TVector3f kB3f{0.0f, 1.0f, 0.0f};
+	const TVector3f kC3f{0.0f, 0.0f, 1.0f};
+
+	const bool kbPass3d = math::Equal(math::CrossProduct(TVector3d(), kA3d, kB3d), kC3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::CrossProduct(TVector3f(), kA3f, kB3f), kC3f, s_kfEpsilon);
+
+	return(		kbPass3d
+			&&	kbPass3f);
+}
