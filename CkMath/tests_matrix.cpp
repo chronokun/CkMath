@@ -264,4 +264,47 @@ const bool Test_Matrix_Multiply()
 			&&	kbPass2f);
 }
 
+const bool Test_Matrix_ScalarMultiply()
+{
+	const TMatrix4d kA4d{	2.0, 0.0, 0.0, 0.0,
+							0.0, 2.0, 0.0, 0.0,
+							0.0, 0.0, 2.0, 0.0,
+							0.0, 0.0, 0.0, 2.0};
+
+	const TMatrix4f kA4f{	2.0f, 0.0f, 0.0f, 0.0f,
+							0.0f, 2.0f, 0.0f, 0.0f,
+							0.0f, 0.0f, 2.0f, 0.0f,
+							0.0f, 0.0f, 0.0f, 2.0f};
+
+
+	const TMatrix3d kA3d{	2.0, 0.0, 0.0,
+							0.0, 2.0, 0.0,
+							0.0, 0.0, 2.0};
+
+	const TMatrix3f kA3f{	2.0f, 0.0f, 0.0f,
+							0.0f, 2.0f, 0.0f,
+							0.0f, 0.0f, 2.0f};
+
+
+	const TMatrix2d kA2d{	2.0, 0.0,
+							0.0, 2.0};
+
+	const TMatrix2f kA2f{	2.0f, 0.0f,
+							0.0f, 2.0f};
+
+	const bool kbPass4d = math::Equal(math::ScalarMultiply(TMatrix4d(), math::IdentityMatrix(TMatrix4d()), 2.0), kA4d, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::ScalarMultiply(TMatrix4f(), math::IdentityMatrix(TMatrix4f()), 2.0f), kA4f, s_kfEpsilon);
+	const bool kbPass3d = math::Equal(math::ScalarMultiply(TMatrix3d(), math::IdentityMatrix(TMatrix3d()), 2.0), kA3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::ScalarMultiply(TMatrix3f(), math::IdentityMatrix(TMatrix3f()), 2.0f), kA3f, s_kfEpsilon);
+	const bool kbPass2d = math::Equal(math::ScalarMultiply(TMatrix2d(), math::IdentityMatrix(TMatrix2d()), 2.0), kA2d, s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::ScalarMultiply(TMatrix2f(), math::IdentityMatrix(TMatrix2f()), 2.0f), kA2f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
+
 //

@@ -46,7 +46,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Matrix_Equal),
 	TEST(Test_Matrix_ZeroMatrix),
 	TEST(Test_Matrix_IdentityMatrix),
-	TEST(Test_Matrix_Multiply)
+	TEST(Test_Matrix_Multiply),
+	TEST(Test_Matrix_ScalarMultiply)
 };
 
 #endif

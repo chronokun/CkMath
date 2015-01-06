@@ -16,4 +16,6 @@ const bool Test_Matrix_IdentityMatrix();
 
 const bool Test_Matrix_Multiply();
 
+const bool Test_Matrix_ScalarMultiply();
+
 #endif
