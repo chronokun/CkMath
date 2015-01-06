@@ -101,16 +101,16 @@ const TMatrix4d& math::Multiply(TMatrix4d& _rResult,
 								const TMatrix4d& _krA,
 								const TMatrix4d& _krB)
 {
-	for(size_t x = 0; x < 4; ++x)
+	for(size_t y = 1; y <= 4; ++y)
 	{
-		for(size_t y = 0; y < 4; ++y)
+		for(size_t x = 1; x <= 4; ++x)
 		{
 			double dAccumulate = 0.0;
-			for(size_t n = 0; n < 4; ++n)
+			for(size_t n = 1; n <= 4; ++n)
 			{
-				dAccumulate += math::GetElement(_krA, n, y) * math::GetElement(_krB, x, y);
+				dAccumulate += math::GetElement(_krA, y, n) * math::GetElement(_krB, n, x);
 			}
-			math::SetElement(_rResult, dAccumulate, x, y);
+			math::SetElement(_rResult, dAccumulate, y, x);
 		}
 	}
 
@@ -121,16 +121,16 @@ const TMatrix4f& math::Multiply(TMatrix4f& _rResult,
 								const TMatrix4f& _krA,
 								const TMatrix4f& _krB)
 {
-	for(size_t x = 0; x < 4; ++x)
+	for(size_t x = 1; x <= 4; ++x)
 	{
-		for(size_t y = 0; y < 4; ++y)
+		for(size_t y = 1; y <= 4; ++y)
 		{
 			float fAccumulate = 0.0;
-			for(size_t n = 0; n < 4; ++n)
+			for(size_t n = 1; n <= 4; ++n)
 			{
-				fAccumulate += math::GetElement(_krA, n, y) * math::GetElement(_krB, x, y);
+				fAccumulate += math::GetElement(_krA, y, n) * math::GetElement(_krB, n, x);
 			}
-			math::SetElement(_rResult, fAccumulate, x, y);
+			math::SetElement(_rResult, fAccumulate, y, x);
 		}
 	}
 
@@ -639,9 +639,9 @@ const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
 {
-	for(size_t i = 0; i < 4; ++i)
+	for(size_t i = 1; i <= 4; ++i)
 	{
-		for(size_t j = 0; j < 4; ++j)
+		for(size_t j = 1; j <= 4; ++j)
 		{
 			if(		(i != _kDeletedRow)
 				&&	(j != _kDeletedColumn))
@@ -678,9 +678,9 @@ const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
 {
-	for(size_t i = 0; i < 4; ++i)
+	for(size_t i = 1; i <= 4; ++i)
 	{
-		for(size_t j = 0; j < 4; ++j)
+		for(size_t j = 1; j <= 4; ++j)
 		{
 			if(		(i != _kDeletedRow)
 				&&	(j != _kDeletedColumn))
@@ -1228,11 +1228,11 @@ const TMatrix3d& math::Multiply(TMatrix3d& _rResult,
 
 	_rResult.m_d21 = ((_krA.m_d21 * _krB.m_d11) + (_krA.m_d22 * _krB.m_d21) + (_krA.m_d23 * _krB.m_d31));
 	_rResult.m_d22 = ((_krA.m_d21 * _krB.m_d12) + (_krA.m_d22 * _krB.m_d22) + (_krA.m_d23 * _krB.m_d32));
-	_rResult.m_d22 = ((_krA.m_d21 * _krB.m_d13) + (_krA.m_d22 * _krB.m_d23) + (_krA.m_d23 * _krB.m_d33));
+	_rResult.m_d23 = ((_krA.m_d21 * _krB.m_d13) + (_krA.m_d22 * _krB.m_d23) + (_krA.m_d23 * _krB.m_d33));
 
 	_rResult.m_d31 = ((_krA.m_d31 * _krB.m_d11) + (_krA.m_d32 * _krB.m_d21) + (_krA.m_d33 * _krB.m_d31));
 	_rResult.m_d32 = ((_krA.m_d31 * _krB.m_d12) + (_krA.m_d32 * _krB.m_d22) + (_krA.m_d33 * _krB.m_d32));
-	_rResult.m_d32 = ((_krA.m_d31 * _krB.m_d13) + (_krA.m_d32 * _krB.m_d23) + (_krA.m_d33 * _krB.m_d33));
+	_rResult.m_d33 = ((_krA.m_d31 * _krB.m_d13) + (_krA.m_d32 * _krB.m_d23) + (_krA.m_d33 * _krB.m_d33));
 
 	return(_rResult);
 }
@@ -1247,11 +1247,11 @@ const TMatrix3f& math::Multiply(TMatrix3f& _rResult,
 
 	_rResult.m_f21 = ((_krA.m_f21 * _krB.m_f11) + (_krA.m_f22 * _krB.m_f21) + (_krA.m_f23 * _krB.m_f31));
 	_rResult.m_f22 = ((_krA.m_f21 * _krB.m_f12) + (_krA.m_f22 * _krB.m_f22) + (_krA.m_f23 * _krB.m_f32));
-	_rResult.m_f22 = ((_krA.m_f21 * _krB.m_f13) + (_krA.m_f22 * _krB.m_f23) + (_krA.m_f23 * _krB.m_f33));
+	_rResult.m_f23 = ((_krA.m_f21 * _krB.m_f13) + (_krA.m_f22 * _krB.m_f23) + (_krA.m_f23 * _krB.m_f33));
 
 	_rResult.m_f31 = ((_krA.m_f31 * _krB.m_f11) + (_krA.m_f32 * _krB.m_f21) + (_krA.m_f33 * _krB.m_f31));
 	_rResult.m_f32 = ((_krA.m_f31 * _krB.m_f12) + (_krA.m_f32 * _krB.m_f22) + (_krA.m_f33 * _krB.m_f32));
-	_rResult.m_f32 = ((_krA.m_f31 * _krB.m_f13) + (_krA.m_f32 * _krB.m_f23) + (_krA.m_f33 * _krB.m_f33));
+	_rResult.m_f33 = ((_krA.m_f31 * _krB.m_f13) + (_krA.m_f32 * _krB.m_f23) + (_krA.m_f33 * _krB.m_f33));
 
 	return(_rResult);
 }

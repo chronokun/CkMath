@@ -64,44 +64,44 @@ struct TVector2f
 //
 struct TMatrix4d
 {
-	double m_d11, m_d21, m_d31, m_d41;
-	double m_d12, m_d22, m_d32, m_d42;
-	double m_d13, m_d23, m_d33, m_d43;
-	double m_d14, m_d24, m_d34, m_d44;
+	double m_d11, m_d12, m_d13, m_d14;
+	double m_d21, m_d22, m_d23, m_d24;
+	double m_d31, m_d32, m_d33, m_d34;
+	double m_d41, m_d42, m_d43, m_d44;
 };
 
 struct TMatrix4f
 {
-	float m_f11, m_f21, m_f31, m_f41;
-	float m_f12, m_f22, m_f32, m_f42;
-	float m_f13, m_f23, m_f33, m_f43;
-	float m_f14, m_f24, m_f34, m_f44;
+	float m_f11, m_f12, m_f13, m_f14;
+	float m_f21, m_f22, m_f23, m_f24;
+	float m_f31, m_f32, m_f33, m_f34;
+	float m_f41, m_f42, m_f43, m_f44;
 };
 
 struct TMatrix3d
 {
-	double m_d11, m_d21, m_d31;
-	double m_d12, m_d22, m_d32;
-	double m_d13, m_d23, m_d33;
+	double m_d11, m_d12, m_d13;
+	double m_d21, m_d22, m_d23;
+	double m_d31, m_d32, m_d33;
 };
 
 struct TMatrix3f
 {
-	float m_f11, m_f21, m_f31;
-	float m_f12, m_f22, m_f32;
-	float m_f13, m_f23, m_f33;
+	float m_f11, m_f12, m_f13;
+	float m_f21, m_f22, m_f23;
+	float m_f31, m_f32, m_f33;
 };
 
 struct TMatrix2d
 {
-	double m_d11, m_d21;
-	double m_d12, m_d22;
+	double m_d11, m_d12;
+	double m_d21, m_d22;
 };
 
 struct TMatrix2f
 {
-	float m_f11, m_f21;
-	float m_f12, m_f22;
+	float m_f11, m_f12;
+	float m_f21, m_f22;
 };
 
 //

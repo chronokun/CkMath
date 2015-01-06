@@ -14,4 +14,6 @@ const bool Test_Matrix_ZeroMatrix();
 
 const bool Test_Matrix_IdentityMatrix();
 
+const bool Test_Matrix_Multiply();
+
 #endif
