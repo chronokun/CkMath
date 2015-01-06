@@ -20,4 +20,6 @@ const bool Test_Matrix_ScalarMultiply();
 
 const bool Test_Matrix_VectorMultiply();
 
+const bool Test_Matrix_Add();
+
 #endif
