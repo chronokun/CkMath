@@ -280,6 +280,14 @@ namespace math
 	const TMatrix3f& Transpose(	TMatrix3f& _rResult,
 								const TMatrix3f& _krMatrix);
 
+	const double GetElement(const TMatrix3d& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const float GetElement(const TMatrix3f& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
 	TMatrix3d& SetElement(	TMatrix3d& _rResult,
 							const double _kdValue,
 							const size_t _kRow,
@@ -383,6 +391,24 @@ namespace math
 
 	const TMatrix2f& Transpose(	TMatrix2f& _rResult,
 								const TMatrix2f& _krMatrix);
+
+	const double GetElement(const TMatrix2d& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	const float GetElement(const TMatrix2f& _krMatrix,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	TMatrix2d& SetElement(	TMatrix2d& _rResult,
+							const double _kdValue,
+							const size_t _kRow,
+							const size_t _kColumn);
+
+	TMatrix2f& SetElement(	TMatrix2f& _rResult,
+							const float _kfValue,
+							const size_t _kRow,
+							const size_t _kColumn);
 
 	const TMatrix2d& Inverse(	TMatrix2d& _rResult,
 								const TMatrix2d& _krMatrix);

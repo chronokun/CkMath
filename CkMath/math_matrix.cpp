@@ -1342,6 +1342,116 @@ const TMatrix3f& math::Transpose(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
+const double math::GetElement(	const TMatrix3d& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	double dResult;
+
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			dResult = _krMatrix.m_d11;
+		}
+		else if(_kColumn == 2)
+		{
+			dResult = _krMatrix.m_d12;
+		}
+		else if(_kColumn == 3)
+		{
+			dResult = _krMatrix.m_d13;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			dResult = _krMatrix.m_d21;
+		}
+		else if(_kColumn == 2)
+		{
+			dResult = _krMatrix.m_d22;
+		}
+		else if(_kColumn == 3)
+		{
+			dResult = _krMatrix.m_d23;
+		}
+	}
+	else if(_kRow == 3)
+	{
+		if(_kColumn == 1)
+		{
+			dResult = _krMatrix.m_d31;
+		}
+		else if(_kColumn == 2)
+		{
+			dResult = _krMatrix.m_d32;
+		}
+		else if(_kColumn == 3)
+		{
+			dResult = _krMatrix.m_d33;
+		}
+	}
+
+	return(dResult);
+}
+
+const float math::GetElement(	const TMatrix3f& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	float fResult;
+
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			fResult = _krMatrix.m_f11;
+		}
+		else if(_kColumn == 2)
+		{
+			fResult = _krMatrix.m_f12;
+		}
+		else if(_kColumn == 3)
+		{
+			fResult = _krMatrix.m_f13;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			fResult = _krMatrix.m_f21;
+		}
+		else if(_kColumn == 2)
+		{
+			fResult = _krMatrix.m_f22;
+		}
+		else if(_kColumn == 3)
+		{
+			fResult = _krMatrix.m_f23;
+		}
+	}
+	else if(_kRow == 3)
+	{
+		if(_kColumn == 1)
+		{
+			fResult = _krMatrix.m_f31;
+		}
+		else if(_kColumn == 2)
+		{
+			fResult = _krMatrix.m_f32;
+		}
+		else if(_kColumn == 3)
+		{
+			fResult = _krMatrix.m_f33;
+		}
+	}
+
+	return(fResult);
+}
+
 TMatrix3d& math::SetElement(	TMatrix3d& _rResult,
 								const double _kdValue,
 								const size_t _kRow,
@@ -1854,6 +1964,132 @@ const TMatrix2f& math::Transpose(	TMatrix2f& _rResult,
 {
 	_rResult.m_f11 = _krMatrix.m_f11; _rResult.m_f12 = _krMatrix.m_f21;
 	_rResult.m_f21 = _krMatrix.m_f12; _rResult.m_f22 = _krMatrix.m_f22;
+
+	return(_rResult);
+}
+
+const double math::GetElement(	const TMatrix2d& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	double dResult;
+
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			dResult = _krMatrix.m_d11;
+		}
+		else if(_kColumn == 2)
+		{
+			dResult = _krMatrix.m_d12;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			dResult = _krMatrix.m_d21;
+		}
+		else if(_kColumn == 2)
+		{
+			dResult = _krMatrix.m_d22;
+		}
+	}
+
+	return(dResult);
+}
+
+const float math::GetElement(	const TMatrix2f& _krMatrix,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	float fResult;
+
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			fResult = _krMatrix.m_f11;
+		}
+		else if(_kColumn == 2)
+		{
+			fResult = _krMatrix.m_f12;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			fResult = _krMatrix.m_f21;
+		}
+		else if(_kColumn == 2)
+		{
+			fResult = _krMatrix.m_f22;
+		}
+	}
+
+	return(fResult);
+}
+
+TMatrix2d& math::SetElement(	TMatrix2d& _rResult,
+								const double _kdValue,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			_rResult.m_d11 = _kdValue;
+		}
+		else if(_kColumn == 2)
+		{
+			_rResult.m_d12 = _kdValue;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			_rResult.m_d21 = _kdValue;
+		}
+		else if(_kColumn == 2)
+		{
+			_rResult.m_d22 = _kdValue;
+		}
+	}
+
+	return(_rResult);
+}
+
+TMatrix2f& math::SetElement(	TMatrix2f& _rResult,
+								const float _kfValue,
+								const size_t _kRow,
+								const size_t _kColumn)
+{
+	if(_kRow == 1)
+	{
+		if(_kColumn == 1)
+		{
+			_rResult.m_f11 = _kfValue;
+		}
+		else if(_kColumn == 2)
+		{
+			_rResult.m_f12 = _kfValue;
+		}
+	}
+	else if(_kRow == 2)
+	{
+		if(_kColumn == 1)
+		{
+			_rResult.m_f21 = _kfValue;
+		}
+		else if(_kColumn == 2)
+		{
+			_rResult.m_f22 = _kfValue;
+		}
+	}
 
 	return(_rResult);
 }

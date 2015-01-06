@@ -24,4 +24,6 @@ const bool Test_Matrix_Add();
 
 const bool Test_Matrix_Transpose();
 
+const bool Test_Matrix_GetElement();
+
 #endif

@@ -477,4 +477,117 @@ const bool Test_Matrix_Transpose()
 			&&	kbPass2f);
 }
 
+const bool Test_Matrix_GetElement()
+{
+	const TMatrix4d kA4d{	1.00, 2.00, 3.00, 4.00,
+							5.00, 6.00, 7.00, 8.00,
+							9.00, 10.0, 11.0, 12.0,
+							13.0, 14.0, 15.0, 16.0};
+
+	const double kB4d[]{	1.00, 2.00, 3.00, 4.00,
+							5.00, 6.00, 7.00, 8.00,
+							9.00, 10.0, 11.0, 12.0,
+							13.0, 14.0, 15.0, 16.0};
+
+	const TMatrix4f kA4f{	1.00f, 2.00f, 3.00f, 4.00f,
+							5.00f, 6.00f, 7.00f, 8.00f,
+							9.00f, 10.0f, 11.0f, 12.0f,
+							13.0f, 14.0f, 15.0f, 16.0f};
+
+	const float kB4f[]{	1.00f, 2.00f, 3.00f, 4.00f,
+						5.00f, 6.00f, 7.00f, 8.00f,
+						9.00f, 10.0f, 11.0f, 12.0f,
+						13.0f, 14.0f, 15.0f, 16.0f};
+
+	bool bPass4d = true;
+	bool bPass4f = true;
+	for(size_t i = 0; i < 16; ++i)
+	{
+		size_t x = (i % 4) + 1;
+		size_t y = (i / 4) + 1;
+
+		if(!math::Equal(math::GetElement(kA4d, y, x), kB4d[i], s_kdEpsilon))
+		{
+			bPass4d = false;
+		}
+
+		if(!math::Equal(math::GetElement(kA4f, y, x), kB4f[i], s_kfEpsilon))
+		{
+			bPass4f = false;
+		}
+	}
+
+	const TMatrix3d kA3d{	1.0, 2.0, 3.0,
+							4.0, 5.0, 6.0,
+							7.0, 8.0, 9.0};
+
+	const double kB3d[]{	1.0, 2.0, 3.0,
+							4.0, 5.0, 6.0,
+							7.0, 8.0, 9.0};
+	
+	const TMatrix3f kA3f{	1.0f, 2.0f, 3.0f,
+							4.0f, 5.0f, 6.0f,
+							7.0f, 8.0f, 9.0f};
+
+	const float kB3f[]{	1.0f, 2.0f, 3.0f,
+						4.0f, 5.0f, 6.0f,
+						7.0f, 8.0f, 9.0f};
+
+	bool bPass3d = true;
+	bool bPass3f = true;
+	for(size_t i = 0; i < 9; ++i)
+	{
+		size_t x = (i % 3) + 1;
+		size_t y = (i / 3) + 1;
+
+		if(!math::Equal(math::GetElement(kA3d, y, x), kB3d[i], s_kdEpsilon))
+		{
+			bPass3d = false;
+		}
+
+		if(!math::Equal(math::GetElement(kA3f, y, x), kB3f[i], s_kfEpsilon))
+		{
+			bPass3f = false;
+		}
+	}
+
+	const TMatrix2d kA2d{	1.0, 2.0,
+							3.0, 4.0};
+
+	const double kB2d[]{	1.0, 2.0,
+							3.0, 4.0};
+	
+	const TMatrix2f kA2f{	1.0f, 2.0f,
+							3.0f, 4.0f};
+
+	const float kB2f[]{	1.0f, 2.0f,
+						3.0f, 4.0f};
+
+	bool bPass2d = true;
+	bool bPass2f = true;
+	for(size_t i = 0; i < 4; ++i)
+	{
+		size_t x = (i % 2) + 1;
+		size_t y = (i / 2) + 1;
+
+		if(!math::Equal(math::GetElement(kA2d, y, x), kB2d[i], s_kdEpsilon))
+		{
+			bPass2d = false;
+		}
+
+		if(!math::Equal(math::GetElement(kA2f, y, x), kB2f[i], s_kfEpsilon))
+		{
+			bPass2f = false;
+		}
+	}
+
+
+	return(		bPass4d
+			&&	bPass4f
+			&&	bPass3d
+			&&	bPass3f
+			&&	bPass2d
+			&&	bPass2f);
+}
+
 //
