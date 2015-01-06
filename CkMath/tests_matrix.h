@@ -30,4 +30,6 @@ const bool Test_Matrix_SetElement();
 
 const bool Test_Matrix_Submatrix();
 
+const bool Test_Matrix_FirstMinor();
+
 #endif

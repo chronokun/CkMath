@@ -53,7 +53,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Matrix_Transpose),
 	TEST(Test_Matrix_GetElement),
 	TEST(Test_Matrix_SetElement),
-	TEST(Test_Matrix_Submatrix)
+	TEST(Test_Matrix_Submatrix),
+	TEST(Test_Matrix_FirstMinor)
 };
 
 #endif
