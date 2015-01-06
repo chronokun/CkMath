@@ -26,4 +26,6 @@ const bool Test_Matrix_Transpose();
 
 const bool Test_Matrix_GetElement();
 
+const bool Test_Matrix_SetElement();
+
 #endif
