@@ -18,4 +18,6 @@ const bool Test_Matrix_Multiply();
 
 const bool Test_Matrix_ScalarMultiply();
 
+const bool Test_Matrix_VectorMultiply();
+
 #endif

@@ -307,4 +307,64 @@ const bool Test_Matrix_ScalarMultiply()
 			&&	kbPass2f);
 }
 
+const bool Test_Matrix_VectorMultiply()
+{
+	const TMatrix4d kA4d{	2.0, 0.0, 0.0, 0.0,
+							0.0, 3.0, 0.0, 0.0,
+							0.0, 0.0, 4.0, 0.0,
+							0.0, 0.0, 0.0, 5.0};
+
+	const TVector4d kB4d{ 1.0, 1.0, 1.0, 1.0 };
+	const TVector4d kC4d{ 2.0, 3.0, 4.0, 5.0 };
+
+	const TMatrix4f kA4f{	2.0f, 0.0f, 0.0f, 0.0f,
+							0.0f, 3.0f, 0.0f, 0.0f,
+							0.0f, 0.0f, 4.0f, 0.0f,
+							0.0f, 0.0f, 0.0f, 5.0f};
+
+	const TVector4f kB4f{ 1.0f, 1.0f, 1.0f, 1.0f };
+	const TVector4f kC4f{ 2.0f, 3.0f, 4.0f, 5.0f };
+
+
+	const TMatrix3d kA3d{	2.0, 0.0, 0.0,
+							0.0, 3.0, 0.0,
+							0.0, 0.0, 4.0};
+
+	const TVector3d kB3d{ 1.0, 1.0, 1.0 };
+	const TVector3d kC3d{ 2.0, 3.0, 4.0 };
+
+	const TMatrix3f kA3f{	2.0f, 0.0f, 0.0f,
+							0.0f, 3.0f, 0.0f,
+							0.0f, 0.0f, 4.0f};
+
+	const TVector3f kB3f{ 1.0f, 1.0f, 1.0f };
+	const TVector3f kC3f{ 2.0f, 3.0f, 4.0f };
+
+	const TMatrix2d kA2d{	2.0, 0.0,
+							0.0, 3.0};
+
+	const TVector2d kB2d{ 1.0, 1.0 };
+	const TVector2d kC2d{ 2.0, 3.0 };
+
+	const TMatrix2f kA2f{	2.0f, 0.0f,
+							0.0f, 3.0f};
+
+	const TVector2f kB2f{ 1.0f, 1.0f };
+	const TVector2f kC2f{ 2.0f, 3.0f };
+
+	const bool kbPass4d = math::Equal(kC4d, math::VectorMultiply(TVector4d(), kA4d, kB4d), s_kdEpsilon);
+	const bool kbPass4f = math::Equal(kC4f, math::VectorMultiply(TVector4f(), kA4f, kB4f), s_kfEpsilon);
+	const bool kbPass3d = math::Equal(kC3d, math::VectorMultiply(TVector3d(), kA3d, kB3d), s_kdEpsilon);
+	const bool kbPass3f = math::Equal(kC3f, math::VectorMultiply(TVector3f(), kA3f, kB3f), s_kfEpsilon);
+	const bool kbPass2d = math::Equal(kC2d, math::VectorMultiply(TVector2d(), kA2d, kB2d), s_kdEpsilon);
+	const bool kbPass2f = math::Equal(kC2f, math::VectorMultiply(TVector2f(), kA2f, kB2f), s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
+
 //
