@@ -28,4 +28,6 @@ const bool Test_Matrix_GetElement();
 
 const bool Test_Matrix_SetElement();
 
+const bool Test_Matrix_Submatrix();
+
 #endif

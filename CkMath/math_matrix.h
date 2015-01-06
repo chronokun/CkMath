@@ -100,7 +100,7 @@ namespace math
 							const size_t _kRow,
 							const size_t _kColumn);
 
-	const float FirstMinor(const TMatrix4f& _krMatrix,
+	const float FirstMinor(	const TMatrix4f& _krMatrix,
 							const size_t _kRow,
 							const size_t _kColumn);
 

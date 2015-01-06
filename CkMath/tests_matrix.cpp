@@ -651,4 +651,50 @@ const bool Test_Matrix_SetElement()
 			&&	bPass2f);
 }
 
+const bool Test_Matrix_Submatrix()
+{
+	const TMatrix4d kA4d{	1.00, 2.00, 3.00, 4.00,
+							5.00, 6.00, 7.00, 8.00,
+							9.00, 10.0, 11.0, 12.0,
+							13.0, 14.0, 15.0, 16.0};
+
+	const TMatrix3d kB4d{	1.00, 3.00, 4.00,
+							9.00, 11.0, 12.0,
+							13.0, 15.0, 16.0};
+
+	const TMatrix4f kA4f{	1.00f, 2.00f, 3.00f, 4.00f,
+							5.00f, 6.00f, 7.00f, 8.00f,
+							9.00f, 10.0f, 11.0f, 12.0f,
+							13.0f, 14.0f, 15.0f, 16.0f};
+
+	const TMatrix3f kB4f{	1.00f, 3.00f, 4.00f,
+							9.00f, 11.0f, 12.0f,
+							13.0f, 15.0f, 16.0f};
+
+	const bool kbPass4d = math::Equal(math::Submatrix(TMatrix3d(), kA4d, 2, 2), kB4d, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::Submatrix(TMatrix3f(), kA4f, 2, 2), kB4f, s_kfEpsilon);
+
+	const TMatrix3d kA3d{	1.0, 2.0, 3.0,
+							4.0, 5.0, 6.0,
+							7.0, 8.0, 9.0};
+
+	const TMatrix2d kB3d{	1.0, 3.0,
+							7.0, 9.0};
+
+	const TMatrix3f kA3f{	1.0f, 2.0f, 3.0f,
+							4.0f, 5.0f, 6.0f,
+							7.0f, 8.0f, 9.0f};
+
+	const TMatrix2f kB3f{	1.0f, 3.0f,
+							7.0f, 9.0f};
+
+	const bool kbPass3d = math::Equal(math::Submatrix(TMatrix2d(), kA3d, 2, 2), kB3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::Submatrix(TMatrix2f(), kA3f, 2, 2), kB3f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f);
+}
+
 //
