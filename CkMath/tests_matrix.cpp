@@ -737,4 +737,64 @@ const bool Test_Matrix_FirstMinor()
 			&&	kbPass3f);
 }
 
+const bool Test_Matrix_MatrixOfMinors()
+{
+	const TMatrix4d kA4d{	2.0, 0.0, 0.0, 5.0,
+							0.0, 3.0, 0.0, 6.0,
+							0.0, 0.0, 4.0, 7.0,
+							0.0, 0.0, 0.0, 1.0};
+
+	const TMatrix4d kB4d{	012.0, 000.0, 000.0, 000.0,
+							000.0, 008.0, 000.0, 000.0,
+							000.0, 000.0, 006.0, 000.0,
+							060.0, -48.0, 042.0, 024.0};
+
+	const TMatrix4d kC4d = math::MatrixOfMinors(TMatrix4d(), kA4d);
+
+	const bool kbPass4d = math::Equal(kB4d, kC4d, s_kdEpsilon);
+
+	const TMatrix4f kA4f{	2.0f, 0.0f, 0.0f, 5.0f,
+							0.0f, 3.0f, 0.0f, 6.0f,
+							0.0f, 0.0f, 4.0f, 7.0f,
+							0.0f, 0.0f, 0.0f, 1.0f};
+
+	const TMatrix4f kB4f{	012.0f, 000.0f, 000.0f, 000.0f,
+							000.0f, 008.0f, 000.0f, 000.0f,
+							000.0f, 000.0f, 006.0f, 000.0f,
+							060.0f, -48.0f, 042.0f, 024.0f};
+
+	const TMatrix4f kC4f = math::MatrixOfMinors(TMatrix4f(), kA4f);
+
+	const bool kbPass4f = math::Equal(kB4f, kC4f, s_kfEpsilon);
+
+	const TMatrix3d kA3d{	2.0, 0.0, 5.0,
+							0.0, 3.0, 6.0,
+							0.0, 0.0, 1.0};
+
+	const TMatrix3d kB3d{	003.0, 000.0, 000.0,
+							000.0, 002.0, 000.0,
+							-15.0, 012.0, 006.0};
+
+	const TMatrix3d kC3d = math::MatrixOfMinors(TMatrix3d(), kA3d);
+
+	const bool kbPass3d = math::Equal(kB3d, kC3d, s_kdEpsilon);
+
+	const TMatrix3f kA3f{	2.0f, 0.0f, 5.0f,
+							0.0f, 3.0f, 6.0f,
+							0.0f, 0.0f, 1.0f};
+
+	const TMatrix3f kB3f{	003.0f, 000.0f, 000.0f,
+							000.0f, 002.0f, 000.0f,
+							-15.0f, 012.0f, 006.0f};
+
+	const TMatrix3f kC3f = math::MatrixOfMinors(TMatrix3f(), kA3f);
+
+	const bool kbPass3f = math::Equal(kB3f, kC3f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f);
+}
+
 //
