@@ -850,4 +850,53 @@ const bool Test_Matrix_Determinant()
 			&&	kbPass2f);
 }
 
+const bool Test_Matrix_Inverse()
+{
+	const TMatrix4d kA4d{	4.0, 0.0, 0.0, 1.0,
+							0.0, 4.0, 0.0, 2.0,
+							0.0, 0.0, 4.0, 3.0,
+							0.0, 0.0, 0.0, 1.0};
+
+	const TMatrix4d kB4d = math::Inverse(TMatrix4d(), kA4d);
+	const TMatrix4d kC4d = math::Multiply(TMatrix4d(), kA4d, kB4d);
+
+	const TMatrix4f kA4f{	4.0f, 0.0f, 0.0f, 1.0f,
+							0.0f, 4.0f, 0.0f, 2.0f,
+							0.0f, 0.0f, 4.0f, 3.0f,
+							0.0f, 0.0f, 0.0f, 1.0f};
+
+	const TMatrix4f kB4f = math::Inverse(TMatrix4f(), kA4f);
+	const TMatrix4f kC4f = math::Multiply(TMatrix4f(), kA4f, kB4f);
+
+	const bool kbPass4d = math::Equal(kC4d, math::IdentityMatrix(TMatrix4d()), s_kdEpsilon);
+	const bool kbPass4f = math::Equal(kC4f, math::IdentityMatrix(TMatrix4f()), s_kfEpsilon);
+
+	const TMatrix3d kA3d{	4.0, 0.0, 1.0,
+							0.0, 4.0, 2.0,
+							0.0, 0.0, 1.0};
+
+	const TMatrix3f kA3f{	4.0f, 0.0f, 1.0f,
+							0.0f, 4.0f, 2.0f,
+							0.0f, 0.0f, 1.0f};
+
+	const bool kbPass3d = math::Equal(math::Multiply(TMatrix3d(), kA3d, math::Inverse(TMatrix3d(), kA3d)), math::IdentityMatrix(TMatrix3d()), s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::Multiply(TMatrix3f(), kA3f, math::Inverse(TMatrix3f(), kA3f)), math::IdentityMatrix(TMatrix3f()), s_kfEpsilon);
+
+	const TMatrix2d kA2d{	4.0, 7.0,
+							2.0, 6.0};
+
+	const TMatrix2f kA2f{	4.0f, 7.0f,
+							2.0f, 6.0f};
+
+	const bool kbPass2d = math::Equal(math::Multiply(TMatrix2d(), kA2d, math::Inverse(TMatrix2d(), kA2d)), math::IdentityMatrix(TMatrix2d()), s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::Multiply(TMatrix2f(), kA2f, math::Inverse(TMatrix2f(), kA2f)), math::IdentityMatrix(TMatrix2f()), s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
+
 //

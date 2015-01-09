@@ -110,6 +110,12 @@ namespace math
 	const TMatrix4f& MatrixOfMinors(TMatrix4f& _rResult,
 									const TMatrix4f& _krMatrix);
 
+	const TMatrix4d& MatrixOfCofactors(	TMatrix4d& _rResult,
+										const TMatrix4d& _krMatrix);
+
+	const TMatrix4f& MatrixOfCofactors(	TMatrix4f& _rResult,
+										const TMatrix4f& _krMatrix);
+
 	const double Determinant(const TMatrix4d& _krMatrix);
 
 	const float Determinant(const TMatrix4f& _krMatrix);

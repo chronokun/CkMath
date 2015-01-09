@@ -782,6 +782,46 @@ const TMatrix4f& math::MatrixOfMinors(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
+const TMatrix4d& math::MatrixOfCofactors(	TMatrix4d& _rResult,
+											const TMatrix4d& _krMatrix)
+{
+	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+
+	_rResult.m_d12 *= -1.0;
+	_rResult.m_d14 *= -1.0;
+
+	_rResult.m_d21 *= -1.0;
+	_rResult.m_d23 *= -1.0;
+
+	_rResult.m_d32 *= -1.0;
+	_rResult.m_d34 *= -1.0;
+
+	_rResult.m_d41 *= -1.0;
+	_rResult.m_d43 *= -1.0;
+
+	return(_rResult);
+}
+
+const TMatrix4f& math::MatrixOfCofactors(	TMatrix4f& _rResult,
+											const TMatrix4f& _krMatrix)
+{
+	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+
+	_rResult.m_f12 *= -1.0f;
+	_rResult.m_f14 *= -1.0f;
+
+	_rResult.m_f21 *= -1.0f;
+	_rResult.m_f23 *= -1.0f;
+
+	_rResult.m_f32 *= -1.0f;
+	_rResult.m_f34 *= -1.0f;
+
+	_rResult.m_f41 *= -1.0f;
+	_rResult.m_f43 *= -1.0f;
+
+	return(_rResult);
+}
+
 const double math::Determinant(const TMatrix4d& _krMatrix)
 {
 	const double kdDeterminant =	(_krMatrix.m_d11 * math::FirstMinor(_krMatrix, 1, 1))
@@ -805,7 +845,10 @@ const float math::Determinant(const TMatrix4f& _krMatrix)
 const TMatrix4d& math::Inverse(	TMatrix4d& _rResult,
 								const TMatrix4d& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix4d(), _krMatrix), 1.0/math::Determinant(_krMatrix));
+	_rResult = math::ScalarMultiply(_rResult,
+									math::Transpose(TMatrix4d(),
+													math::MatrixOfCofactors(TMatrix4d(), _krMatrix)),
+									1.0/math::Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -813,7 +856,10 @@ const TMatrix4d& math::Inverse(	TMatrix4d& _rResult,
 const TMatrix4f& math::Inverse(	TMatrix4f& _rResult,
 								const TMatrix4f& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix4f(), _krMatrix), 1.0f/math::Determinant(_krMatrix));
+	_rResult = math::ScalarMultiply(_rResult,
+									math::Transpose(TMatrix4f(),
+													math::MatrixOfCofactors(TMatrix4f(), _krMatrix)),
+									1.0f/math::Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -1797,7 +1843,10 @@ const TMatrix3f& math::MatrixOfCofactors(	TMatrix3f& _rResult,
 const TMatrix3d& math::Inverse(	TMatrix3d& _rResult,
 								const TMatrix3d& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix3d(), _krMatrix), 1.0/math::Determinant(_krMatrix));
+	_rResult = math::ScalarMultiply(_rResult,
+									math::Transpose(TMatrix3d(),
+													math::MatrixOfCofactors(TMatrix3d(), _krMatrix)),
+									1.0/math::Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -1805,7 +1854,10 @@ const TMatrix3d& math::Inverse(	TMatrix3d& _rResult,
 const TMatrix3f& math::Inverse(	TMatrix3f& _rResult,
 								const TMatrix3f& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix3f(), _krMatrix), 1.0f/math::Determinant(_krMatrix));
+	_rResult = math::ScalarMultiply(_rResult,
+									math::Transpose(TMatrix3f(),
+													math::MatrixOfCofactors(TMatrix3f(), _krMatrix)),
+									1.0f/math::Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -2097,7 +2149,9 @@ TMatrix2f& math::SetElement(	TMatrix2f& _rResult,
 const TMatrix2d& math::Inverse(	TMatrix2d& _rResult,
 								const TMatrix2d& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix2d(), _krMatrix), 1.0/math::Determinant(_krMatrix));
+	const TMatrix2d kTemp{	_krMatrix.m_d22, -_krMatrix.m_d12,
+							-_krMatrix.m_d21, _krMatrix.m_d11};
+	_rResult = math::ScalarMultiply(TMatrix2d(), kTemp, 1.0 / math::Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -2105,7 +2159,9 @@ const TMatrix2d& math::Inverse(	TMatrix2d& _rResult,
 const TMatrix2f& math::Inverse(	TMatrix2f& _rResult,
 								const TMatrix2f& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult, math::Transpose(TMatrix2f(), _krMatrix), 1.0f/math::Determinant(_krMatrix));
+	const TMatrix2f kTemp{	_krMatrix.m_f22, -_krMatrix.m_f12,
+							-_krMatrix.m_f21, _krMatrix.m_f11};
+	_rResult = math::ScalarMultiply(TMatrix2f(), kTemp, 1.0f / math::Determinant(_krMatrix));
 
 	return(_rResult);
 }

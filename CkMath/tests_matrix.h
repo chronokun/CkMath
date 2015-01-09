@@ -36,4 +36,6 @@ const bool Test_Matrix_MatrixOfMinors();
 
 const bool Test_Matrix_Determinant();
 
+const bool Test_Matrix_Inverse();
+
 #endif
