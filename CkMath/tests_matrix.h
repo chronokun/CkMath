@@ -42,4 +42,6 @@ const bool Test_Matrix_TranslationMatrix();
 
 const bool Test_Matrix_ScalingMatrix();
 
+const bool Test_Matrix_TransformationMatrix();
+
 #endif

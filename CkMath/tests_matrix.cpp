@@ -929,4 +929,50 @@ const bool Test_Matrix_ScalingMatrix()
 	return(kbPass_d && kbPass_f);
 }
 
+const bool Test_Matrix_TransformationMatrix()
+{
+	const TVector3d kTranslate_d{1.0, 2.0, 3.0};
+	const TVector3d kAxis_d = math::Normalize(TVector3d(), TVector3d{1.0, 1.0, 1.0});
+	const double kdAngle = s_kdTau / 8.0;
+	const TVector4d kQuatOrient_d = math::AxisAngleQuaternion(TVector4d(), kAxis_d, kdAngle);
+	const double kdScale = 2.0;
+
+	const TMatrix4d kTranslation_d = math::TranslationMatrix(TMatrix4d(), kTranslate_d);
+	const TMatrix4d kOrientation_d = math::OrientationMatrix(TMatrix4d(), kQuatOrient_d);
+	const TMatrix4d kScaling_d = math::ScalingMatrix(TMatrix4d(), kdScale, kdScale, kdScale);
+	const TMatrix4d kTransformA_d = math::Multiply(TMatrix4d(), kScaling_d, kOrientation_d);
+	const TMatrix4d kTransformB_d = math::Multiply(TMatrix4d(), kTranslation_d, kTransformA_d);
+
+	const TVector3d kBasisX_d = math::QuaternionRotate(TVector3d(), TVector3d{kdScale, 0.0, 0.0}, kQuatOrient_d);
+	const TVector3d kBasisY_d = math::QuaternionRotate(TVector3d(), TVector3d{0.0, kdScale, 0.0}, kQuatOrient_d);
+	const TVector3d kBasisZ_d = math::QuaternionRotate(TVector3d(), TVector3d{0.0, 0.0, kdScale}, kQuatOrient_d);
+
+	const TMatrix4d kTransformC_d = math::TransformationMatrix(TMatrix4d(), kBasisX_d, kBasisY_d, kBasisZ_d, kTranslate_d);
+
+	const bool kbPass_d = math::Equal(kTransformC_d, kTransformB_d, s_kdEpsilon);
+
+	//
+	const TVector3f kTranslate_f{1.0f, 2.0f, 3.0f};
+	const TVector3f kAxis_f = math::Normalize(TVector3f(), TVector3f{1.0f, 1.0f, 1.0f});
+	const float kfAngle = s_kfTau / 8.0f;
+	const TVector4f kQuatOrient_f = math::AxisAngleQuaternion(TVector4f(), kAxis_f, kfAngle);
+	const float kfScale = 2.0f;
+
+	const TMatrix4f kTranslation_f = math::TranslationMatrix(TMatrix4f(), kTranslate_f);
+	const TMatrix4f kOrientation_f = math::OrientationMatrix(TMatrix4f(), kQuatOrient_f);
+	const TMatrix4f kScaling_f = math::ScalingMatrix(TMatrix4f(), kfScale, kfScale, kfScale);
+	const TMatrix4f kTransformA_f = math::Multiply(TMatrix4f(), kScaling_f, kOrientation_f);
+	const TMatrix4f kTransformB_f = math::Multiply(TMatrix4f(), kTranslation_f, kTransformA_f);
+
+	const TVector3f kBasisX_f = math::QuaternionRotate(TVector3f(), TVector3f{kfScale, 0.0f, 0.0f}, kQuatOrient_f);
+	const TVector3f kBasisY_f = math::QuaternionRotate(TVector3f(), TVector3f{0.0f, kfScale, 0.0f}, kQuatOrient_f);
+	const TVector3f kBasisZ_f = math::QuaternionRotate(TVector3f(), TVector3f{0.0f, 0.0f, kfScale}, kQuatOrient_f);
+
+	const TMatrix4f kTransformC_f = math::TransformationMatrix(TMatrix4f(), kBasisX_f, kBasisY_f, kBasisZ_f, kTranslate_f);
+
+	const bool kbPass_f = math::Equal(kTransformC_f, kTransformB_f, s_kfEpsilon);
+
+	return(kbPass_d && kbPass_f);
+}
+
 //
