@@ -1006,7 +1006,40 @@ const bool Test_Matrix_RotationMatrix()
 
 const bool Test_Matrix_AxisRotationMatrix()
 {
-	return(false);
+	const TVector3d kAxisXd{1.0, 0.0, 0.0};
+	const TVector3d kAxisYd{0.0, 1.0, 0.0};
+	const TVector3d kAxisZd{0.0, 0.0, 1.0};
+	
+	const double kdAngle = s_kdTau / 8.0;
+	
+	const TVector4d kQRotationXd = math::AxisAngleQuaternion(TVector4d(), kAxisXd, kdAngle);
+	const TVector4d kQRotationYd = math::AxisAngleQuaternion(TVector4d(), kAxisYd, kdAngle);
+	const TVector4d kQRotationZd = math::AxisAngleQuaternion(TVector4d(), kAxisZd, kdAngle);
+
+	const bool kbPassXd = math::Equal(math::AxisRotationXMatrix(TMatrix4d(), kdAngle), math::RotationMatrix(TMatrix4d(), kQRotationXd), s_kdEpsilon);
+	const bool kbPassYd = math::Equal(math::AxisRotationYMatrix(TMatrix4d(), kdAngle), math::RotationMatrix(TMatrix4d(), kQRotationYd), s_kdEpsilon);
+	const bool kbPassZd = math::Equal(math::AxisRotationZMatrix(TMatrix4d(), kdAngle), math::RotationMatrix(TMatrix4d(), kQRotationZd), s_kdEpsilon);
+
+	const TVector3f kAxisXf{1.0f, 0.0f, 0.0f};
+	const TVector3f kAxisYf{0.0f, 1.0f, 0.0f};
+	const TVector3f kAxisZf{0.0f, 0.0f, 1.0f};
+	
+	const float kfAngle = s_kfTau / 8.0f;
+	
+	const TVector4f kQRotationXf = math::AxisAngleQuaternion(TVector4f(), kAxisXf, kfAngle);
+	const TVector4f kQRotationYf = math::AxisAngleQuaternion(TVector4f(), kAxisYf, kfAngle);
+	const TVector4f kQRotationZf = math::AxisAngleQuaternion(TVector4f(), kAxisZf, kfAngle);
+
+	const bool kbPassXf = math::Equal(math::AxisRotationXMatrix(TMatrix4f(), kfAngle), math::RotationMatrix(TMatrix4f(), kQRotationXf), s_kfEpsilon);
+	const bool kbPassYf = math::Equal(math::AxisRotationYMatrix(TMatrix4f(), kfAngle), math::RotationMatrix(TMatrix4f(), kQRotationYf), s_kfEpsilon);
+	const bool kbPassZf = math::Equal(math::AxisRotationZMatrix(TMatrix4f(), kfAngle), math::RotationMatrix(TMatrix4f(), kQRotationZf), s_kfEpsilon);
+
+	return(		kbPassXd
+			&&	kbPassYd
+			&&	kbPassZd
+			&&	kbPassXf
+			&&	kbPassYf
+			&&	kbPassZf);
 }
 
 //
