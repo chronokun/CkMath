@@ -901,7 +901,19 @@ const bool Test_Matrix_Inverse()
 
 const bool Test_Matrix_TranslationMatrix()
 {
-	return(false);
+	const TVector3d kTranslate_d{1.0, 2.0, 3.0};
+	const TMatrix4d kTranslationMatrix_d = math::TranslationMatrix(TMatrix4d(), kTranslate_d);
+	const TVector4d kTranslatedPointA_d = math::VectorMultiply(TVector4d(), kTranslationMatrix_d, TVector4d{0.0, 0.0, 0.0, 1.0});
+	const TVector3d kTranslatedPointB_d{kTranslatedPointA_d.m_dX, kTranslatedPointA_d.m_dY, kTranslatedPointA_d.m_dZ};
+	const bool kbPass_d = math::Equal(kTranslate_d, kTranslatedPointB_d, s_kdEpsilon);
+
+	const TVector3f kTranslate_f{1.0f, 2.0f, 3.0f};
+	const TMatrix4f kTranslationMatrix_f = math::TranslationMatrix(TMatrix4f(), kTranslate_f);
+	const TVector4f kTranslatedPointA_f = math::VectorMultiply(TVector4f(), kTranslationMatrix_f, TVector4f{0.0f, 0.0f, 0.0f, 1.0f});
+	const TVector3f kTranslatedPointB_f{kTranslatedPointA_f.m_fX, kTranslatedPointA_f.m_fY, kTranslatedPointA_f.m_fZ};
+	const bool kbPass_f = math::Equal(kTranslate_f, kTranslatedPointB_f, s_kfEpsilon);
+
+	return(kbPass_d && kbPass_f);
 }
 
 //
