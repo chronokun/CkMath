@@ -31,6 +31,9 @@ const bool Test_Matrix_SetElement();
 const bool Test_Matrix_Submatrix();
 
 const bool Test_Matrix_FirstMinor();
+
 const bool Test_Matrix_MatrixOfMinors();
+
+const bool Test_Matrix_Determinant();
 
 #endif

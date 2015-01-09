@@ -797,4 +797,57 @@ const bool Test_Matrix_MatrixOfMinors()
 			&&	kbPass3f);
 }
 
+const bool Test_Matrix_Determinant()
+{
+	const TMatrix4d kA4d{	3.0, 2.0, 0.0, 1.0,
+							4.0, 0.0, 1.0, 2.0,
+							3.0, 0.0, 2.0, 1.0,
+							9.0, 2.0, 3.0, 1.0};
+
+	const double kB4d = 24.0;
+
+	const TMatrix4f kA4f{	3.0f, 2.0f, 0.0f, 1.0f,
+							4.0f, 0.0f, 1.0f, 2.0f,
+							3.0f, 0.0f, 2.0f, 1.0f,
+							9.0f, 2.0f, 3.0f, 1.0f};
+
+	const float kB4f = 24.0f;
+
+	const TMatrix3d kA3d{	1.0, 3.0, 2.0,
+							4.0, 1.0, 3.0,
+							2.0, 5.0, 2.0};
+
+	const double kB3d = 17.0;
+
+	const TMatrix3f kA3f{	1.0f, 3.0f, 2.0f,
+							4.0f, 1.0f, 3.0f,
+							2.0f, 5.0f, 2.0f};
+
+	const float kB3f = 17.0f;
+
+	const TMatrix2d kA2d{	3.0, 1.0,
+							5.0, 2.0};
+
+	const double kB2d = 1.0;
+
+	const TMatrix2f kA2f{	3.0f, 1.0f,
+							5.0f, 2.0f};
+
+	const float kB2f = 1.0f;
+
+	const bool kbPass4d = math::Equal(math::Determinant(kA4d), kB4d, s_kdEpsilon);
+	const bool kbPass4f = math::Equal(math::Determinant(kA4f), kB4f, s_kfEpsilon);
+	const bool kbPass3d = math::Equal(math::Determinant(kA3d), kB3d, s_kdEpsilon);
+	const bool kbPass3f = math::Equal(math::Determinant(kA3f), kB3f, s_kfEpsilon);
+	const bool kbPass2d = math::Equal(math::Determinant(kA2d), kB2d, s_kdEpsilon);
+	const bool kbPass2f = math::Equal(math::Determinant(kA2f), kB2f, s_kfEpsilon);
+
+	return(		kbPass4d
+			&&	kbPass4f
+			&&	kbPass3d
+			&&	kbPass3f
+			&&	kbPass2d
+			&&	kbPass2f);
+}
+
 //
