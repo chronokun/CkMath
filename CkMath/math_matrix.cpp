@@ -886,32 +886,6 @@ const TMatrix4f& math::TranslationMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::TranslationMatrix(	TMatrix4d& _rResult,
-											const double _kdX,
-											const double _kdY,
-											const double _kdZ)
-{
-	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = _kdX;
-	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0; _rResult.m_d23 = 0.0; _rResult.m_d24 = _kdY;
-	_rResult.m_d31 = 0.0; _rResult.m_d32 = 0.0; _rResult.m_d33 = 1.0; _rResult.m_d34 = _kdZ;
-	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0; _rResult.m_d43 = 0.0; _rResult.m_d44 = 1.0;
-
-	return(_rResult);
-}
-
-const TMatrix4f& math::TranslationMatrix(	TMatrix4f& _rResult,
-											const float _kfX,
-											const float _kfY,
-											const float _kfZ)
-{
-	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = _kfX;
-	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f; _rResult.m_f23 = 0.0f; _rResult.m_f24 = _kfY;
-	_rResult.m_f31 = 0.0f; _rResult.m_f32 = 0.0f; _rResult.m_f33 = 1.0f; _rResult.m_f34 = _kfZ;
-	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f; _rResult.m_f43 = 0.0f; _rResult.m_f44 = 1.0f;
-
-	return(_rResult);
-}
-
 const TMatrix4d& math::ScalingMatrix(	TMatrix4d& _rResult,
 										const double _kdX,
 										const double _kdY,

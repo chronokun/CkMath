@@ -899,4 +899,9 @@ const bool Test_Matrix_Inverse()
 			&&	kbPass2f);
 }
 
+const bool Test_Matrix_TranslationMatrix()
+{
+	return(false);
+}
+
 //

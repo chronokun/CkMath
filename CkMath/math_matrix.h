@@ -132,16 +132,6 @@ namespace math
 	const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
 										const TVector3f& _krVector);
 
-	const TMatrix4d& TranslationMatrix(	TMatrix4d& _rResult,
-										const double _kdX,
-										const double _kdY,
-										const double _kdZ);
-
-	const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
-										const float _kfX,
-										const float _kfY,
-										const float _kfZ);
-
 	const TMatrix4d& ScalingMatrix(	TMatrix4d& _rResult,
 									const double _kdX,
 									const double _kdY,

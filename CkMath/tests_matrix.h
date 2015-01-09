@@ -38,4 +38,6 @@ const bool Test_Matrix_Determinant();
 
 const bool Test_Matrix_Inverse();
 
+const bool Test_Matrix_TranslationMatrix();
+
 #endif
