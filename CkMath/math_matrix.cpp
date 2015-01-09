@@ -942,7 +942,7 @@ const TMatrix4f& math::TransformationMatrix(TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::OrientationMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& math::RotationMatrix(	TMatrix4d& _rResult,
 											const TVector4d& _krQuaternion)
 {
 	_rResult = math::TransformationMatrix(	_rResult,
@@ -954,7 +954,7 @@ const TMatrix4d& math::OrientationMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::OrientationMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& math::RotationMatrix(	TMatrix4f& _rResult,
 											const TVector4f& _krQuaternion)
 {
 	_rResult = math::TransformationMatrix(	_rResult,
@@ -966,7 +966,7 @@ const TMatrix4f& math::OrientationMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisOrientationXMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& math::AxisRotationXMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0;						_rResult.m_d13 = 0.0;						_rResult.m_d14 = 0.0;
@@ -977,7 +977,7 @@ const TMatrix4d& math::AxisOrientationXMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisOrientationXMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& math::AxisRotationXMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f;						_rResult.m_f13 = 0.0f;						_rResult.m_f14 = 0.0f;
@@ -988,7 +988,7 @@ const TMatrix4f& math::AxisOrientationXMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisOrientationYMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& math::AxisRotationYMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
 	_rResult.m_d11 = math::Cosine(_kdAngle);	_rResult.m_d12 = 0.0;	_rResult.m_d13 = math::Sine(_kdAngle);		_rResult.m_d14 = 0.0;
@@ -999,7 +999,7 @@ const TMatrix4d& math::AxisOrientationYMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisOrientationYMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& math::AxisRotationYMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
 	_rResult.m_f11 = math::Cosine(_kfAngle);	_rResult.m_f12 = 0.0f;	_rResult.m_f13 = math::Sine(_kfAngle);		_rResult.m_f14 = 0.0f;
@@ -1010,7 +1010,7 @@ const TMatrix4f& math::AxisOrientationYMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisOrientationZMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& math::AxisRotationZMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
 	_rResult.m_d11 = math::Cosine(_kdAngle);	_rResult.m_d12 = -math::Sine(_kdAngle);		_rResult.m_d13 = 0.0;	_rResult.m_d14 = 0.0;
@@ -1021,7 +1021,7 @@ const TMatrix4d& math::AxisOrientationZMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisOrientationZMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& math::AxisRotationZMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
 	_rResult.m_f11 = math::Cosine(_kfAngle);	_rResult.m_f12 = -math::Sine(_kfAngle);		_rResult.m_f13 = 0.0f;	_rResult.m_f14 = 0.0f;

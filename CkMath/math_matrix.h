@@ -154,28 +154,28 @@ namespace math
 											const TVector3f& _krBasisZ,
 											const TVector3f& _krTranslation);
 
-	const TMatrix4d& OrientationMatrix(	TMatrix4d& _rResult,
+	const TMatrix4d& RotationMatrix(	TMatrix4d& _rResult,
 										const TVector4d& _krQuaternion);
 
-	const TMatrix4f& OrientationMatrix(	TMatrix4f& _rResult,
+	const TMatrix4f& RotationMatrix(	TMatrix4f& _rResult,
 										const TVector4f& _krQuaternion);
 
-	const TMatrix4d& AxisOrientationXMatrix(TMatrix4d& _rResult,
+	const TMatrix4d& AxisRotationXMatrix(TMatrix4d& _rResult,
 											const double _kdAngle);
 
-	const TMatrix4f& AxisOrientationXMatrix(TMatrix4f& _rResult,
+	const TMatrix4f& AxisRotationXMatrix(TMatrix4f& _rResult,
 											const float _kfAngle);
 
-	const TMatrix4d& AxisOrientationYMatrix(TMatrix4d& _rResult,
+	const TMatrix4d& AxisRotationYMatrix(TMatrix4d& _rResult,
 											const double _kdAngle);
 
-	const TMatrix4f& AxisOrientationYMatrix(TMatrix4f& _rResult,
+	const TMatrix4f& AxisRotationYMatrix(TMatrix4f& _rResult,
 											const float _kfAngle);
 
-	const TMatrix4d& AxisOrientationZMatrix(TMatrix4d& _rResult,
+	const TMatrix4d& AxisRotationZMatrix(TMatrix4d& _rResult,
 											const double _kdAngle);
 
-	const TMatrix4f& AxisOrientationZMatrix(TMatrix4f& _rResult,
+	const TMatrix4f& AxisRotationZMatrix(TMatrix4f& _rResult,
 											const float _kfAngle);
 
 	const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,

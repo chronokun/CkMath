@@ -44,6 +44,8 @@ const bool Test_Matrix_ScalingMatrix();
 
 const bool Test_Matrix_TransformationMatrix();
 
-const bool Test_Matrix_OrientationMatrix();
+const bool Test_Matrix_RotationMatrix();
+
+const bool Test_Matrix_AxisRotationMatrix();
 
 #endif
