@@ -966,36 +966,6 @@ const TMatrix4f& math::OrientationMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::OrientationMatrix(	TMatrix4d& _rResult,
-											const TVector3d& _krAxis,
-											const double _kdAngle)
-{
-	const TVector4d kQuaternion = math::AxisAngleQuaternion(TVector4d(), _krAxis, _kdAngle);
-
-	_rResult = math::TransformationMatrix(	_rResult,
-											math::QuaternionRotate(TVector3d(), TVector3d{1.0, 0.0, 0.0}, kQuaternion),
-											math::QuaternionRotate(TVector3d(), TVector3d{0.0, 1.0, 0.0}, kQuaternion),
-											math::QuaternionRotate(TVector3d(), TVector3d{0.0, 0.0, 1.0}, kQuaternion),
-											TVector3d{0.0, 0.0, 0.0});
-
-	return(_rResult);
-}
-
-const TMatrix4f& math::OrientationMatrix(	TMatrix4f& _rResult,
-											const TVector3f& _krAxis,
-											const float _kfAngle)
-{
-	const TVector4f kQuaternion = math::AxisAngleQuaternion(TVector4f(), _krAxis, _kfAngle);
-
-	_rResult = math::TransformationMatrix(	_rResult,
-											math::QuaternionRotate(TVector3f(), TVector3f{1.0f, 0.0f, 0.0f}, kQuaternion),
-											math::QuaternionRotate(TVector3f(), TVector3f{0.0f, 1.0f, 0.0f}, kQuaternion),
-											math::QuaternionRotate(TVector3f(), TVector3f{0.0f, 0.0f, 1.0f}, kQuaternion),
-											TVector3f{0.0f, 0.0f, 0.0f});
-
-	return(_rResult);
-}
-
 const TMatrix4d& math::AxisOrientationXMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {

@@ -160,14 +160,6 @@ namespace math
 	const TMatrix4f& OrientationMatrix(	TMatrix4f& _rResult,
 										const TVector4f& _krQuaternion);
 
-	const TMatrix4d& OrientationMatrix(	TMatrix4d& _rResult,
-										const TVector3d& _krAxis,
-										const double _kdAngle);
-
-	const TMatrix4f& OrientationMatrix(	TMatrix4f& _rResult,
-										const TVector3f& _krAxis,
-										const float _kfAngle);
-
 	const TMatrix4d& AxisOrientationXMatrix(TMatrix4d& _rResult,
 											const double _kdAngle);
 
