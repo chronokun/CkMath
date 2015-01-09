@@ -916,4 +916,17 @@ const bool Test_Matrix_TranslationMatrix()
 	return(kbPass_d && kbPass_f);
 }
 
+const bool Test_Matrix_ScalingMatrix()
+{
+	const TMatrix4d kScaleMatrix_d = math::ScalingMatrix(TMatrix4d(), 1.0, 2.0, 3.0);
+	const TVector4d kTransformedPoint_d = math::VectorMultiply(TVector4d(), kScaleMatrix_d, TVector4d{1.0, 1.0, 1.0, 1.0});
+	const bool kbPass_d = math::Equal(kTransformedPoint_d, TVector4d{1.0, 2.0, 3.0, 1.0}, s_kdEpsilon);
+
+	const TMatrix4f kScaleMatrix_f = math::ScalingMatrix(TMatrix4f(), 1.0f, 2.0f, 3.0f);
+	const TVector4f kTransformedPoint_f = math::VectorMultiply(TVector4f(), kScaleMatrix_f, TVector4f{1.0f, 1.0f, 1.0f, 1.0f});
+	const bool kbPass_f = math::Equal(kTransformedPoint_f, TVector4f{1.0f, 2.0f, 3.0f, 1.0f}, s_kfEpsilon);
+
+	return(kbPass_d && kbPass_f);
+}
+
 //

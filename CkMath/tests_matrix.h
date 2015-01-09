@@ -40,4 +40,6 @@ const bool Test_Matrix_Inverse();
 
 const bool Test_Matrix_TranslationMatrix();
 
+const bool Test_Matrix_ScalingMatrix();
+
 #endif
