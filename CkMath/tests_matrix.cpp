@@ -975,4 +975,33 @@ const bool Test_Matrix_TransformationMatrix()
 	return(kbPass_d && kbPass_f);
 }
 
+const bool Test_Matrix_OrientationMatrix()
+{
+	const TVector3d kAxis_d = math::Normalize(TVector3d(), TVector3d{1.0, 1.0, 1.0});
+	const double kdAngle = s_kdTau / 8.0;
+	const TVector4d kQuatOrient_d = math::AxisAngleQuaternion(TVector4d(), kAxis_d, kdAngle);
+	
+	const TMatrix4d kOrientation_d = math::OrientationMatrix(TMatrix4d(), kQuatOrient_d);
+
+	const TVector4d kTransformedA_d = math::VectorMultiply(TVector4d(), kOrientation_d, TVector4d{1.0, 0.0, 0.0, 1.0});
+	const TVector3d kTransformedB_d{kTransformedA_d.m_dX, kTransformedA_d.m_dY, kTransformedA_d.m_dZ};
+	const TVector3d kTransformedC_d = math::QuaternionRotate(TVector3d(), TVector3d{1.0, 0.0, 0.0}, kQuatOrient_d);
+
+	const bool kbPass_d = math::Equal(kTransformedB_d, kTransformedC_d, s_kdEpsilon);
+
+	const TVector3f kAxis_f = math::Normalize(TVector3f(), TVector3f{1.0f, 1.0f, 1.0f});
+	const float kfAngle = s_kfTau / 8.0f;
+	const TVector4f kQuatOrient_f = math::AxisAngleQuaternion(TVector4f(), kAxis_f, kfAngle);
+	
+	const TMatrix4f kOrientation_f = math::OrientationMatrix(TMatrix4f(), kQuatOrient_f);
+
+	const TVector4f kTransformedA_f = math::VectorMultiply(TVector4f(), kOrientation_f, TVector4f{1.0f, 0.0f, 0.0f, 1.0f});
+	const TVector3f kTransformedB_f{kTransformedA_f.m_fX, kTransformedA_f.m_fY, kTransformedA_f.m_fZ};
+	const TVector3f kTransformedC_f = math::QuaternionRotate(TVector3f(), TVector3f{1.0f, 0.0f, 0.0f}, kQuatOrient_f);
+
+	const bool kbPass_f = math::Equal(kTransformedB_f, kTransformedC_f, s_kfEpsilon);
+
+	return(kbPass_d && kbPass_f);
+}
+
 //

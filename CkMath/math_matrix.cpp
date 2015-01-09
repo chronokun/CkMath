@@ -918,9 +918,9 @@ const TMatrix4d& math::TransformationMatrix(TMatrix4d& _rResult,
 											const TVector3d& _krBasisZ,
 											const TVector3d& _krTranslation)
 {
-	_rResult.m_d11 = _krBasisX.m_dX; _rResult.m_d12 = _krBasisY.m_dY; _rResult.m_d13 = _krBasisZ.m_dZ; _rResult.m_d14 = _krTranslation.m_dX;
-	_rResult.m_d21 = _krBasisX.m_dX; _rResult.m_d22 = _krBasisY.m_dY; _rResult.m_d23 = _krBasisZ.m_dZ; _rResult.m_d24 = _krTranslation.m_dY;
-	_rResult.m_d31 = _krBasisX.m_dX; _rResult.m_d32 = _krBasisY.m_dY; _rResult.m_d33 = _krBasisZ.m_dZ; _rResult.m_d34 = _krTranslation.m_dZ;
+	_rResult.m_d11 = _krBasisX.m_dX; _rResult.m_d12 = _krBasisY.m_dX; _rResult.m_d13 = _krBasisZ.m_dX; _rResult.m_d14 = _krTranslation.m_dX;
+	_rResult.m_d21 = _krBasisX.m_dY; _rResult.m_d22 = _krBasisY.m_dY; _rResult.m_d23 = _krBasisZ.m_dY; _rResult.m_d24 = _krTranslation.m_dY;
+	_rResult.m_d31 = _krBasisX.m_dZ; _rResult.m_d32 = _krBasisY.m_dZ; _rResult.m_d33 = _krBasisZ.m_dZ; _rResult.m_d34 = _krTranslation.m_dZ;
 
 	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0; _rResult.m_d43 = 0.0; _rResult.m_d44 = 1.0;
 
@@ -933,9 +933,9 @@ const TMatrix4f& math::TransformationMatrix(TMatrix4f& _rResult,
 											const TVector3f& _krBasisZ,
 											const TVector3f& _krTranslation)
 {
-	_rResult.m_f11 = _krBasisX.m_fX; _rResult.m_f12 = _krBasisY.m_fY; _rResult.m_f13 = _krBasisZ.m_fZ; _rResult.m_f14 = _krTranslation.m_fX;
-	_rResult.m_f21 = _krBasisX.m_fX; _rResult.m_f22 = _krBasisY.m_fY; _rResult.m_f23 = _krBasisZ.m_fZ; _rResult.m_f24 = _krTranslation.m_fY;
-	_rResult.m_f31 = _krBasisX.m_fX; _rResult.m_f32 = _krBasisY.m_fY; _rResult.m_f33 = _krBasisZ.m_fZ; _rResult.m_f34 = _krTranslation.m_fZ;
+	_rResult.m_f11 = _krBasisX.m_fX; _rResult.m_f12 = _krBasisY.m_fX; _rResult.m_f13 = _krBasisZ.m_fX; _rResult.m_f14 = _krTranslation.m_fX;
+	_rResult.m_f21 = _krBasisX.m_fY; _rResult.m_f22 = _krBasisY.m_fY; _rResult.m_f23 = _krBasisZ.m_fY; _rResult.m_f24 = _krTranslation.m_fY;
+	_rResult.m_f31 = _krBasisX.m_fZ; _rResult.m_f32 = _krBasisY.m_fZ; _rResult.m_f33 = _krBasisZ.m_fZ; _rResult.m_f34 = _krTranslation.m_fZ;
 
 	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f; _rResult.m_f43 = 0.0f; _rResult.m_f44 = 1.0f;
 
