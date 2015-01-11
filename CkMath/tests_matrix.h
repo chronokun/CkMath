@@ -50,4 +50,6 @@ const bool Test_Matrix_AxisRotationMatrix();
 
 const bool Test_Matrix_PerspectiveMatrix();
 
+const bool Test_Matrix_OrthographicMatrix();
+
 #endif

@@ -1057,4 +1057,17 @@ const bool Test_Matrix_PerspectiveMatrix()
 	return(kbPass_d && kbPass_f);
 }
 
+const bool Test_Matrix_OrthographicMatrix()
+{
+	const TMatrix4d kAd = math::OrthographicMatrix(TMatrix4d(), 2.0, 2.0, 4.0, 3.0);
+	const TMatrix4d kBd = math::OrthographicMatrix(TMatrix4d(), -1.0, 1.0, -1.0, 1.0, 4.0, 3.0);
+	const bool kbPass_d = math::Equal(kAd, kBd, 0.01);
+
+	const TMatrix4f kAf = math::OrthographicMatrix(TMatrix4f(), 2.0f, 2.0f, 4.0f, 3.0f);
+	const TMatrix4f kBf = math::OrthographicMatrix(TMatrix4f(), -1.0f, 1.0f, -1.0f, 1.0f, 4.0f, 3.0f);
+	const bool kbPass_f = math::Equal(kAf, kBf, 0.01f);
+
+	return(kbPass_d && kbPass_f);
+}
+
 //
