@@ -48,4 +48,6 @@ const bool Test_Matrix_RotationMatrix();
 
 const bool Test_Matrix_AxisRotationMatrix();
 
+const bool Test_Matrix_PerspectiveMatrix();
+
 #endif

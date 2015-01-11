@@ -1042,4 +1042,19 @@ const bool Test_Matrix_AxisRotationMatrix()
 			&&	kbPassZf);
 }
 
+const bool Test_Matrix_PerspectiveMatrix()
+{
+	const TMatrix4d kAd = math::PerspectiveMatrix(TMatrix4d(), s_kdTau / 2.0, s_kdTau / 2.0, 4.0, 2.0);
+	const TMatrix4d kBd = math::PerspectiveMatrix(TMatrix4d(), -2.0, 2.0, -2.0, 2.0, 4.0, 2.0);
+
+	const bool kbPass_d = math::Equal(kAd, kBd, 0.01);
+
+	const TMatrix4f kAf = math::PerspectiveMatrix(TMatrix4f(), s_kfTau / 2.0f, s_kfTau / 2.0f, 4.0f, 2.0f);
+	const TMatrix4f kBf = math::PerspectiveMatrix(TMatrix4f(), -2.0f, 2.0f, -2.0f, 2.0f, 4.0f, 2.0f);
+
+	const bool kbPass_f = math::Equal(kAf, kBf, 0.01f);
+
+	return(kbPass_d && kbPass_f);
+}
+
 //
