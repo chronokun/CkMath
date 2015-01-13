@@ -4,10 +4,12 @@
 //
 
 // Local Includes
-#include "math_matrix.h"
-#include "math_vector.h"
-#include "math_scalar.h"
-#include "math_quaternion.h"
+#include "ckmath_matrix.h"
+#include "ckmath_vector.h"
+#include "ckmath_scalar.h"
+#include "ckmath_quaternion.h"
+
+using namespace math;
 
 //
 // Matrix 4

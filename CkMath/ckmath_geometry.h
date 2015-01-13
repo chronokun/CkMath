@@ -9,10 +9,12 @@
 #define __MATH_GEOMETRY_H__
 
 // Local Includes
-#include "math_types.h"
+#include "ckmath_types.h"
 
 namespace math
 {
+	using namespace math;
+
 	const bool IsIntersection(	const TPlane3d& _krA,
 								const TPlane3d& _krB,
 								const TPlane3d& _krC);

@@ -9,11 +9,13 @@
 #define __MATH_QUATERNION_H__
 
 // Local Includes
-#include "math_types.h"
+#include "ckmath_types.h"
 
 // Quaternion Function Prototypes
 namespace math
 {
+	using namespace math;
+
 	const TVector4d& IdentityQuaternion(TVector4d& _rResult);
 
 	const TVector4f& IdentityQuaternion(TVector4f& _rResult);

@@ -5,8 +5,10 @@
 
 // Local Includes
 #include "tests_matrix.h"
-#include "math.h"
+#include "ckmath.h"
 #include "test_constants.h"
+
+using namespace math;
 
 const bool Test_Matrix_Equal()
 {

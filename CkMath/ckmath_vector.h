@@ -9,11 +9,13 @@
 #define __MATH_VECTOR_H__
 
 // Local Includes
-#include "math_types.h"
+#include "ckmath_types.h"
 
 // Vector Function Prototypes
 namespace math
 {
+	using namespace math;
+
 	//
 	// Vector 4
 	//

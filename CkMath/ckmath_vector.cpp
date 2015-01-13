@@ -5,8 +5,10 @@
 
 
 // Local Includes
-#include "math_vector.h"
-#include "math_scalar.h"
+#include "ckmath_vector.h"
+#include "ckmath_scalar.h"
+
+using namespace math;
 
 //
 // Vector 4

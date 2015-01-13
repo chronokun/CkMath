@@ -4,9 +4,11 @@
 //
 
 // Local Includes
-#include "math_scalar.h"
-#include "math_vector.h"
-#include "math_geometry.h"
+#include "ckmath_scalar.h"
+#include "ckmath_vector.h"
+#include "ckmath_geometry.h"
+
+using namespace math;
 
 const bool math::IsIntersection(const TPlane3d& _krA,
 								const TPlane3d& _krB,
