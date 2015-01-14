@@ -9,57 +9,55 @@
 #include "ckmath_scalar.h"
 #include "ckmath_quaternion.h"
 
-using namespace math;
-
 //
 // Matrix 4
 //
 
-const bool math::Equal(const TMatrix4d& _krA, const TMatrix4d& _krB, const double _kdEpsilon)
+const bool Equal(const TMatrix4d& _krA, const TMatrix4d& _krB, const double _kdEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d14 - _krB.m_d14) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d24 - _krB.m_d24) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d34 - _krB.m_d34) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d41 - _krB.m_d41) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d42 - _krB.m_d42) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d43 - _krB.m_d43) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d44 - _krB.m_d44) < _kdEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d14 - _krB.m_d14) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d24 - _krB.m_d24) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d34 - _krB.m_d34) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d41 - _krB.m_d41) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d42 - _krB.m_d42) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d43 - _krB.m_d43) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d44 - _krB.m_d44) < _kdEpsilon);
 
 	return(kbEqual);
 }
 
-const bool math::Equal(const TMatrix4f& _krA, const TMatrix4f& _krB, const float _kfEpsilon)
+const bool Equal(const TMatrix4f& _krA, const TMatrix4f& _krB, const float _kfEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f14 - _krB.m_f14) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f24 - _krB.m_f24) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f34 - _krB.m_f34) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f41 - _krB.m_f41) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f42 - _krB.m_f42) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f43 - _krB.m_f43) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f44 - _krB.m_f44) < _kfEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f14 - _krB.m_f14) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f24 - _krB.m_f24) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f34 - _krB.m_f34) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f41 - _krB.m_f41) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f42 - _krB.m_f42) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f43 - _krB.m_f43) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f44 - _krB.m_f44) < _kfEpsilon);
 
 	return(kbEqual);
 }
 
-const TMatrix4d& math::ZeroMatrix(TMatrix4d& _rResult)
+const TMatrix4d& ZeroMatrix(TMatrix4d& _rResult)
 {
 	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 0.0; _rResult.m_d23 = 0.0; _rResult.m_d24 = 0.0;
@@ -69,7 +67,7 @@ const TMatrix4d& math::ZeroMatrix(TMatrix4d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix4f& math::ZeroMatrix(TMatrix4f& _rResult)
+const TMatrix4f& ZeroMatrix(TMatrix4f& _rResult)
 {
 	_rResult.m_f11 = 0.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 0.0f; _rResult.m_f23 = 0.0f; _rResult.m_f24 = 0.0f;
@@ -79,7 +77,7 @@ const TMatrix4f& math::ZeroMatrix(TMatrix4f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix4d& math::IdentityMatrix(TMatrix4d& _rResult)
+const TMatrix4d& IdentityMatrix(TMatrix4d& _rResult)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0; _rResult.m_d23 = 0.0; _rResult.m_d24 = 0.0;
@@ -89,7 +87,7 @@ const TMatrix4d& math::IdentityMatrix(TMatrix4d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix4f& math::IdentityMatrix(TMatrix4f& _rResult)
+const TMatrix4f& IdentityMatrix(TMatrix4f& _rResult)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f; _rResult.m_f23 = 0.0f; _rResult.m_f24 = 0.0f;
@@ -99,7 +97,7 @@ const TMatrix4f& math::IdentityMatrix(TMatrix4f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix4d& math::Multiply(TMatrix4d& _rResult,
+const TMatrix4d& Multiply(TMatrix4d& _rResult,
 								const TMatrix4d& _krA,
 								const TMatrix4d& _krB)
 {
@@ -110,16 +108,16 @@ const TMatrix4d& math::Multiply(TMatrix4d& _rResult,
 			double dAccumulate = 0.0;
 			for(size_t n = 1; n <= 4; ++n)
 			{
-				dAccumulate += math::GetElement(_krA, y, n) * math::GetElement(_krB, n, x);
+				dAccumulate += GetElement(_krA, y, n) * GetElement(_krB, n, x);
 			}
-			math::SetElement(_rResult, dAccumulate, y, x);
+			SetElement(_rResult, dAccumulate, y, x);
 		}
 	}
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::Multiply(TMatrix4f& _rResult,
+const TMatrix4f& Multiply(TMatrix4f& _rResult,
 								const TMatrix4f& _krA,
 								const TMatrix4f& _krB)
 {
@@ -130,16 +128,16 @@ const TMatrix4f& math::Multiply(TMatrix4f& _rResult,
 			float fAccumulate = 0.0;
 			for(size_t n = 1; n <= 4; ++n)
 			{
-				fAccumulate += math::GetElement(_krA, y, n) * math::GetElement(_krB, n, x);
+				fAccumulate += GetElement(_krA, y, n) * GetElement(_krB, n, x);
 			}
-			math::SetElement(_rResult, fAccumulate, y, x);
+			SetElement(_rResult, fAccumulate, y, x);
 		}
 	}
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::ScalarMultiply(	TMatrix4d& _rResult,
+const TMatrix4d& ScalarMultiply(	TMatrix4d& _rResult,
 										const TMatrix4d& _krMatrix,
 										const double _kdScalar)
 {
@@ -166,7 +164,7 @@ const TMatrix4d& math::ScalarMultiply(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::ScalarMultiply(	TMatrix4f& _rResult,
+const TMatrix4f& ScalarMultiply(	TMatrix4f& _rResult,
 										const TMatrix4f& _krMatrix,
 										const float _kfScalar)
 {
@@ -193,7 +191,7 @@ const TMatrix4f& math::ScalarMultiply(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TVector4d& math::VectorMultiply(	TVector4d& _rResult,
+const TVector4d& VectorMultiply(	TVector4d& _rResult,
 										const TMatrix4d& _krA,
 										const TVector4d& _krB)
 {
@@ -205,7 +203,7 @@ const TVector4d& math::VectorMultiply(	TVector4d& _rResult,
 	return(_rResult);
 }
 
-const TVector4f& math::VectorMultiply(	TVector4f& _rResult,
+const TVector4f& VectorMultiply(	TVector4f& _rResult,
 										const TMatrix4f& _krA,
 										const TVector4f& _krB)
 {
@@ -217,7 +215,7 @@ const TVector4f& math::VectorMultiply(	TVector4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::Add(	TMatrix4d& _rResult,
+const TMatrix4d& Add(	TMatrix4d& _rResult,
 							const TMatrix4d& _krA,
 							const TMatrix4d& _krB)
 {
@@ -244,7 +242,7 @@ const TMatrix4d& math::Add(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::Add(	TMatrix4f& _rResult,
+const TMatrix4f& Add(	TMatrix4f& _rResult,
 							const TMatrix4f& _krA,
 							const TMatrix4f& _krB)
 {
@@ -271,7 +269,7 @@ const TMatrix4f& math::Add(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::Transpose(	TMatrix4d& _rResult,
+const TMatrix4d& Transpose(	TMatrix4d& _rResult,
 									const TMatrix4d& _krMatrix)
 {
 	_rResult.m_d11 = _krMatrix.m_d11; _rResult.m_d12 = _krMatrix.m_d21; _rResult.m_d13 = _krMatrix.m_d31; _rResult.m_d14 = _krMatrix.m_d41;
@@ -282,7 +280,7 @@ const TMatrix4d& math::Transpose(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::Transpose(	TMatrix4f& _rResult,
+const TMatrix4f& Transpose(	TMatrix4f& _rResult,
 									const TMatrix4f& _krMatrix)
 {
 	_rResult.m_f11 = _krMatrix.m_f11; _rResult.m_f12 = _krMatrix.m_f21; _rResult.m_f13 = _krMatrix.m_f31; _rResult.m_f14 = _krMatrix.m_f41;
@@ -293,7 +291,7 @@ const TMatrix4f& math::Transpose(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const double math::GetElement(	const TMatrix4d& _krMatrix,
+const double GetElement(	const TMatrix4d& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -379,7 +377,7 @@ const double math::GetElement(	const TMatrix4d& _krMatrix,
 	return(dResult);
 }
 
-const float math::GetElement(	const TMatrix4f& _krMatrix,
+const float GetElement(	const TMatrix4f& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -466,7 +464,7 @@ const float math::GetElement(	const TMatrix4f& _krMatrix,
 }
 
 
-TMatrix4d& math::SetElement(	TMatrix4d& _rResult,
+TMatrix4d& SetElement(	TMatrix4d& _rResult,
 								const double _kdValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -551,7 +549,7 @@ TMatrix4d& math::SetElement(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-TMatrix4f& math::SetElement(	TMatrix4f& _rResult,
+TMatrix4f& SetElement(	TMatrix4f& _rResult,
 								const float _kfValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -636,7 +634,7 @@ TMatrix4f& math::SetElement(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult, 
+const TMatrix3d& Submatrix(	TMatrix3d& _rResult, 
 									const TMatrix4d& _krMatrix,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
@@ -667,7 +665,7 @@ const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult,
 					InsertJ = j-1;
 				}
 
-				math::SetElement(_rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
+				SetElement(_rResult, GetElement(_krMatrix, i, j), InsertI, InsertJ);
 			}
 		}
 	}
@@ -675,7 +673,7 @@ const TMatrix3d& math::Submatrix(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult, 
+const TMatrix3f& Submatrix(	TMatrix3f& _rResult, 
 									const TMatrix4f& _krMatrix,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
@@ -706,7 +704,7 @@ const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult,
 					InsertJ = j-1;
 				}
 
-				math::SetElement(_rResult, math::GetElement(_krMatrix, i, j), InsertI, InsertJ);
+				SetElement(_rResult, GetElement(_krMatrix, i, j), InsertI, InsertJ);
 			}
 		}
 	}
@@ -714,80 +712,80 @@ const TMatrix3f& math::Submatrix(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const double math::FirstMinor(	const TMatrix4d& _krMatrix,
+const double FirstMinor(	const TMatrix4d& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	const TMatrix3d kSubmatrix = math::Submatrix(TMatrix3d(), _krMatrix, _kRow, _kColumn);
+	const TMatrix3d kSubmatrix = Submatrix(TMatrix3d(), _krMatrix, _kRow, _kColumn);
 	
-	return(math::Determinant(kSubmatrix));
+	return(Determinant(kSubmatrix));
 }
 
-const float math::FirstMinor(	const TMatrix4f& _krMatrix,
+const float FirstMinor(	const TMatrix4f& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	const TMatrix3f kSubmatrix = math::Submatrix(TMatrix3f(), _krMatrix, _kRow, _kColumn);
+	const TMatrix3f kSubmatrix = Submatrix(TMatrix3f(), _krMatrix, _kRow, _kColumn);
 	
-	return(math::Determinant(kSubmatrix));
+	return(Determinant(kSubmatrix));
 }
 
-const TMatrix4d& math::MatrixOfMinors(	TMatrix4d& _rResult,
+const TMatrix4d& MatrixOfMinors(	TMatrix4d& _rResult,
 										const TMatrix4d& _krMatrix)
 {
-	_rResult.m_d11 = math::FirstMinor(_krMatrix, 1, 1);
-	_rResult.m_d12 = math::FirstMinor(_krMatrix, 1, 2);
-	_rResult.m_d13 = math::FirstMinor(_krMatrix, 1, 3);
-	_rResult.m_d14 = math::FirstMinor(_krMatrix, 1, 4);
+	_rResult.m_d11 = FirstMinor(_krMatrix, 1, 1);
+	_rResult.m_d12 = FirstMinor(_krMatrix, 1, 2);
+	_rResult.m_d13 = FirstMinor(_krMatrix, 1, 3);
+	_rResult.m_d14 = FirstMinor(_krMatrix, 1, 4);
 
-	_rResult.m_d21 = math::FirstMinor(_krMatrix, 2, 1);
-	_rResult.m_d22 = math::FirstMinor(_krMatrix, 2, 2);
-	_rResult.m_d23 = math::FirstMinor(_krMatrix, 2, 3);
-	_rResult.m_d24 = math::FirstMinor(_krMatrix, 2, 4);
+	_rResult.m_d21 = FirstMinor(_krMatrix, 2, 1);
+	_rResult.m_d22 = FirstMinor(_krMatrix, 2, 2);
+	_rResult.m_d23 = FirstMinor(_krMatrix, 2, 3);
+	_rResult.m_d24 = FirstMinor(_krMatrix, 2, 4);
 
-	_rResult.m_d31 = math::FirstMinor(_krMatrix, 3, 1);
-	_rResult.m_d32 = math::FirstMinor(_krMatrix, 3, 2);
-	_rResult.m_d33 = math::FirstMinor(_krMatrix, 3, 3);
-	_rResult.m_d34 = math::FirstMinor(_krMatrix, 3, 4);
+	_rResult.m_d31 = FirstMinor(_krMatrix, 3, 1);
+	_rResult.m_d32 = FirstMinor(_krMatrix, 3, 2);
+	_rResult.m_d33 = FirstMinor(_krMatrix, 3, 3);
+	_rResult.m_d34 = FirstMinor(_krMatrix, 3, 4);
 
-	_rResult.m_d41 = math::FirstMinor(_krMatrix, 4, 1);
-	_rResult.m_d42 = math::FirstMinor(_krMatrix, 4, 2);
-	_rResult.m_d43 = math::FirstMinor(_krMatrix, 4, 3);
-	_rResult.m_d44 = math::FirstMinor(_krMatrix, 4, 4);
+	_rResult.m_d41 = FirstMinor(_krMatrix, 4, 1);
+	_rResult.m_d42 = FirstMinor(_krMatrix, 4, 2);
+	_rResult.m_d43 = FirstMinor(_krMatrix, 4, 3);
+	_rResult.m_d44 = FirstMinor(_krMatrix, 4, 4);
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::MatrixOfMinors(	TMatrix4f& _rResult,
+const TMatrix4f& MatrixOfMinors(	TMatrix4f& _rResult,
 										const TMatrix4f& _krMatrix)
 {
-	_rResult.m_f11 = math::FirstMinor(_krMatrix, 1, 1);
-	_rResult.m_f12 = math::FirstMinor(_krMatrix, 1, 2);
-	_rResult.m_f13 = math::FirstMinor(_krMatrix, 1, 3);
-	_rResult.m_f14 = math::FirstMinor(_krMatrix, 1, 4);
+	_rResult.m_f11 = FirstMinor(_krMatrix, 1, 1);
+	_rResult.m_f12 = FirstMinor(_krMatrix, 1, 2);
+	_rResult.m_f13 = FirstMinor(_krMatrix, 1, 3);
+	_rResult.m_f14 = FirstMinor(_krMatrix, 1, 4);
 
-	_rResult.m_f21 = math::FirstMinor(_krMatrix, 2, 1);
-	_rResult.m_f22 = math::FirstMinor(_krMatrix, 2, 2);
-	_rResult.m_f23 = math::FirstMinor(_krMatrix, 2, 3);
-	_rResult.m_f24 = math::FirstMinor(_krMatrix, 2, 4);
+	_rResult.m_f21 = FirstMinor(_krMatrix, 2, 1);
+	_rResult.m_f22 = FirstMinor(_krMatrix, 2, 2);
+	_rResult.m_f23 = FirstMinor(_krMatrix, 2, 3);
+	_rResult.m_f24 = FirstMinor(_krMatrix, 2, 4);
 
-	_rResult.m_f31 = math::FirstMinor(_krMatrix, 3, 1);
-	_rResult.m_f32 = math::FirstMinor(_krMatrix, 3, 2);
-	_rResult.m_f33 = math::FirstMinor(_krMatrix, 3, 3);
-	_rResult.m_f34 = math::FirstMinor(_krMatrix, 3, 4);
+	_rResult.m_f31 = FirstMinor(_krMatrix, 3, 1);
+	_rResult.m_f32 = FirstMinor(_krMatrix, 3, 2);
+	_rResult.m_f33 = FirstMinor(_krMatrix, 3, 3);
+	_rResult.m_f34 = FirstMinor(_krMatrix, 3, 4);
 
-	_rResult.m_f41 = math::FirstMinor(_krMatrix, 4, 1);
-	_rResult.m_f42 = math::FirstMinor(_krMatrix, 4, 2);
-	_rResult.m_f43 = math::FirstMinor(_krMatrix, 4, 3);
-	_rResult.m_f44 = math::FirstMinor(_krMatrix, 4, 4);
+	_rResult.m_f41 = FirstMinor(_krMatrix, 4, 1);
+	_rResult.m_f42 = FirstMinor(_krMatrix, 4, 2);
+	_rResult.m_f43 = FirstMinor(_krMatrix, 4, 3);
+	_rResult.m_f44 = FirstMinor(_krMatrix, 4, 4);
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::MatrixOfCofactors(	TMatrix4d& _rResult,
+const TMatrix4d& MatrixOfCofactors(	TMatrix4d& _rResult,
 											const TMatrix4d& _krMatrix)
 {
-	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	_rResult = MatrixOfMinors(_rResult, _krMatrix);
 
 	_rResult.m_d12 *= -1.0;
 	_rResult.m_d14 *= -1.0;
@@ -804,10 +802,10 @@ const TMatrix4d& math::MatrixOfCofactors(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::MatrixOfCofactors(	TMatrix4f& _rResult,
+const TMatrix4f& MatrixOfCofactors(	TMatrix4f& _rResult,
 											const TMatrix4f& _krMatrix)
 {
-	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	_rResult = MatrixOfMinors(_rResult, _krMatrix);
 
 	_rResult.m_f12 *= -1.0f;
 	_rResult.m_f14 *= -1.0f;
@@ -824,49 +822,49 @@ const TMatrix4f& math::MatrixOfCofactors(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const double math::Determinant(const TMatrix4d& _krMatrix)
+const double Determinant(const TMatrix4d& _krMatrix)
 {
-	const double kdDeterminant =	(_krMatrix.m_d11 * math::FirstMinor(_krMatrix, 1, 1))
-								-	(_krMatrix.m_d12 * math::FirstMinor(_krMatrix, 1, 2))
-								+	(_krMatrix.m_d13 * math::FirstMinor(_krMatrix, 1, 3))
-								-	(_krMatrix.m_d14 * math::FirstMinor(_krMatrix, 1, 4));
+	const double kdDeterminant =	(_krMatrix.m_d11 * FirstMinor(_krMatrix, 1, 1))
+								-	(_krMatrix.m_d12 * FirstMinor(_krMatrix, 1, 2))
+								+	(_krMatrix.m_d13 * FirstMinor(_krMatrix, 1, 3))
+								-	(_krMatrix.m_d14 * FirstMinor(_krMatrix, 1, 4));
 
 	return(kdDeterminant);
 }
 
-const float math::Determinant(const TMatrix4f& _krMatrix)
+const float Determinant(const TMatrix4f& _krMatrix)
 {
-	const float kfDeterminant =		(_krMatrix.m_f11 * math::FirstMinor(_krMatrix, 1, 1))
-								-	(_krMatrix.m_f12 * math::FirstMinor(_krMatrix, 1, 2))
-								+	(_krMatrix.m_f13 * math::FirstMinor(_krMatrix, 1, 3))
-								-	(_krMatrix.m_f14 * math::FirstMinor(_krMatrix, 1, 4));
+	const float kfDeterminant =		(_krMatrix.m_f11 * FirstMinor(_krMatrix, 1, 1))
+								-	(_krMatrix.m_f12 * FirstMinor(_krMatrix, 1, 2))
+								+	(_krMatrix.m_f13 * FirstMinor(_krMatrix, 1, 3))
+								-	(_krMatrix.m_f14 * FirstMinor(_krMatrix, 1, 4));
 
 	return(kfDeterminant);
 }
 
-const TMatrix4d& math::Inverse(	TMatrix4d& _rResult,
+const TMatrix4d& Inverse(	TMatrix4d& _rResult,
 								const TMatrix4d& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult,
-									math::Transpose(TMatrix4d(),
-													math::MatrixOfCofactors(TMatrix4d(), _krMatrix)),
-									1.0/math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(_rResult,
+									Transpose(TMatrix4d(),
+													MatrixOfCofactors(TMatrix4d(), _krMatrix)),
+									1.0/Determinant(_krMatrix));
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::Inverse(	TMatrix4f& _rResult,
+const TMatrix4f& Inverse(	TMatrix4f& _rResult,
 								const TMatrix4f& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult,
-									math::Transpose(TMatrix4f(),
-													math::MatrixOfCofactors(TMatrix4f(), _krMatrix)),
-									1.0f/math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(_rResult,
+									Transpose(TMatrix4f(),
+													MatrixOfCofactors(TMatrix4f(), _krMatrix)),
+									1.0f/Determinant(_krMatrix));
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::TranslationMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& TranslationMatrix(	TMatrix4d& _rResult,
 											const TVector3d& _krVector)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = _krVector.m_dX;
@@ -877,7 +875,7 @@ const TMatrix4d& math::TranslationMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::TranslationMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
 											const TVector3f& _krVector)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = _krVector.m_fX;
@@ -888,7 +886,7 @@ const TMatrix4f& math::TranslationMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::ScalingMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& ScalingMatrix(	TMatrix4d& _rResult,
 										const double _kdX,
 										const double _kdY,
 										const double _kdZ)
@@ -901,7 +899,7 @@ const TMatrix4d& math::ScalingMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::ScalingMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& ScalingMatrix(	TMatrix4f& _rResult,
 										const float _kfX,
 										const float _kfY,
 										const float _kfZ)
@@ -914,7 +912,7 @@ const TMatrix4f& math::ScalingMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::TransformationMatrix(TMatrix4d& _rResult,
+const TMatrix4d& TransformationMatrix(TMatrix4d& _rResult,
 											const TVector3d& _krBasisX,
 											const TVector3d& _krBasisY,
 											const TVector3d& _krBasisZ,
@@ -929,7 +927,7 @@ const TMatrix4d& math::TransformationMatrix(TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::TransformationMatrix(TMatrix4f& _rResult,
+const TMatrix4f& TransformationMatrix(TMatrix4f& _rResult,
 											const TVector3f& _krBasisX,
 											const TVector3f& _krBasisY,
 											const TVector3f& _krBasisZ,
@@ -944,97 +942,97 @@ const TMatrix4f& math::TransformationMatrix(TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::RotationMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& RotationMatrix(	TMatrix4d& _rResult,
 											const TVector4d& _krQuaternion)
 {
-	_rResult = math::TransformationMatrix(	_rResult,
-											math::QuaternionRotate(TVector3d(), TVector3d{1.0, 0.0, 0.0}, _krQuaternion),
-											math::QuaternionRotate(TVector3d(), TVector3d{0.0, 1.0, 0.0}, _krQuaternion),
-											math::QuaternionRotate(TVector3d(), TVector3d{0.0, 0.0, 1.0}, _krQuaternion),
+	_rResult = TransformationMatrix(	_rResult,
+											QuaternionRotate(TVector3d(), TVector3d{1.0, 0.0, 0.0}, _krQuaternion),
+											QuaternionRotate(TVector3d(), TVector3d{0.0, 1.0, 0.0}, _krQuaternion),
+											QuaternionRotate(TVector3d(), TVector3d{0.0, 0.0, 1.0}, _krQuaternion),
 											TVector3d{0.0, 0.0, 0.0});
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::RotationMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& RotationMatrix(	TMatrix4f& _rResult,
 											const TVector4f& _krQuaternion)
 {
-	_rResult = math::TransformationMatrix(	_rResult,
-											math::QuaternionRotate(TVector3f(), TVector3f{1.0f, 0.0f, 0.0f}, _krQuaternion),
-											math::QuaternionRotate(TVector3f(), TVector3f{0.0f, 1.0f, 0.0f}, _krQuaternion),
-											math::QuaternionRotate(TVector3f(), TVector3f{0.0f, 0.0f, 1.0f}, _krQuaternion),
+	_rResult = TransformationMatrix(	_rResult,
+											QuaternionRotate(TVector3f(), TVector3f{1.0f, 0.0f, 0.0f}, _krQuaternion),
+											QuaternionRotate(TVector3f(), TVector3f{0.0f, 1.0f, 0.0f}, _krQuaternion),
+											QuaternionRotate(TVector3f(), TVector3f{0.0f, 0.0f, 1.0f}, _krQuaternion),
 											TVector3f{0.0f, 0.0f, 0.0f});
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisRotationXMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& AxisRotationXMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0;						_rResult.m_d13 = 0.0;						_rResult.m_d14 = 0.0;
-	_rResult.m_d21 = 0.0; _rResult.m_d22 = math::Cosine(_kdAngle);	_rResult.m_d23 = -math::Sine(_kdAngle);		_rResult.m_d24 = 0.0;
-	_rResult.m_d31 = 0.0; _rResult.m_d32 = math::Sine(_kdAngle);	_rResult.m_d33 = math::Cosine(_kdAngle);	_rResult.m_d34 = 0.0;
+	_rResult.m_d21 = 0.0; _rResult.m_d22 = Cosine(_kdAngle);	_rResult.m_d23 = -Sine(_kdAngle);		_rResult.m_d24 = 0.0;
+	_rResult.m_d31 = 0.0; _rResult.m_d32 = Sine(_kdAngle);	_rResult.m_d33 = Cosine(_kdAngle);	_rResult.m_d34 = 0.0;
 	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0;						_rResult.m_d43 = 0.0;						_rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisRotationXMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& AxisRotationXMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f;						_rResult.m_f13 = 0.0f;						_rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = 0.0f; _rResult.m_f22 = math::Cosine(_kfAngle);		_rResult.m_f23 = -math::Sine(_kfAngle);		_rResult.m_f24 = 0.0f;
-	_rResult.m_f31 = 0.0f; _rResult.m_f32 = math::Sine(_kfAngle);		_rResult.m_f33 = math::Cosine(_kfAngle);	_rResult.m_f34 = 0.0f;
+	_rResult.m_f21 = 0.0f; _rResult.m_f22 = Cosine(_kfAngle);		_rResult.m_f23 = -Sine(_kfAngle);		_rResult.m_f24 = 0.0f;
+	_rResult.m_f31 = 0.0f; _rResult.m_f32 = Sine(_kfAngle);		_rResult.m_f33 = Cosine(_kfAngle);	_rResult.m_f34 = 0.0f;
 	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f;						_rResult.m_f43 = 0.0f;						_rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisRotationYMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& AxisRotationYMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
-	_rResult.m_d11 = math::Cosine(_kdAngle);	_rResult.m_d12 = 0.0;	_rResult.m_d13 = math::Sine(_kdAngle);		_rResult.m_d14 = 0.0;
+	_rResult.m_d11 = Cosine(_kdAngle);	_rResult.m_d12 = 0.0;	_rResult.m_d13 = Sine(_kdAngle);		_rResult.m_d14 = 0.0;
 	_rResult.m_d21 = 0.0;						_rResult.m_d22 = 1.0;	_rResult.m_d23 = 0.0;						_rResult.m_d24 = 0.0;
-	_rResult.m_d31 = -math::Sine(_kdAngle);		_rResult.m_d32 = 0.0;	_rResult.m_d33 = math::Cosine(_kdAngle);	_rResult.m_d34 = 0.0;
+	_rResult.m_d31 = -Sine(_kdAngle);		_rResult.m_d32 = 0.0;	_rResult.m_d33 = Cosine(_kdAngle);	_rResult.m_d34 = 0.0;
 	_rResult.m_d41 = 0.0;						_rResult.m_d42 = 0.0;	_rResult.m_d43 = 0.0;						_rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisRotationYMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& AxisRotationYMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
-	_rResult.m_f11 = math::Cosine(_kfAngle);	_rResult.m_f12 = 0.0f;	_rResult.m_f13 = math::Sine(_kfAngle);		_rResult.m_f14 = 0.0f;
+	_rResult.m_f11 = Cosine(_kfAngle);	_rResult.m_f12 = 0.0f;	_rResult.m_f13 = Sine(_kfAngle);		_rResult.m_f14 = 0.0f;
 	_rResult.m_f21 = 0.0f;						_rResult.m_f22 = 1.0f;	_rResult.m_f23 = 0.0f;						_rResult.m_f24 = 0.0f;
-	_rResult.m_f31 = -math::Sine(_kfAngle);		_rResult.m_f32 = 0.0f;	_rResult.m_f33 = math::Cosine(_kfAngle);	_rResult.m_f34 = 0.0f;
+	_rResult.m_f31 = -Sine(_kfAngle);		_rResult.m_f32 = 0.0f;	_rResult.m_f33 = Cosine(_kfAngle);	_rResult.m_f34 = 0.0f;
 	_rResult.m_f41 = 0.0f;						_rResult.m_f42 = 0.0f;	_rResult.m_f43 = 0.0f;						_rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::AxisRotationZMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& AxisRotationZMatrix(	TMatrix4d& _rResult,
 												const double _kdAngle)
 {
-	_rResult.m_d11 = math::Cosine(_kdAngle);	_rResult.m_d12 = -math::Sine(_kdAngle);		_rResult.m_d13 = 0.0;	_rResult.m_d14 = 0.0;
-	_rResult.m_d21 = math::Sine(_kdAngle);		_rResult.m_d22 = math::Cosine(_kdAngle);	_rResult.m_d23 = 0.0;	_rResult.m_d24 = 0.0;
+	_rResult.m_d11 = Cosine(_kdAngle);	_rResult.m_d12 = -Sine(_kdAngle);		_rResult.m_d13 = 0.0;	_rResult.m_d14 = 0.0;
+	_rResult.m_d21 = Sine(_kdAngle);		_rResult.m_d22 = Cosine(_kdAngle);	_rResult.m_d23 = 0.0;	_rResult.m_d24 = 0.0;
 	_rResult.m_d31 = 0.0;						_rResult.m_d32 = 0.0;						_rResult.m_d33 = 1.0;	_rResult.m_d34 = 0.0;
 	_rResult.m_d41 = 0.0;						_rResult.m_d42 = 0.0;						_rResult.m_d43 = 0.0;	_rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::AxisRotationZMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& AxisRotationZMatrix(	TMatrix4f& _rResult,
 												const float _kfAngle)
 {
-	_rResult.m_f11 = math::Cosine(_kfAngle);	_rResult.m_f12 = -math::Sine(_kfAngle);		_rResult.m_f13 = 0.0f;	_rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = math::Sine(_kfAngle);		_rResult.m_f22 = math::Cosine(_kfAngle);	_rResult.m_f23 = 0.0f;	_rResult.m_f24 = 0.0f;
+	_rResult.m_f11 = Cosine(_kfAngle);	_rResult.m_f12 = -Sine(_kfAngle);		_rResult.m_f13 = 0.0f;	_rResult.m_f14 = 0.0f;
+	_rResult.m_f21 = Sine(_kfAngle);		_rResult.m_f22 = Cosine(_kfAngle);	_rResult.m_f23 = 0.0f;	_rResult.m_f24 = 0.0f;
 	_rResult.m_f31 = 0.0f;						_rResult.m_f32 = 0.0f;						_rResult.m_f33 = 1.0f;	_rResult.m_f34 = 0.0f;
 	_rResult.m_f41 = 0.0f;						_rResult.m_f42 = 0.0f;						_rResult.m_f43 = 0.0f;	_rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::PerspectiveMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
 											const double _kdLeft,	const double _kdRight,
 											const double _kdBottom,	const double _kdTop,
 											const double _kdFar,	const double _kdNear)
@@ -1047,7 +1045,7 @@ const TMatrix4d& math::PerspectiveMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::PerspectiveMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
 											const float _kfLeft,	const float _kfRight,
 											const float _kfBottom,	const float _kfTop,
 											const float _kfFar,		const float _kfNear)
@@ -1060,31 +1058,31 @@ const TMatrix4f& math::PerspectiveMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::PerspectiveMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
 											const double _kdFovX, const double _kdFovY,
 											const double _kdFar,	const double _kdNear)
 {
-	_rResult.m_d11 = math::ArcTan(_kdFovX / 2.0);	_rResult.m_d12 = 0.0;							_rResult.m_d13 = 0.0;											_rResult.m_d14 = 0.0;
-	_rResult.m_d21 = 0.0;							_rResult.m_d22 = math::ArcTan(_kdFovY / 2.0);	_rResult.m_d23 = 0.0;											_rResult.m_d24 = 0.0;
+	_rResult.m_d11 = ArcTan(_kdFovX / 2.0);	_rResult.m_d12 = 0.0;							_rResult.m_d13 = 0.0;											_rResult.m_d14 = 0.0;
+	_rResult.m_d21 = 0.0;							_rResult.m_d22 = ArcTan(_kdFovY / 2.0);	_rResult.m_d23 = 0.0;											_rResult.m_d24 = 0.0;
 	_rResult.m_d31 = 0.0;							_rResult.m_d32 = 0.0;							_rResult.m_d33 = (-(_kdFar + _kdNear) / (_kdFar - _kdNear));	_rResult.m_d34 = ((-2.0 * _kdFar * _kdNear) / (_kdFar - _kdNear));
 	_rResult.m_d41 = 0.0;							_rResult.m_d42 = 0.0;							_rResult.m_d43 = -1.0;											_rResult.m_d44 = 0.0;
 
 	return(_rResult);
 }
 
-const TMatrix4f& math::PerspectiveMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
 											const float _kfFovX, const float _kfFovY,
 											const float _kfFar,	const float _kfNear)
 {
-	_rResult.m_f11 = math::ArcTan(_kfFovX / 2.0f);	_rResult.m_f12 = 0.0f;							_rResult.m_f13 = 0.0f;											_rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = 0.0f;							_rResult.m_f22 = math::ArcTan(_kfFovY / 2.0f);	_rResult.m_f23 = 0.0f;											_rResult.m_f24 = 0.0f;
+	_rResult.m_f11 = ArcTan(_kfFovX / 2.0f);	_rResult.m_f12 = 0.0f;							_rResult.m_f13 = 0.0f;											_rResult.m_f14 = 0.0f;
+	_rResult.m_f21 = 0.0f;							_rResult.m_f22 = ArcTan(_kfFovY / 2.0f);	_rResult.m_f23 = 0.0f;											_rResult.m_f24 = 0.0f;
 	_rResult.m_f31 = 0.0f;							_rResult.m_f32 = 0.0f;							_rResult.m_f33 = (-(_kfFar + _kfNear) / (_kfFar - _kfNear));	_rResult.m_f34 = ((-2.0f * _kfFar * _kfNear) / (_kfFar - _kfNear));
 	_rResult.m_f41 = 0.0f;							_rResult.m_f42 = 0.0f;							_rResult.m_f43 = -1.0f;											_rResult.m_f44 = 0.0f;
 
 	return(_rResult);
 }
 
-const TMatrix4d& math::OrthographicMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& OrthographicMatrix(	TMatrix4d& _rResult,
 											const double _kdLeft,	const double _kdRight,
 											const double _kdBottom,	const double _kdTop,
 											const double _kdFar,	const double _kdNear)
@@ -1097,7 +1095,7 @@ const TMatrix4d& math::OrthographicMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::OrthographicMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& OrthographicMatrix(	TMatrix4f& _rResult,
 											const float _kfLeft,	const float _kfRight,
 											const float _kfBottom,	const float _kfTop,
 											const float _kfFar,		const float _kfNear)
@@ -1110,7 +1108,7 @@ const TMatrix4f& math::OrthographicMatrix(	TMatrix4f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4d& math::OrthographicMatrix(	TMatrix4d& _rResult,
+const TMatrix4d& OrthographicMatrix(	TMatrix4d& _rResult,
 											const double _kdWidth,	const double _kdHeight,
 											const double _kdFar,	const double _kdNear)
 {
@@ -1125,7 +1123,7 @@ const TMatrix4d& math::OrthographicMatrix(	TMatrix4d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix4f& math::OrthographicMatrix(	TMatrix4f& _rResult,
+const TMatrix4f& OrthographicMatrix(	TMatrix4f& _rResult,
 											const float _kfWidth,	const float _kfHeight,
 											const float _kfFar,		const float _kfNear)
 {
@@ -1144,37 +1142,37 @@ const TMatrix4f& math::OrthographicMatrix(	TMatrix4f& _rResult,
 // Matrix 3
 //
 
-const bool math::Equal(const TMatrix3d& _krA, const TMatrix3d& _krB, const double _kdEpsilon)
+const bool Equal(const TMatrix3d& _krA, const TMatrix3d& _krB, const double _kdEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d13 - _krB.m_d13) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d23 - _krB.m_d23) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d31 - _krB.m_d31) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d32 - _krB.m_d32) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d33 - _krB.m_d33) < _kdEpsilon);
 
 	return(kbEqual);
 }
 
-const bool math::Equal(const TMatrix3f& _krA, const TMatrix3f& _krB, const float _kfEpsilon)
+const bool Equal(const TMatrix3f& _krA, const TMatrix3f& _krB, const float _kfEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f13 - _krB.m_f13) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f23 - _krB.m_f23) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f31 - _krB.m_f31) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f32 - _krB.m_f32) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f33 - _krB.m_f33) < _kfEpsilon);
 
 	return(kbEqual);
 }
 
-const TMatrix3d& math::ZeroMatrix(TMatrix3d& _rResult)
+const TMatrix3d& ZeroMatrix(TMatrix3d& _rResult)
 {
 	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 0.0; _rResult.m_d23 = 0.0;
@@ -1183,7 +1181,7 @@ const TMatrix3d& math::ZeroMatrix(TMatrix3d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix3f& math::ZeroMatrix(TMatrix3f& _rResult)
+const TMatrix3f& ZeroMatrix(TMatrix3f& _rResult)
 {
 	_rResult.m_f11 = 0.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 0.0f; _rResult.m_f23 = 0.0f;
@@ -1192,7 +1190,7 @@ const TMatrix3f& math::ZeroMatrix(TMatrix3f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix3d& math::IdentityMatrix(TMatrix3d& _rResult)
+const TMatrix3d& IdentityMatrix(TMatrix3d& _rResult)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0; _rResult.m_d23 = 0.0;
@@ -1201,7 +1199,7 @@ const TMatrix3d& math::IdentityMatrix(TMatrix3d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix3f& math::IdentityMatrix(TMatrix3f& _rResult)
+const TMatrix3f& IdentityMatrix(TMatrix3f& _rResult)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f; _rResult.m_f23 = 0.0f;
@@ -1210,7 +1208,7 @@ const TMatrix3f& math::IdentityMatrix(TMatrix3f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix3d& math::Multiply(TMatrix3d& _rResult,
+const TMatrix3d& Multiply(TMatrix3d& _rResult,
 								const TMatrix3d& _krA,
 								const TMatrix3d& _krB)
 {
@@ -1229,7 +1227,7 @@ const TMatrix3d& math::Multiply(TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::Multiply(TMatrix3f& _rResult,
+const TMatrix3f& Multiply(TMatrix3f& _rResult,
 								const TMatrix3f& _krA,
 								const TMatrix3f& _krB)
 {
@@ -1248,7 +1246,7 @@ const TMatrix3f& math::Multiply(TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3d& math::ScalarMultiply(	TMatrix3d& _rResult,
+const TMatrix3d& ScalarMultiply(	TMatrix3d& _rResult,
 										const TMatrix3d& _krMatrix,
 										const double _kdScalar)
 {
@@ -1259,7 +1257,7 @@ const TMatrix3d& math::ScalarMultiply(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::ScalarMultiply(	TMatrix3f& _rResult,
+const TMatrix3f& ScalarMultiply(	TMatrix3f& _rResult,
 										const TMatrix3f& _krMatrix,
 										const float _kfScalar)
 {
@@ -1270,7 +1268,7 @@ const TMatrix3f& math::ScalarMultiply(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const TVector3d& math::VectorMultiply(	TVector3d& _rResult,
+const TVector3d& VectorMultiply(	TVector3d& _rResult,
 										const TMatrix3d& _krA,
 										const TVector3d& _krB)
 {
@@ -1281,7 +1279,7 @@ const TVector3d& math::VectorMultiply(	TVector3d& _rResult,
 	return(_rResult);
 }
 
-const TVector3f& math::VectorMultiply(	TVector3f& _rResult,
+const TVector3f& VectorMultiply(	TVector3f& _rResult,
 										const TMatrix3f& _krA,
 										const TVector3f& _krB)
 {
@@ -1292,7 +1290,7 @@ const TVector3f& math::VectorMultiply(	TVector3f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3d& math::Add(	TMatrix3d& _rResult,
+const TMatrix3d& Add(	TMatrix3d& _rResult,
 							const TMatrix3d& _krA,
 							const TMatrix3d& _krB)
 {
@@ -1303,7 +1301,7 @@ const TMatrix3d& math::Add(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::Add(	TMatrix3f& _rResult,
+const TMatrix3f& Add(	TMatrix3f& _rResult,
 							const TMatrix3f& _krA,
 							const TMatrix3f& _krB)
 {
@@ -1314,7 +1312,7 @@ const TMatrix3f& math::Add(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3d& math::Transpose(	TMatrix3d& _rResult,
+const TMatrix3d& Transpose(	TMatrix3d& _rResult,
 									const TMatrix3d& _krMatrix)
 {
 	_rResult.m_d11 = _krMatrix.m_d11; _rResult.m_d12 = _krMatrix.m_d21; _rResult.m_d13 = _krMatrix.m_d31;
@@ -1324,7 +1322,7 @@ const TMatrix3d& math::Transpose(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::Transpose(	TMatrix3f& _rResult,
+const TMatrix3f& Transpose(	TMatrix3f& _rResult,
 									const TMatrix3f& _krMatrix)
 {
 	_rResult.m_f11 = _krMatrix.m_f11; _rResult.m_f12 = _krMatrix.m_f21; _rResult.m_f13 = _krMatrix.m_f31;
@@ -1334,7 +1332,7 @@ const TMatrix3f& math::Transpose(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const double math::GetElement(	const TMatrix3d& _krMatrix,
+const double GetElement(	const TMatrix3d& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -1389,7 +1387,7 @@ const double math::GetElement(	const TMatrix3d& _krMatrix,
 	return(dResult);
 }
 
-const float math::GetElement(	const TMatrix3f& _krMatrix,
+const float GetElement(	const TMatrix3f& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -1444,7 +1442,7 @@ const float math::GetElement(	const TMatrix3f& _krMatrix,
 	return(fResult);
 }
 
-TMatrix3d& math::SetElement(	TMatrix3d& _rResult,
+TMatrix3d& SetElement(	TMatrix3d& _rResult,
 								const double _kdValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -1498,7 +1496,7 @@ TMatrix3d& math::SetElement(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-TMatrix3f& math::SetElement(	TMatrix3f& _rResult,
+TMatrix3f& SetElement(	TMatrix3f& _rResult,
 								const float _kfValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -1552,7 +1550,7 @@ TMatrix3f& math::SetElement(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2d& math::Submatrix(	TMatrix2d& _rResult, 
+const TMatrix2d& Submatrix(	TMatrix2d& _rResult, 
 									const TMatrix3d& _krMatrix,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
@@ -1615,7 +1613,7 @@ const TMatrix2d& math::Submatrix(	TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2f& math::Submatrix(	TMatrix2f& _rResult, 
+const TMatrix2f& Submatrix(	TMatrix2f& _rResult, 
 									const TMatrix3f& _krMatrix,
 									const size_t _kDeletedRow,
 									const size_t _kDeletedColumn)
@@ -1678,7 +1676,7 @@ const TMatrix2f& math::Submatrix(	TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const double math::Determinant(const TMatrix3d& _krMatrix)
+const double Determinant(const TMatrix3d& _krMatrix)
 {
 	const double kdDeterminant =	(_krMatrix.m_d11 * _krMatrix.m_d22 * _krMatrix.m_d33)
 								+	(_krMatrix.m_d12 * _krMatrix.m_d23 * _krMatrix.m_d31)
@@ -1690,7 +1688,7 @@ const double math::Determinant(const TMatrix3d& _krMatrix)
 	return(kdDeterminant);
 }
 
-const float math::Determinant(const TMatrix3f& _krMatrix)
+const float Determinant(const TMatrix3f& _krMatrix)
 {
 	const float kfDeterminant =		(_krMatrix.m_f11 * _krMatrix.m_f22 * _krMatrix.m_f33)
 								+	(_krMatrix.m_f12 * _krMatrix.m_f23 * _krMatrix.m_f31)
@@ -1702,64 +1700,64 @@ const float math::Determinant(const TMatrix3f& _krMatrix)
 	return(kfDeterminant);
 }
 
-const double math::FirstMinor(	const TMatrix3d& _krMatrix,
+const double FirstMinor(	const TMatrix3d& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	const TMatrix2d kSubmatrix = math::Submatrix(TMatrix2d(), _krMatrix, _kRow, _kColumn);
+	const TMatrix2d kSubmatrix = Submatrix(TMatrix2d(), _krMatrix, _kRow, _kColumn);
 	
-	return(math::Determinant(kSubmatrix));
+	return(Determinant(kSubmatrix));
 }
 
-const float math::FirstMinor(	const TMatrix3f& _krMatrix,
+const float FirstMinor(	const TMatrix3f& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
-	const TMatrix2f kSubmatrix = math::Submatrix(TMatrix2f(), _krMatrix, _kRow, _kColumn);
+	const TMatrix2f kSubmatrix = Submatrix(TMatrix2f(), _krMatrix, _kRow, _kColumn);
 	
-	return(math::Determinant(kSubmatrix));
+	return(Determinant(kSubmatrix));
 }
 
-const TMatrix3d& math::MatrixOfMinors(	TMatrix3d& _rResult,
+const TMatrix3d& MatrixOfMinors(	TMatrix3d& _rResult,
 										const TMatrix3d& _krMatrix)
 {
-	_rResult.m_d11 = math::FirstMinor(_krMatrix, 1, 1);
-	_rResult.m_d12 = math::FirstMinor(_krMatrix, 1, 2);
-	_rResult.m_d13 = math::FirstMinor(_krMatrix, 1, 3);
+	_rResult.m_d11 = FirstMinor(_krMatrix, 1, 1);
+	_rResult.m_d12 = FirstMinor(_krMatrix, 1, 2);
+	_rResult.m_d13 = FirstMinor(_krMatrix, 1, 3);
 
-	_rResult.m_d21 = math::FirstMinor(_krMatrix, 2, 1);
-	_rResult.m_d22 = math::FirstMinor(_krMatrix, 2, 2);
-	_rResult.m_d23 = math::FirstMinor(_krMatrix, 2, 3);
+	_rResult.m_d21 = FirstMinor(_krMatrix, 2, 1);
+	_rResult.m_d22 = FirstMinor(_krMatrix, 2, 2);
+	_rResult.m_d23 = FirstMinor(_krMatrix, 2, 3);
 
-	_rResult.m_d31 = math::FirstMinor(_krMatrix, 3, 1);
-	_rResult.m_d32 = math::FirstMinor(_krMatrix, 3, 2);
-	_rResult.m_d33 = math::FirstMinor(_krMatrix, 3, 3);
+	_rResult.m_d31 = FirstMinor(_krMatrix, 3, 1);
+	_rResult.m_d32 = FirstMinor(_krMatrix, 3, 2);
+	_rResult.m_d33 = FirstMinor(_krMatrix, 3, 3);
 
 	return(_rResult);
 }
 
-const TMatrix3f& math::MatrixOfMinors(	TMatrix3f& _rResult,
+const TMatrix3f& MatrixOfMinors(	TMatrix3f& _rResult,
 										const TMatrix3f& _krMatrix)
 {
-	_rResult.m_f11 = math::FirstMinor(_krMatrix, 1, 1);
-	_rResult.m_f12 = math::FirstMinor(_krMatrix, 1, 2);
-	_rResult.m_f13 = math::FirstMinor(_krMatrix, 1, 3);
+	_rResult.m_f11 = FirstMinor(_krMatrix, 1, 1);
+	_rResult.m_f12 = FirstMinor(_krMatrix, 1, 2);
+	_rResult.m_f13 = FirstMinor(_krMatrix, 1, 3);
 
-	_rResult.m_f21 = math::FirstMinor(_krMatrix, 2, 1);
-	_rResult.m_f22 = math::FirstMinor(_krMatrix, 2, 2);
-	_rResult.m_f23 = math::FirstMinor(_krMatrix, 2, 3);
+	_rResult.m_f21 = FirstMinor(_krMatrix, 2, 1);
+	_rResult.m_f22 = FirstMinor(_krMatrix, 2, 2);
+	_rResult.m_f23 = FirstMinor(_krMatrix, 2, 3);
 
-	_rResult.m_f31 = math::FirstMinor(_krMatrix, 3, 1);
-	_rResult.m_f32 = math::FirstMinor(_krMatrix, 3, 2);
-	_rResult.m_f33 = math::FirstMinor(_krMatrix, 3, 3);
+	_rResult.m_f31 = FirstMinor(_krMatrix, 3, 1);
+	_rResult.m_f32 = FirstMinor(_krMatrix, 3, 2);
+	_rResult.m_f33 = FirstMinor(_krMatrix, 3, 3);
 
 	return(_rResult);
 }
 
-const TMatrix3d& math::MatrixOfCofactors(	TMatrix3d& _rResult,
+const TMatrix3d& MatrixOfCofactors(	TMatrix3d& _rResult,
 											const TMatrix3d& _krMatrix)
 {
-	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	_rResult = MatrixOfMinors(_rResult, _krMatrix);
 	
 	_rResult.m_d12 *= -1.0;
 
@@ -1771,10 +1769,10 @@ const TMatrix3d& math::MatrixOfCofactors(	TMatrix3d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3f& math::MatrixOfCofactors(	TMatrix3f& _rResult,
+const TMatrix3f& MatrixOfCofactors(	TMatrix3f& _rResult,
 											const TMatrix3f& _krMatrix)
 {
-	_rResult = math::MatrixOfMinors(_rResult, _krMatrix);
+	_rResult = MatrixOfMinors(_rResult, _krMatrix);
 
 	_rResult.m_f12 *= -1.0f;
 
@@ -1786,24 +1784,24 @@ const TMatrix3f& math::MatrixOfCofactors(	TMatrix3f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix3d& math::Inverse(	TMatrix3d& _rResult,
+const TMatrix3d& Inverse(	TMatrix3d& _rResult,
 								const TMatrix3d& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult,
-									math::Transpose(TMatrix3d(),
-													math::MatrixOfCofactors(TMatrix3d(), _krMatrix)),
-									1.0/math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(_rResult,
+									Transpose(TMatrix3d(),
+													MatrixOfCofactors(TMatrix3d(), _krMatrix)),
+									1.0/Determinant(_krMatrix));
 
 	return(_rResult);
 }
 
-const TMatrix3f& math::Inverse(	TMatrix3f& _rResult,
+const TMatrix3f& Inverse(	TMatrix3f& _rResult,
 								const TMatrix3f& _krMatrix)
 {
-	_rResult = math::ScalarMultiply(_rResult,
-									math::Transpose(TMatrix3f(),
-													math::MatrixOfCofactors(TMatrix3f(), _krMatrix)),
-									1.0f/math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(_rResult,
+									Transpose(TMatrix3f(),
+													MatrixOfCofactors(TMatrix3f(), _krMatrix)),
+									1.0f/Determinant(_krMatrix));
 
 	return(_rResult);
 }
@@ -1812,27 +1810,27 @@ const TMatrix3f& math::Inverse(	TMatrix3f& _rResult,
 // Matrix 2
 //
 
-const bool math::Equal(const TMatrix2d& _krA, const TMatrix2d& _krB, const double _kdEpsilon)
+const bool Equal(const TMatrix2d& _krA, const TMatrix2d& _krB, const double _kdEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
-						&&	(math::Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_d11 - _krB.m_d11) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d12 - _krB.m_d12) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d21 - _krB.m_d21) < _kdEpsilon)
+						&&	(Magnitude(_krA.m_d22 - _krB.m_d22) < _kdEpsilon);
 
 	return(kbEqual);
 }
 
-const bool math::Equal(const TMatrix2f& _krA, const TMatrix2f& _krB, const float _kfEpsilon)
+const bool Equal(const TMatrix2f& _krA, const TMatrix2f& _krB, const float _kfEpsilon)
 {
-	const bool kbEqual =	(math::Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
-						&&	(math::Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon);
+	const bool kbEqual =	(Magnitude(_krA.m_f11 - _krB.m_f11) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f12 - _krB.m_f12) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f21 - _krB.m_f21) < _kfEpsilon)
+						&&	(Magnitude(_krA.m_f22 - _krB.m_f22) < _kfEpsilon);
 
 	return(kbEqual);
 }
 
-const TMatrix2d& math::ZeroMatrix(TMatrix2d& _rResult)
+const TMatrix2d& ZeroMatrix(TMatrix2d& _rResult)
 {
 	_rResult.m_d11 = 0.0; _rResult.m_d12 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 0.0;
@@ -1840,7 +1838,7 @@ const TMatrix2d& math::ZeroMatrix(TMatrix2d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix2f& math::ZeroMatrix(TMatrix2f& _rResult)
+const TMatrix2f& ZeroMatrix(TMatrix2f& _rResult)
 {
 	_rResult.m_f11 = 0.0f; _rResult.m_f12 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 0.0f;
@@ -1848,7 +1846,7 @@ const TMatrix2f& math::ZeroMatrix(TMatrix2f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix2d& math::IdentityMatrix(TMatrix2d& _rResult)
+const TMatrix2d& IdentityMatrix(TMatrix2d& _rResult)
 {
 	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0;
 	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0;
@@ -1856,7 +1854,7 @@ const TMatrix2d& math::IdentityMatrix(TMatrix2d& _rResult)
 	return(_rResult);
 }
 
-const TMatrix2f& math::IdentityMatrix(TMatrix2f& _rResult)
+const TMatrix2f& IdentityMatrix(TMatrix2f& _rResult)
 {
 	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f;
 	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f;
@@ -1864,7 +1862,7 @@ const TMatrix2f& math::IdentityMatrix(TMatrix2f& _rResult)
 	return(_rResult);
 }
 
-const TMatrix2d& math::Multiply(TMatrix2d& _rResult,
+const TMatrix2d& Multiply(TMatrix2d& _rResult,
 								const TMatrix2d& _krA,
 								const TMatrix2d& _krB)
 {
@@ -1876,7 +1874,7 @@ const TMatrix2d& math::Multiply(TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2f& math::Multiply(TMatrix2f& _rResult,
+const TMatrix2f& Multiply(TMatrix2f& _rResult,
 								const TMatrix2f& _krA,
 								const TMatrix2f& _krB)
 {
@@ -1888,7 +1886,7 @@ const TMatrix2f& math::Multiply(TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2d& math::ScalarMultiply(	TMatrix2d& _rResult,
+const TMatrix2d& ScalarMultiply(	TMatrix2d& _rResult,
 										const TMatrix2d& _krMatrix,
 										const double _kdScalar)
 {
@@ -1898,7 +1896,7 @@ const TMatrix2d& math::ScalarMultiply(	TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2f& math::ScalarMultiply(	TMatrix2f& _rResult,
+const TMatrix2f& ScalarMultiply(	TMatrix2f& _rResult,
 										const TMatrix2f& _krMatrix,
 										const float _kfScalar)
 {
@@ -1908,7 +1906,7 @@ const TMatrix2f& math::ScalarMultiply(	TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const TVector2d& math::VectorMultiply(	TVector2d& _rResult,
+const TVector2d& VectorMultiply(	TVector2d& _rResult,
 										const TMatrix2d& _krA,
 										const TVector2d& _krB)
 {
@@ -1918,7 +1916,7 @@ const TVector2d& math::VectorMultiply(	TVector2d& _rResult,
 	return(_rResult);
 }
 
-const TVector2f& math::VectorMultiply(	TVector2f& _rResult,
+const TVector2f& VectorMultiply(	TVector2f& _rResult,
 										const TMatrix2f& _krA,
 										const TVector2f& _krB)
 {
@@ -1928,7 +1926,7 @@ const TVector2f& math::VectorMultiply(	TVector2f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2d& math::Add(	TMatrix2d& _rResult,
+const TMatrix2d& Add(	TMatrix2d& _rResult,
 							const TMatrix2d& _krA,
 							const TMatrix2d& _krB)
 {
@@ -1938,7 +1936,7 @@ const TMatrix2d& math::Add(	TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2f& math::Add(	TMatrix2f& _rResult,
+const TMatrix2f& Add(	TMatrix2f& _rResult,
 							const TMatrix2f& _krA,
 							const TMatrix2f& _krB)
 {
@@ -1948,7 +1946,7 @@ const TMatrix2f& math::Add(	TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2d& math::Transpose(	TMatrix2d& _rResult,
+const TMatrix2d& Transpose(	TMatrix2d& _rResult,
 									const TMatrix2d& _krMatrix)
 {
 	_rResult.m_d11 = _krMatrix.m_d11; _rResult.m_d12 = _krMatrix.m_d21;
@@ -1957,7 +1955,7 @@ const TMatrix2d& math::Transpose(	TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2f& math::Transpose(	TMatrix2f& _rResult,
+const TMatrix2f& Transpose(	TMatrix2f& _rResult,
 									const TMatrix2f& _krMatrix)
 {
 	_rResult.m_f11 = _krMatrix.m_f11; _rResult.m_f12 = _krMatrix.m_f21;
@@ -1966,7 +1964,7 @@ const TMatrix2f& math::Transpose(	TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const double math::GetElement(	const TMatrix2d& _krMatrix,
+const double GetElement(	const TMatrix2d& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -1998,7 +1996,7 @@ const double math::GetElement(	const TMatrix2d& _krMatrix,
 	return(dResult);
 }
 
-const float math::GetElement(	const TMatrix2f& _krMatrix,
+const float GetElement(	const TMatrix2f& _krMatrix,
 								const size_t _kRow,
 								const size_t _kColumn)
 {
@@ -2030,7 +2028,7 @@ const float math::GetElement(	const TMatrix2f& _krMatrix,
 	return(fResult);
 }
 
-TMatrix2d& math::SetElement(	TMatrix2d& _rResult,
+TMatrix2d& SetElement(	TMatrix2d& _rResult,
 								const double _kdValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -2061,7 +2059,7 @@ TMatrix2d& math::SetElement(	TMatrix2d& _rResult,
 	return(_rResult);
 }
 
-TMatrix2f& math::SetElement(	TMatrix2f& _rResult,
+TMatrix2f& SetElement(	TMatrix2f& _rResult,
 								const float _kfValue,
 								const size_t _kRow,
 								const size_t _kColumn)
@@ -2092,33 +2090,33 @@ TMatrix2f& math::SetElement(	TMatrix2f& _rResult,
 	return(_rResult);
 }
 
-const TMatrix2d& math::Inverse(	TMatrix2d& _rResult,
+const TMatrix2d& Inverse(	TMatrix2d& _rResult,
 								const TMatrix2d& _krMatrix)
 {
 	const TMatrix2d kTemp{	_krMatrix.m_d22, -_krMatrix.m_d12,
 							-_krMatrix.m_d21, _krMatrix.m_d11};
-	_rResult = math::ScalarMultiply(TMatrix2d(), kTemp, 1.0 / math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(TMatrix2d(), kTemp, 1.0 / Determinant(_krMatrix));
 
 	return(_rResult);
 }
 
-const TMatrix2f& math::Inverse(	TMatrix2f& _rResult,
+const TMatrix2f& Inverse(	TMatrix2f& _rResult,
 								const TMatrix2f& _krMatrix)
 {
 	const TMatrix2f kTemp{	_krMatrix.m_f22, -_krMatrix.m_f12,
 							-_krMatrix.m_f21, _krMatrix.m_f11};
-	_rResult = math::ScalarMultiply(TMatrix2f(), kTemp, 1.0f / math::Determinant(_krMatrix));
+	_rResult = ScalarMultiply(TMatrix2f(), kTemp, 1.0f / Determinant(_krMatrix));
 
 	return(_rResult);
 }
 
-const double math::Determinant(const TMatrix2d& _krMatrix)
+const double Determinant(const TMatrix2d& _krMatrix)
 {
 	return(		(_krMatrix.m_d11 * _krMatrix.m_d22)
 			-	(_krMatrix.m_d12 * _krMatrix.m_d21));
 }
 
-const float math::Determinant(const TMatrix2f& _krMatrix)
+const float Determinant(const TMatrix2f& _krMatrix)
 {
 	return(		(_krMatrix.m_f11 * _krMatrix.m_f22)
 			-	(_krMatrix.m_f12 * _krMatrix.m_f21));

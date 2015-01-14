@@ -8,13 +8,12 @@
 #include "ckmath_scalar.h"
 #include "ckmath_vector.h"
 
-using namespace math;
 
 //
 // Quaternion
 //
 
-const TVector4d& math::IdentityQuaternion(TVector4d& _rResult)
+const TVector4d& IdentityQuaternion(TVector4d& _rResult)
 {
 	_rResult.m_dW = 1.0;
 
@@ -25,7 +24,7 @@ const TVector4d& math::IdentityQuaternion(TVector4d& _rResult)
 	return(_rResult);
 }
 
-const TVector4f& math::IdentityQuaternion(TVector4f& _rResult)
+const TVector4f& IdentityQuaternion(TVector4f& _rResult)
 {
 	_rResult.m_fW = 1.0f;
 
@@ -36,7 +35,7 @@ const TVector4f& math::IdentityQuaternion(TVector4f& _rResult)
 	return(_rResult);
 }
 
-const TVector4d& math::ConjugateQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
+const TVector4d& ConjugateQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
 {
 	_rResult.m_dW = _krQuaternion.m_dW;
 
@@ -47,7 +46,7 @@ const TVector4d& math::ConjugateQuaternion(TVector4d& _rResult, const TVector4d&
 	return(_rResult);
 }
 
-const TVector4f& math::ConjugateQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
+const TVector4f& ConjugateQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
 {
 	_rResult.m_fW = _krQuaternion.m_fW;
 
@@ -58,81 +57,81 @@ const TVector4f& math::ConjugateQuaternion(TVector4f& _rResult, const TVector4f&
 	return(_rResult);
 }
 
-const TVector4d& math::InverseQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
+const TVector4d& InverseQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
 {
-	_rResult = math::ScalarMultiply(_rResult, 
-									math::ConjugateQuaternion(TVector4d(), _krQuaternion),
-									(1.0 / math::Square(math::QuaternionMagnitude(_krQuaternion))));
+	_rResult = ScalarMultiply(_rResult, 
+									ConjugateQuaternion(TVector4d(), _krQuaternion),
+									(1.0 / Square(QuaternionMagnitude(_krQuaternion))));
 
 	return(_rResult);
 }
 
-const TVector4f& math::InverseQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
+const TVector4f& InverseQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
 {
-	_rResult = math::ScalarMultiply(_rResult, 
-									math::ConjugateQuaternion(TVector4f(), _krQuaternion),
-									(1.0f / math::Square(math::QuaternionMagnitude(_krQuaternion))));
+	_rResult = ScalarMultiply(_rResult, 
+									ConjugateQuaternion(TVector4f(), _krQuaternion),
+									(1.0f / Square(QuaternionMagnitude(_krQuaternion))));
 
 	return(_rResult);
 }
 
-const TVector4d& math::UnitQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
+const TVector4d& UnitQuaternion(TVector4d& _rResult, const TVector4d& _krQuaternion)
 {
-	_rResult = math::ScalarMultiply(	_rResult,
+	_rResult = ScalarMultiply(	_rResult,
 										_krQuaternion,
-										(1.0 / math::QuaternionMagnitude(_krQuaternion)));
+										(1.0 / QuaternionMagnitude(_krQuaternion)));
 
 	return(_rResult);
 }
 
-const TVector4f& math::UnitQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
+const TVector4f& UnitQuaternion(TVector4f& _rResult, const TVector4f& _krQuaternion)
 {
-	_rResult = math::ScalarMultiply(	_rResult,
+	_rResult = ScalarMultiply(	_rResult,
 										_krQuaternion,
-										(1.0f / math::QuaternionMagnitude(_krQuaternion)));
+										(1.0f / QuaternionMagnitude(_krQuaternion)));
 
 	return(_rResult);
 }
 
-const TVector4d& math::AxisAngleQuaternion(TVector4d& _rResult, const TVector3d& _krAxis, const double _kdAngle)
+const TVector4d& AxisAngleQuaternion(TVector4d& _rResult, const TVector3d& _krAxis, const double _kdAngle)
 {
-	_rResult.m_dW = math::Cosine(_kdAngle / 2.0);
+	_rResult.m_dW = Cosine(_kdAngle / 2.0);
 
-	_rResult.m_dX = _krAxis.m_dX * math::Sine(_kdAngle / 2.0);
-	_rResult.m_dY = _krAxis.m_dY * math::Sine(_kdAngle / 2.0);
-	_rResult.m_dZ = _krAxis.m_dZ * math::Sine(_kdAngle / 2.0);
+	_rResult.m_dX = _krAxis.m_dX * Sine(_kdAngle / 2.0);
+	_rResult.m_dY = _krAxis.m_dY * Sine(_kdAngle / 2.0);
+	_rResult.m_dZ = _krAxis.m_dZ * Sine(_kdAngle / 2.0);
 
 	return(_rResult);
 }
 
-const TVector4f& math::AxisAngleQuaternion(TVector4f& _rResult, const TVector3f& _krAxis, const float _kfAngle)
+const TVector4f& AxisAngleQuaternion(TVector4f& _rResult, const TVector3f& _krAxis, const float _kfAngle)
 {
-	_rResult.m_fW = math::Cosine(_kfAngle / 2.0f);
+	_rResult.m_fW = Cosine(_kfAngle / 2.0f);
 
-	_rResult.m_fX = _krAxis.m_fX * math::Sine(_kfAngle / 2.0f);
-	_rResult.m_fY = _krAxis.m_fY * math::Sine(_kfAngle / 2.0f);
-	_rResult.m_fZ = _krAxis.m_fZ * math::Sine(_kfAngle / 2.0f);
+	_rResult.m_fX = _krAxis.m_fX * Sine(_kfAngle / 2.0f);
+	_rResult.m_fY = _krAxis.m_fY * Sine(_kfAngle / 2.0f);
+	_rResult.m_fZ = _krAxis.m_fZ * Sine(_kfAngle / 2.0f);
 
 	return(_rResult);
 }
 
-const double math::QuaternionMagnitude(const TVector4d& _krQuaternion)
+const double QuaternionMagnitude(const TVector4d& _krQuaternion)
 {
-	return(math::SquareRoot(math::QuaternionProduct(TVector4d(),
-													math::ConjugateQuaternion(	TVector4d(),
+	return(SquareRoot(QuaternionProduct(TVector4d(),
+													ConjugateQuaternion(	TVector4d(),
 																				_krQuaternion),
 													_krQuaternion).m_dW));
 }
 
-const float math::QuaternionMagnitude(const TVector4f& _krQuaternion)
+const float QuaternionMagnitude(const TVector4f& _krQuaternion)
 {
-	return(math::SquareRoot(math::QuaternionProduct(TVector4f(),
-													math::ConjugateQuaternion(	TVector4f(),
+	return(SquareRoot(QuaternionProduct(TVector4f(),
+													ConjugateQuaternion(	TVector4f(),
 																				_krQuaternion),
 													_krQuaternion).m_fW));
 }
 
-const TVector4d& math::QuaternionProduct(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB)
+const TVector4d& QuaternionProduct(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB)
 {
 	_rResult.m_dW = (_krA.m_dW * _krB.m_dW) - (_krA.m_dX * _krB.m_dX) - (_krA.m_dY * _krB.m_dY) - (_krA.m_dZ * _krB.m_dZ);
 	_rResult.m_dX = (_krA.m_dW * _krB.m_dX) + (_krA.m_dX * _krB.m_dW) + (_krA.m_dY * _krB.m_dZ) - (_krA.m_dZ * _krB.m_dY);
@@ -142,7 +141,7 @@ const TVector4d& math::QuaternionProduct(TVector4d& _rResult, const TVector4d& _
 	return(_rResult);
 }
 
-const TVector4f& math::QuaternionProduct(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB)
+const TVector4f& QuaternionProduct(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB)
 {
 	_rResult.m_fW = (_krA.m_fW * _krB.m_fW) - (_krA.m_fX * _krB.m_fX) - (_krA.m_fY * _krB.m_fY) - (_krA.m_fZ * _krB.m_fZ);
 	_rResult.m_fX = (_krA.m_fW * _krB.m_fX) + (_krA.m_fX * _krB.m_fW) + (_krA.m_fY * _krB.m_fZ) - (_krA.m_fZ * _krB.m_fY);
@@ -152,13 +151,13 @@ const TVector4f& math::QuaternionProduct(TVector4f& _rResult, const TVector4f& _
 	return(_rResult);
 }
 
-const TVector3d& math::QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVector, const TVector4d& _krQuaternion)
+const TVector3d& QuaternionRotate(TVector3d& _rResult, const TVector3d& _krVector, const TVector4d& _krQuaternion)
 {
 	const TVector4d kVecAsQuat{_krVector.m_dX, _krVector.m_dY, _krVector.m_dZ, 0.0};
 
-	const TVector4d kResultAsQuat = math::QuaternionProduct(TVector4d(),
-															math::QuaternionProduct(TVector4d(), _krQuaternion, kVecAsQuat),
-															math::ConjugateQuaternion(TVector4d(), _krQuaternion));
+	const TVector4d kResultAsQuat = QuaternionProduct(TVector4d(),
+															QuaternionProduct(TVector4d(), _krQuaternion, kVecAsQuat),
+															ConjugateQuaternion(TVector4d(), _krQuaternion));
 
 	_rResult.m_dX = kResultAsQuat.m_dX;
 	_rResult.m_dY = kResultAsQuat.m_dY;
@@ -167,13 +166,13 @@ const TVector3d& math::QuaternionRotate(TVector3d& _rResult, const TVector3d& _k
 	return(_rResult);
 }
 
-const TVector3f& math::QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVector, const TVector4f& _krQuaternion)
+const TVector3f& QuaternionRotate(TVector3f& _rResult, const TVector3f& _krVector, const TVector4f& _krQuaternion)
 {
 	const TVector4f kVecAsQuat{_krVector.m_fX, _krVector.m_fY, _krVector.m_fZ, 0.0f};
 
-	const TVector4f kResultAsQuat = math::QuaternionProduct(TVector4f(),
-															math::QuaternionProduct(TVector4f(), _krQuaternion, kVecAsQuat),
-															math::ConjugateQuaternion(TVector4f(), _krQuaternion));
+	const TVector4f kResultAsQuat = QuaternionProduct(TVector4f(),
+															QuaternionProduct(TVector4f(), _krQuaternion, kVecAsQuat),
+															ConjugateQuaternion(TVector4f(), _krQuaternion));
 
 	_rResult.m_fX = kResultAsQuat.m_fX;
 	_rResult.m_fY = kResultAsQuat.m_fY;
@@ -182,23 +181,23 @@ const TVector3f& math::QuaternionRotate(TVector3f& _rResult, const TVector3f& _k
 	return(_rResult);
 }
 
-const TVector4d& math::Slerp(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB, const double _kdT)
+const TVector4d& Slerp(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB, const double _kdT)
 {
-	const double kdCosOmega = math::DotProduct(_krA, _krB);
+	const double kdCosOmega = DotProduct(_krA, _krB);
 
 	double dK0, dK1;
-	if(math::Magnitude(kdCosOmega) == 1.0) // Avoid divide by zero using lerp
+	if(Magnitude(kdCosOmega) == 1.0) // Avoid divide by zero using lerp
 	{
 		dK0 = 1.0 - _kdT;
 		dK1 = _kdT;
 	}
 	else
 	{
-		const double kdSinOmega = math::SquareRoot(1.0 - math::Square(kdCosOmega));
-		const double kdOmega = math::ArcTan2(kdSinOmega, kdCosOmega);
+		const double kdSinOmega = SquareRoot(1.0 - Square(kdCosOmega));
+		const double kdOmega = ArcTan2(kdSinOmega, kdCosOmega);
 
-		dK0 = math::Sine((1.0 - _kdT) * kdOmega) * (1.0 / kdSinOmega);
-		dK1 = math::Sine(_kdT * kdOmega) * (1.0 / kdSinOmega);
+		dK0 = Sine((1.0 - _kdT) * kdOmega) * (1.0 / kdSinOmega);
+		dK1 = Sine(_kdT * kdOmega) * (1.0 / kdSinOmega);
 	}
 
 	_rResult.m_dW = (_krA.m_dW * dK0) + (_krB.m_dW * dK1);
@@ -209,23 +208,23 @@ const TVector4d& math::Slerp(TVector4d& _rResult, const TVector4d& _krA, const T
 	return(_rResult);
 }
 
-const TVector4f& math::Slerp(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB, const float _kfT)
+const TVector4f& Slerp(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB, const float _kfT)
 {
-	const float kfCosOmega = math::DotProduct(_krA, _krB);
+	const float kfCosOmega = DotProduct(_krA, _krB);
 
 	float fK0, fK1;
-	if(math::Magnitude(kfCosOmega) == 1.0f) // Avoid divide by zero using lerp
+	if(Magnitude(kfCosOmega) == 1.0f) // Avoid divide by zero using lerp
 	{
 		fK0 = 1.0f - _kfT;
 		fK1 = _kfT;
 	}
 	else
 	{
-		const float kfSinOmega = math::SquareRoot(1.0f - math::Square(kfCosOmega));
-		const float kfOmega = math::ArcTan2(kfSinOmega, kfCosOmega);
+		const float kfSinOmega = SquareRoot(1.0f - Square(kfCosOmega));
+		const float kfOmega = ArcTan2(kfSinOmega, kfCosOmega);
 
-		fK0 = math::Sine((1.0f - _kfT) * kfOmega) * (1.0f / kfSinOmega);
-		fK1 = math::Sine(_kfT * kfOmega) * (1.0f / kfSinOmega);
+		fK0 = Sine((1.0f - _kfT) * kfOmega) * (1.0f / kfSinOmega);
+		fK1 = Sine(_kfT * kfOmega) * (1.0f / kfSinOmega);
 	}
 
 	_rResult.m_fW = (_krA.m_fW * fK0) + (_krB.m_fW * fK1);
