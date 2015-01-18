@@ -11,6 +11,7 @@
 // Local Includes
 #include "tests_vector.h"
 #include "tests_matrix.h"
+#include "tests_quaternion.h"
 
 // Typedefs
 typedef const bool (*TestFuncType)(void);
@@ -64,7 +65,9 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Matrix_RotationMatrix),
 	TEST(Test_Matrix_AxisRotationMatrix),
 	TEST(Test_Matrix_PerspectiveMatrix),
-	TEST(Test_Matrix_OrthographicMatrix)
+	TEST(Test_Matrix_OrthographicMatrix),
+
+	TEST(Test_Quaternion_IdentityQuaternion)
 };
 
 #endif
