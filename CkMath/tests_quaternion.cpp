@@ -22,3 +22,18 @@ const bool Test_Quaternion_IdentityQuaternion()
 
 	return(kbPassd && kbPassf);
 }
+
+const bool Test_Quaternion_ConjugateQuaternion()
+{
+	const TVector4d kAd = AxisAngleQuaternion(TVector4d(), Normalize(TVector3d(), TVector3d{1.0, 1.0, 1.0}), (s_kdTau / 4.0));
+	const TVector4d kBd = AxisAngleQuaternion(TVector4d(), Normalize(TVector3d(), TVector3d{-1.0, -1.0, -1.0}), (s_kdTau / 4.0));
+
+	const bool kbPassd = Equal(kBd, ConjugateQuaternion(TVector4d(), kAd), s_kdEpsilon);
+
+	const TVector4f kAf = AxisAngleQuaternion(TVector4f(), Normalize(TVector3f(), TVector3f{1.0f, 1.0f, 1.0f}), (s_kfTau / 4.0f));
+	const TVector4f kBf = AxisAngleQuaternion(TVector4f(), Normalize(TVector3f(), TVector3f{-1.0f, -1.0f, -1.0f}), (s_kfTau / 4.0f));
+
+	const bool kbPassf = Equal(kBf, ConjugateQuaternion(TVector4f(), kAf), s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}

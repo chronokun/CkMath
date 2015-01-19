@@ -10,4 +10,6 @@
 
 const bool Test_Quaternion_IdentityQuaternion();
 
+const bool Test_Quaternion_ConjugateQuaternion();
+
 #endif
