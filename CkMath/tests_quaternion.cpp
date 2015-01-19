@@ -67,3 +67,32 @@ const bool Test_Quaternion_UnitQuaternion()
 
 	return(kbPassd && kbPassf);
 }
+
+const bool Test_Quaternion_AxisAngleQuaternion()
+{
+	const double kdAngle = s_kdTau / 4.0;
+	const TVector3d kAxisd{1.0, 0.0, 0.0};
+	const TVector4d kAd = AxisAngleQuaternion(TVector4d(), kAxisd, kdAngle);
+	const double kdCosHalfAngle = Cosine(kdAngle / 2.0);
+	const double kdSinHalfAngle = Sine(kdAngle / 2.0);
+	const TVector4d kBd{	kAxisd.m_dX * kdSinHalfAngle,
+							kAxisd.m_dY * kdSinHalfAngle,
+							kAxisd.m_dZ * kdSinHalfAngle,
+							kdCosHalfAngle};
+
+	const bool kbPassd = Equal(kAd, kBd, s_kdEpsilon);
+
+	const float kfAngle = s_kfTau / 4.0f;
+	const TVector3f kAxisf{1.0f, 0.0f, 0.0f};
+	const TVector4f kAf = AxisAngleQuaternion(TVector4f(), kAxisf, kfAngle);
+	const float kfCosHalfAngle = Cosine(kfAngle / 2.0f);
+	const float kfSinHalfAngle = Sine(kfAngle / 2.0f);
+	const TVector4f kBf{	kAxisf.m_fX * kfSinHalfAngle,
+							kAxisf.m_fY * kfSinHalfAngle,
+							kAxisf.m_fZ * kfSinHalfAngle,
+							kfCosHalfAngle};
+
+	const bool kbPassf = Equal(kAf, kBf, s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}

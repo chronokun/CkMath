@@ -16,4 +16,6 @@ const bool Test_Quaternion_InverseQuaternion();
 
 const bool Test_Quaternion_UnitQuaternion();
 
+const bool Test_Quaternion_AxisAngleQuaternion();
+
 #endif
