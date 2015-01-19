@@ -14,4 +14,6 @@ const bool Test_Quaternion_ConjugateQuaternion();
 
 const bool Test_Quaternion_InverseQuaternion();
 
+const bool Test_Quaternion_UnitQuaternion();
+
 #endif

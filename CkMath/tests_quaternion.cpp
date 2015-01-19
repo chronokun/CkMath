@@ -52,3 +52,18 @@ const bool Test_Quaternion_InverseQuaternion()
 
 	return(kbPassd && kbPassf);
 }
+
+const bool Test_Quaternion_UnitQuaternion()
+{
+	const TVector4d kAd{9.0, 6.0, 2.0, 3.0};
+	const TVector4d kBd = UnitQuaternion(TVector4d(), kAd);
+
+	const bool kbPassd = Equal(ConjugateQuaternion(TVector4d(), kBd), InverseQuaternion(TVector4d(), kBd), s_kdEpsilon);
+
+	const TVector4f kAf{1.0f, 2.0f, 3.0f, 4.0f};
+	const TVector4f kBf = UnitQuaternion(TVector4f(), kAf);
+
+	const bool kbPassf = Equal(ConjugateQuaternion(TVector4f(), kBf), InverseQuaternion(TVector4f(), kBf), s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}
