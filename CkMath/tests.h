@@ -72,7 +72,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Quaternion_InverseQuaternion),
 	TEST(Test_Quaternion_UnitQuaternion),
 	TEST(Test_Quaternion_AxisAngleQuaternion),
-	TEST(Test_Quaternion_QuaternionProduct)
+	TEST(Test_Quaternion_QuaternionProduct),
+	TEST(Test_Quaternion_QuaternionRotate)
 };
 
 #endif

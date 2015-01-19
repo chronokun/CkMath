@@ -20,4 +20,6 @@ const bool Test_Quaternion_AxisAngleQuaternion();
 
 const bool Test_Quaternion_QuaternionProduct();
 
+const bool Test_Quaternion_QuaternionRotate();
+
 #endif

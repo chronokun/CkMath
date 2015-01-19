@@ -116,3 +116,26 @@ const bool Test_Quaternion_QuaternionProduct()
 	return(kbPassd && kbPassf);
 }
 
+const bool Test_Quaternion_QuaternionRotate()
+{
+	const TVector3d kAxisd{1.0, 0.0, 0.0};
+	const double kdAngle = s_kdTau / 4.0;
+	const TVector4d kQuatd = AxisAngleQuaternion(TVector4d(), kAxisd, kdAngle);
+	const TVector3d kAd{0.0, 1.0, 0.0};
+	const TVector3d kBd = QuaternionRotate(TVector3d(), kAd, kQuatd);
+	const TVector3d kCd{0.0, 0.0, 1.0};
+
+	const bool kbPassd = Equal(kBd, kCd, s_kdEpsilon);
+
+	const TVector3f kAxisf{1.0f, 0.0f, 0.0f};
+	const float kfAngle = s_kfTau / 4.0f;
+	const TVector4f kQuatf = AxisAngleQuaternion(TVector4f(), kAxisf, kfAngle);
+	const TVector3f kAf{0.0f, 1.0f, 0.0f};
+	const TVector3f kBf = QuaternionRotate(TVector3f(), kAf, kQuatf);
+	const TVector3f kCf{0.0f, 0.0f, 1.0f};
+
+	const bool kbPassf = Equal(kBf, kCf, s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}
+
