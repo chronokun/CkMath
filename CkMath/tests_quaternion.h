@@ -22,4 +22,6 @@ const bool Test_Quaternion_QuaternionProduct();
 
 const bool Test_Quaternion_QuaternionRotate();
 
+const bool Test_Quaternion_Slerp();
+
 #endif

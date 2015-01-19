@@ -139,3 +139,26 @@ const bool Test_Quaternion_QuaternionRotate()
 	return(kbPassd && kbPassf);
 }
 
+const bool Test_Quaternion_Slerp()
+{
+	const TVector3d kAxisd{1.0, 0.0, 0.0};
+	const double kdAngle = s_kdTau / 4.0;
+	const TVector4d kAd = AxisAngleQuaternion(TVector4d(), kAxisd, 1.0*kdAngle);
+	const TVector4d kBd = AxisAngleQuaternion(TVector4d(), kAxisd, 2.0*kdAngle);
+	const TVector4d kCd = AxisAngleQuaternion(TVector4d(), kAxisd, 1.5*kdAngle);
+	const TVector4d kDd = Slerp(TVector4d(), kAd, kBd, 0.5);
+
+	const bool kbPassd = Equal(kCd, kDd, s_kdEpsilon);
+
+	const TVector3f kAxisf{1.0f, 0.0f, 0.0f};
+	const float kfAngle = s_kfTau / 4.0f;
+	const TVector4f kAf = AxisAngleQuaternion(TVector4f(), kAxisf, 1.0f*kfAngle);
+	const TVector4f kBf = AxisAngleQuaternion(TVector4f(), kAxisf, 2.0f*kfAngle);
+	const TVector4f kCf = AxisAngleQuaternion(TVector4f(), kAxisf, 1.5f*kfAngle);
+	const TVector4f kDf = Slerp(TVector4f(), kAf, kBf, 0.5f);
+
+	const bool kbPassf = Equal(kCf, kDf, s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}
+
