@@ -68,7 +68,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Matrix_OrthographicMatrix),
 
 	TEST(Test_Quaternion_IdentityQuaternion),
-	TEST(Test_Quaternion_ConjugateQuaternion)
+	TEST(Test_Quaternion_ConjugateQuaternion),
+	TEST(Test_Quaternion_InverseQuaternion)
 };
 
 #endif
