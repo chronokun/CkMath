@@ -61,7 +61,7 @@ const TVector4d& InverseQuaternion(TVector4d& _rResult, const TVector4d& _krQuat
 {
 	_rResult = ScalarMultiply(_rResult, 
 									ConjugateQuaternion(TVector4d(), _krQuaternion),
-									(1.0 / Square(QuaternionMagnitude(_krQuaternion))));
+									(1.0 / Square(Magnitude(_krQuaternion))));
 
 	return(_rResult);
 }
@@ -70,7 +70,7 @@ const TVector4f& InverseQuaternion(TVector4f& _rResult, const TVector4f& _krQuat
 {
 	_rResult = ScalarMultiply(_rResult, 
 									ConjugateQuaternion(TVector4f(), _krQuaternion),
-									(1.0f / Square(QuaternionMagnitude(_krQuaternion))));
+									(1.0f / Square(Magnitude(_krQuaternion))));
 
 	return(_rResult);
 }
@@ -79,7 +79,7 @@ const TVector4d& UnitQuaternion(TVector4d& _rResult, const TVector4d& _krQuatern
 {
 	_rResult = ScalarMultiply(	_rResult,
 										_krQuaternion,
-										(1.0 / QuaternionMagnitude(_krQuaternion)));
+										(1.0 / Magnitude(_krQuaternion)));
 
 	return(_rResult);
 }
@@ -88,7 +88,7 @@ const TVector4f& UnitQuaternion(TVector4f& _rResult, const TVector4f& _krQuatern
 {
 	_rResult = ScalarMultiply(	_rResult,
 										_krQuaternion,
-										(1.0f / QuaternionMagnitude(_krQuaternion)));
+										(1.0f / Magnitude(_krQuaternion)));
 
 	return(_rResult);
 }
@@ -113,22 +113,6 @@ const TVector4f& AxisAngleQuaternion(TVector4f& _rResult, const TVector3f& _krAx
 	_rResult.m_fZ = _krAxis.m_fZ * Sine(_kfAngle / 2.0f);
 
 	return(_rResult);
-}
-
-const double QuaternionMagnitude(const TVector4d& _krQuaternion)
-{
-	return(SquareRoot(QuaternionProduct(TVector4d(),
-													ConjugateQuaternion(	TVector4d(),
-																				_krQuaternion),
-													_krQuaternion).m_dW));
-}
-
-const float QuaternionMagnitude(const TVector4f& _krQuaternion)
-{
-	return(SquareRoot(QuaternionProduct(TVector4f(),
-													ConjugateQuaternion(	TVector4f(),
-																				_krQuaternion),
-													_krQuaternion).m_fW));
 }
 
 const TVector4d& QuaternionProduct(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB)

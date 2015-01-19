@@ -18,7 +18,7 @@ const bool Test_Vector_Subtract();
 
 const bool Test_Vector_ScalarMultiply();
 
-const bool Test_Vector_VectorMagnitude();
+const bool Test_Vector_Magnitude();
 
 const bool Test_Vector_DotProduct();
 

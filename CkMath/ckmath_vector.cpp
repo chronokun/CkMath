@@ -129,7 +129,7 @@ const TVector4f& ScalarMultiply(	TVector4f& _rResult,
 	return(_rResult);
 }
 
-const double VectorMagnitude(const TVector4d& _krV)
+const double Magnitude(const TVector4d& _krV)
 {
 	return(SquareRoot(	Square(_krV.m_dX)
 							+	Square(_krV.m_dY)
@@ -137,7 +137,7 @@ const double VectorMagnitude(const TVector4d& _krV)
 							+	Square(_krV.m_dW)));
 }
 
-const float VectorMagnitude(const TVector4f& _krV)
+const float Magnitude(const TVector4f& _krV)
 {
 	return(SquareRoot(	Square(_krV.m_fX)
 							+	Square(_krV.m_fY)
@@ -170,14 +170,14 @@ const float DotProduct(	const TVector4f& _krA,
 const TVector4d& Normalize(	TVector4d& _rResult,
 									const TVector4d& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0 / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0 / Magnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector4f& Normalize(	TVector4f& _rResult,
 									const TVector4f& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0f / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0f / Magnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -185,7 +185,7 @@ const TVector4d& Projection(	TVector4d& _rResult,
 									const TVector4d& _krA,
 									const TVector4d& _krB)
 {
-	const double kdDenom = Square(VectorMagnitude(_krB));
+	const double kdDenom = Square(Magnitude(_krB));
 
 	const TVector4d kNumer = ScalarMultiply(TVector4d(), _krB, DotProduct(_krA, _krB));
 
@@ -198,7 +198,7 @@ const TVector4f& Projection(	TVector4f& _rResult,
 									const TVector4f& _krA,
 									const TVector4f& _krB)
 {
-	const float kfDenom = Square(VectorMagnitude(_krB));
+	const float kfDenom = Square(Magnitude(_krB));
 
 	const TVector4f kNumer = ScalarMultiply(TVector4f(), _krB, DotProduct(_krA, _krB));
 
@@ -211,7 +211,7 @@ const double AngleBetween(const TVector4d& _krA,
 								const TVector4d& _krB)
 {
 	const double kdAngle = ArcCos(	DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -220,7 +220,7 @@ const float AngleBetween(	const TVector4f& _krA,
 								const TVector4f& _krB)
 {
 	const float kfAngle = ArcCos(		DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -228,7 +228,7 @@ const float AngleBetween(	const TVector4f& _krA,
 const double Distance(const TVector4d& _krA,
 							const TVector4d& _krB)
 {
-	const double kdDistance = VectorMagnitude(Subtract(TVector4d(), _krA, _krB));
+	const double kdDistance = Magnitude(Subtract(TVector4d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -236,7 +236,7 @@ const double Distance(const TVector4d& _krA,
 const float Distance(	const TVector4f& _krA,
 							const TVector4f& _krB)
 {
-	const float kfDistance = VectorMagnitude(Subtract(TVector4f(), _krA, _krB));
+	const float kfDistance = Magnitude(Subtract(TVector4f(), _krA, _krB));
 
 	return(kfDistance);
 }
@@ -351,14 +351,14 @@ const TVector3f& ScalarMultiply(	TVector3f& _rResult,
 	return(_rResult);
 }
 
-const double VectorMagnitude(const TVector3d& _krV)
+const double Magnitude(const TVector3d& _krV)
 {
 	return(SquareRoot(	Square(_krV.m_dX)
 							+	Square(_krV.m_dY)
 							+	Square(_krV.m_dZ)));
 }
 
-const float VectorMagnitude(const TVector3f& _krV)
+const float Magnitude(const TVector3f& _krV)
 {
 	return(SquareRoot(	Square(_krV.m_fX)
 							+	Square(_krV.m_fY)
@@ -406,14 +406,14 @@ const TVector3f& CrossProduct(TVector3f& _rResult,
 const TVector3d& Normalize(	TVector3d& _rResult,
 									const TVector3d& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0 / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0 / Magnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector3f& Normalize(	TVector3f& _rResult,
 									const TVector3f& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0f / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0f / Magnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -421,7 +421,7 @@ const TVector3d& Projection(	TVector3d& _rResult,
 									const TVector3d& _krA,
 									const TVector3d& _krB)
 {
-	const double kdDenom = Square(VectorMagnitude(_krB));
+	const double kdDenom = Square(Magnitude(_krB));
 
 	const TVector3d kNumer = ScalarMultiply(TVector3d(), _krB, DotProduct(_krA, _krB));
 
@@ -434,7 +434,7 @@ const TVector3f& Projection(	TVector3f& _rResult,
 									const TVector3f& _krA,
 									const TVector3f& _krB)
 {
-	const float kfDenom = Square(VectorMagnitude(_krB));
+	const float kfDenom = Square(Magnitude(_krB));
 
 	const TVector3f kNumer = ScalarMultiply(TVector3f(), _krB, DotProduct(_krA, _krB));
 
@@ -447,7 +447,7 @@ const double AngleBetween(const TVector3d& _krA,
 								const TVector3d& _krB)
 {
 	const double kdAngle = ArcCos(	DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -456,7 +456,7 @@ const float AngleBetween(	const TVector3f& _krA,
 								const TVector3f& _krB)
 {
 	const float kfAngle = ArcCos(		DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -464,7 +464,7 @@ const float AngleBetween(	const TVector3f& _krA,
 const double Distance(const TVector3d& _krA,
 							const TVector3d& _krB)
 {
-	const double kdDistance = VectorMagnitude(Subtract(TVector3d(), _krA, _krB));
+	const double kdDistance = Magnitude(Subtract(TVector3d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -472,7 +472,7 @@ const double Distance(const TVector3d& _krA,
 const float Distance(	const TVector3f& _krA,
 							const TVector3f& _krB)
 {
-	const float kfDistance = VectorMagnitude(Subtract(TVector3f(), _krA, _krB));
+	const float kfDistance = Magnitude(Subtract(TVector3f(), _krA, _krB));
 
 	return(kfDistance);
 }
@@ -607,16 +607,16 @@ const TVector2f& ScalarMultiply(	TVector2f& _rResult,
 	return(_rResult);
 }
 
-const double VectorMagnitude(const TVector2d& _krV)
+const double Magnitude(const TVector2d& _krV)
 {
-	return(SquareRoot(	Square(_krV.m_dX)
-							+	Square(_krV.m_dY)));
+	return(SquareRoot(		Square(_krV.m_dX)
+						+	Square(_krV.m_dY)));
 }
 
-const float VectorMagnitude(const TVector2f& _krV)
+const float Magnitude(const TVector2f& _krV)
 {
-	return(SquareRoot(	Square(_krV.m_fX)
-							+	Square(_krV.m_fY)));
+	return(SquareRoot(		Square(_krV.m_fX)
+						+	Square(_krV.m_fY)));
 }
 
 const double DotProduct(	const TVector2d& _krA,
@@ -636,14 +636,14 @@ const float DotProduct(	const TVector2f& _krA,
 const TVector2d& Normalize(	TVector2d& _rResult,
 									const TVector2d& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0 / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0 / Magnitude(_krV)) );
 	return(_rResult);
 }
 
 const TVector2f& Normalize(	TVector2f& _rResult,
 									const TVector2f& _krV)
 {
-	ScalarMultiply(_rResult, _krV, (1.0f / VectorMagnitude(_krV)) );
+	ScalarMultiply(_rResult, _krV, (1.0f / Magnitude(_krV)) );
 	return(_rResult);
 }
 
@@ -651,7 +651,7 @@ const TVector2d& Projection(	TVector2d& _rResult,
 									const TVector2d& _krA,
 									const TVector2d& _krB)
 {
-	const double kdDenom = Square(VectorMagnitude(_krB));
+	const double kdDenom = Square(Magnitude(_krB));
 
 	const TVector2d kNumer = ScalarMultiply(TVector2d(), _krB, DotProduct(_krA, _krB));
 
@@ -664,7 +664,7 @@ const TVector2f& Projection(	TVector2f& _rResult,
 									const TVector2f& _krA,
 									const TVector2f& _krB)
 {
-	const float kfDenom = Square(VectorMagnitude(_krB));
+	const float kfDenom = Square(Magnitude(_krB));
 
 	const TVector2f kNumer = ScalarMultiply(TVector2f(), _krB, DotProduct(_krA, _krB));
 
@@ -677,7 +677,7 @@ const double AngleBetween(const TVector2d& _krA,
 								const TVector2d& _krB)
 {
 	const double kdAngle = ArcCos(	DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kdAngle);
 }
@@ -686,7 +686,7 @@ const float AngleBetween(	const TVector2f& _krA,
 								const TVector2f& _krB)
 {
 	const float kfAngle = ArcCos(		DotProduct(_krA, _krB) 
-										/	( VectorMagnitude(_krA) * VectorMagnitude(_krB) ) );
+										/	( Magnitude(_krA) * Magnitude(_krB) ) );
 
 	return(kfAngle);
 }
@@ -694,7 +694,7 @@ const float AngleBetween(	const TVector2f& _krA,
 const double Distance(const TVector2d& _krA,
 							const TVector2d& _krB)
 {
-	const double kdDistance = VectorMagnitude(Subtract(TVector2d(), _krA, _krB));
+	const double kdDistance = Magnitude(Subtract(TVector2d(), _krA, _krB));
 
 	return(kdDistance);
 }
@@ -702,7 +702,7 @@ const double Distance(const TVector2d& _krA,
 const float Distance(	const TVector2f& _krA,
 							const TVector2f& _krB)
 {
-	const float kfDistance = VectorMagnitude(Subtract(TVector2f(), _krA, _krB));
+	const float kfDistance = Magnitude(Subtract(TVector2f(), _krA, _krB));
 
 	return(kfDistance);
 }

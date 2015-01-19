@@ -54,9 +54,9 @@ const TVector4f& ScalarMultiply(TVector4f& _rResult,
 								const TVector4f& _krV,
 								const float _kfS);
 
-const double VectorMagnitude(const TVector4d& _krV);
+const double Magnitude(const TVector4d& _krV);
 
-const float VectorMagnitude(const TVector4f& _krV);
+const float Magnitude(const TVector4f& _krV);
 
 const double DotProduct(const TVector4d& _krA,
 						const TVector4d& _krB);
@@ -130,9 +130,9 @@ const TVector3f& ScalarMultiply(TVector3f& _rResult,
 								const TVector3f& _krV,
 								const float _kfS);
 
-const double VectorMagnitude(const TVector3d& _krV);
+const double Magnitude(const TVector3d& _krV);
 
-const float VectorMagnitude(const TVector3f& _krV);
+const float Magnitude(const TVector3f& _krV);
 
 const double DotProduct(const TVector3d& _krA,
 						const TVector3d& _krB);
@@ -232,9 +232,9 @@ const TVector2f& ScalarMultiply(TVector2f& _rResult,
 								const TVector2f& _krV,
 								const float _kfS);
 
-const double VectorMagnitude(const TVector2d& _krV);
+const double Magnitude(const TVector2d& _krV);
 
-const float VectorMagnitude(const TVector2f& _krV);
+const float Magnitude(const TVector2f& _krV);
 
 const double DotProduct(const TVector2d& _krA,
 						const TVector2d& _krB);

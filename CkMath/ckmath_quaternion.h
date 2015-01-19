@@ -33,10 +33,6 @@ const TVector4d& AxisAngleQuaternion(TVector4d& _rResult, const TVector3d& _krAx
 
 const TVector4f& AxisAngleQuaternion(TVector4f& _rResult, const TVector3f& _krAxis, const float _kfAngle);
 
-const double QuaternionMagnitude(const TVector4d& _krQuaternion);
-
-const float QuaternionMagnitude(const TVector4f& _krQuaternion);
-
 const TVector4d& QuaternionProduct(TVector4d& _rResult, const TVector4d& _krA, const TVector4d& _krB);
 
 const TVector4f& QuaternionProduct(TVector4f& _rResult, const TVector4f& _krA, const TVector4f& _krB);

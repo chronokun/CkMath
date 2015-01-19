@@ -201,7 +201,7 @@ const bool Test_Vector_ScalarMultiply()
 			&&	kbPass2f);
 }
 
-const bool Test_Vector_VectorMagnitude()
+const bool Test_Vector_Magnitude()
 {
 	const TVector4d kA4d{1.0, 1.0, 1.0, 1.0};
 	const double kB4d = 2.0;
@@ -221,14 +221,14 @@ const bool Test_Vector_VectorMagnitude()
 	const TVector2f kA2f{1.0f, 1.0f};
 	const float kB2f = SquareRoot(2.0f);
 
-	const bool kbPass4d = Equal(VectorMagnitude(kA4d), kB4d, s_kdEpsilon);
-	const bool kbPass4f = Equal(VectorMagnitude(kA4f), kB4f, s_kfEpsilon);
+	const bool kbPass4d = Equal(Magnitude(kA4d), kB4d, s_kdEpsilon);
+	const bool kbPass4f = Equal(Magnitude(kA4f), kB4f, s_kfEpsilon);
 
-	const bool kbPass3d = Equal(VectorMagnitude(kA3d), kB3d, s_kdEpsilon);
-	const bool kbPass3f = Equal(VectorMagnitude(kA3f), kB3f, s_kfEpsilon);
+	const bool kbPass3d = Equal(Magnitude(kA3d), kB3d, s_kdEpsilon);
+	const bool kbPass3f = Equal(Magnitude(kA3f), kB3f, s_kfEpsilon);
 
-	const bool kbPass2d = Equal(VectorMagnitude(kA2d), kB2d, s_kdEpsilon);
-	const bool kbPass2f = Equal(VectorMagnitude(kA2f), kB2f, s_kfEpsilon);
+	const bool kbPass2d = Equal(Magnitude(kA2d), kB2d, s_kdEpsilon);
+	const bool kbPass2f = Equal(Magnitude(kA2f), kB2f, s_kfEpsilon);
 
 	return(		kbPass4d
 			&&	kbPass4f
@@ -309,12 +309,12 @@ const bool Test_Vector_Normalize()
 	const TVector2d kA2d{1.0, 1.0};
 	const TVector2f kA2f{1.0f, 1.0f};
 
-	const bool kbPass4d = Equal(VectorMagnitude(Normalize(TVector4d(), kA4d)), 1.0, s_kdEpsilon);
-	const bool kbPass4f = Equal(VectorMagnitude(Normalize(TVector4f(), kA4f)), 1.0f, s_kfEpsilon);
-	const bool kbPass3d = Equal(VectorMagnitude(Normalize(TVector3d(), kA3d)), 1.0, s_kdEpsilon);
-	const bool kbPass3f = Equal(VectorMagnitude(Normalize(TVector3f(), kA3f)), 1.0f, s_kfEpsilon);
-	const bool kbPass2d = Equal(VectorMagnitude(Normalize(TVector2d(), kA2d)), 1.0, s_kdEpsilon);
-	const bool kbPass2f = Equal(VectorMagnitude(Normalize(TVector2f(), kA2f)), 1.0f, s_kfEpsilon);
+	const bool kbPass4d = Equal(Magnitude(Normalize(TVector4d(), kA4d)), 1.0, s_kdEpsilon);
+	const bool kbPass4f = Equal(Magnitude(Normalize(TVector4f(), kA4f)), 1.0f, s_kfEpsilon);
+	const bool kbPass3d = Equal(Magnitude(Normalize(TVector3d(), kA3d)), 1.0, s_kdEpsilon);
+	const bool kbPass3f = Equal(Magnitude(Normalize(TVector3f(), kA3f)), 1.0f, s_kfEpsilon);
+	const bool kbPass2d = Equal(Magnitude(Normalize(TVector2d(), kA2d)), 1.0, s_kdEpsilon);
+	const bool kbPass2f = Equal(Magnitude(Normalize(TVector2f(), kA2f)), 1.0f, s_kfEpsilon);
 
 	return(		kbPass4d
 			&&	kbPass4f

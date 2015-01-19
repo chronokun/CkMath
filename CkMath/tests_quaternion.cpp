@@ -96,3 +96,4 @@ const bool Test_Quaternion_AxisAngleQuaternion()
 
 	return(kbPassd && kbPassf);
 }
+
