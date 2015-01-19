@@ -97,3 +97,22 @@ const bool Test_Quaternion_AxisAngleQuaternion()
 	return(kbPassd && kbPassf);
 }
 
+const bool Test_Quaternion_QuaternionProduct()
+{
+	const TVector3d kAxisd{1.0, 0.0, 0.0};
+	const TVector4d kAd = AxisAngleQuaternion(TVector4d(), kAxisd, s_kdTau / 8.0);
+	const TVector4d kBd = AxisAngleQuaternion(TVector4d(), kAxisd, s_kdTau / 4.0);
+	const TVector4d kCd = QuaternionProduct(TVector4d(), kAd, kAd);
+
+	const bool kbPassd = Equal(kCd, kBd, s_kdEpsilon);
+
+	const TVector3f kAxisf{1.0f, 0.0f, 0.0f};
+	const TVector4f kAf = AxisAngleQuaternion(TVector4f(), kAxisf, s_kfTau / 8.0f);
+	const TVector4f kBf = AxisAngleQuaternion(TVector4f(), kAxisf, s_kfTau / 4.0f);
+	const TVector4f kCf = QuaternionProduct(TVector4f(), kAf, kAf);
+
+	const bool kbPassf = Equal(kCf, kBf, s_kfEpsilon);
+
+	return(kbPassd && kbPassf);
+}
+

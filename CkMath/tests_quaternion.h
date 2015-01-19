@@ -18,4 +18,6 @@ const bool Test_Quaternion_UnitQuaternion();
 
 const bool Test_Quaternion_AxisAngleQuaternion();
 
+const bool Test_Quaternion_QuaternionProduct();
+
 #endif
