@@ -27,3 +27,29 @@ const bool Test_Geometry_GetInterval()
 
 	return(kPass3d && kPass3f);
 }
+
+const bool Test_Geometry_IsIntersection()
+{
+	const TPlane3d kPlane3d{	TVector3d{2.0, 0.0, 0.0},
+								TVector3d{-1.0, 0.0, 0.0}};
+
+	const TRay3d kRayA3d{	TVector3d{0.0, 0.0, 0.0},
+							TVector3d{1.0, 0.0, 0.0}};
+
+	const TRay3d kRayB3d{	TVector3d{0.0, 0.0, 0.0},
+							TVector3d{0.0, 1.0, 0.0}};
+
+	const TPlane3f kPlane3f{	TVector3f{2.0f, 0.0f, 0.0f},
+								TVector3f{-1.0f, 0.0f, 0.0f}};
+
+	const TRay3f kRayA3f{	TVector3f{0.0f, 0.0f, 0.0f},
+							TVector3f{1.0f, 0.0f, 0.0f}};
+
+	const TRay3f kRayB3f{	TVector3f{0.0f, 0.0f, 0.0f},
+							TVector3f{0.0f, 1.0f, 0.0f}};
+
+	const bool kPass3d = IsIntersection(kRayA3d, kPlane3d) && !IsIntersection(kRayB3d, kPlane3d);
+	const bool kPass3f = IsIntersection(kRayA3f, kPlane3f) && !IsIntersection(kRayB3f, kPlane3f);
+
+	return(kPass3d && kPass3f);
+}

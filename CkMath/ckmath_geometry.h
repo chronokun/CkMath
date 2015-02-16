@@ -44,4 +44,10 @@ const double GetInterval(	const TRay3d& _krRay,
 const float GetInterval(	const TRay3f& _krRay,
 							const TPlane3f& _krPlane);
 
+const bool IsIntersection(	const TRay3d& _krRay,
+							const TPlane3d& _krPlane);
+
+const bool IsIntersection(	const TRay3f& _krRay,
+							const TPlane3f& _krPlane);
+
 #endif

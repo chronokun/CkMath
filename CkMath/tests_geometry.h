@@ -10,4 +10,6 @@
 
 const bool Test_Geometry_GetInterval();
 
+const bool Test_Geometry_IsIntersection();
+
 #endif

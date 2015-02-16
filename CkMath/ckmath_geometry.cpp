@@ -137,3 +137,15 @@ const float GetInterval(	const TRay3f& _krRay,
 
 	return(kfInterval);
 }
+
+const bool IsIntersection(	const TRay3d& _krRay,
+							const TPlane3d& _krPlane)
+{
+	return(DotProduct(_krRay.m_Direction, _krPlane.m_Normal) != 0.0);
+}
+
+const bool IsIntersection(	const TRay3f& _krRay,
+							const TPlane3f& _krPlane)
+{
+	return(DotProduct(_krRay.m_Direction, _krPlane.m_Normal) != 0.0f);
+}
