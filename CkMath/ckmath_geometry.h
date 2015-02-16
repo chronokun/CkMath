@@ -38,5 +38,10 @@ const TVector3f& GetPolygonNormal(	TVector3f& _rResult,
 									const TVector3f* _kpVertices,
 									const size_t _kVertexCount);
 
+const double GetInterval(	const TRay3d& _krRay,
+							const TPlane3d& _krPlane);
+
+const float GetInterval(	const TRay3f& _krRay,
+							const TPlane3f& _krPlane);
 
 #endif

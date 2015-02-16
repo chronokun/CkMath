@@ -126,6 +126,7 @@
     <ClCompile Include="ckmath_matrix.cpp" />
     <ClCompile Include="ckmath_quaternion.cpp" />
     <ClCompile Include="ckmath_vector.cpp" />
+    <ClCompile Include="tests_geometry.cpp" />
     <ClCompile Include="tests_matrix.cpp" />
     <ClCompile Include="tests_quaternion.cpp" />
     <ClCompile Include="tests_vector.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="ckmath_types.h" />
     <ClInclude Include="ckmath_vector.h" />
     <ClInclude Include="tests.h" />
+    <ClInclude Include="tests_geometry.h" />
     <ClInclude Include="tests_matrix.h" />
     <ClInclude Include="tests_quaternion.h" />
     <ClInclude Include="tests_vector.h" />

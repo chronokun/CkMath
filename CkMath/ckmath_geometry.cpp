@@ -119,3 +119,21 @@ const TVector3f& GetPolygonNormal(TVector3f& _rResult, const TVector3f* _kpVerti
 
 	return(_rResult);
 }
+
+const double GetInterval(	const TRay3d& _krRay,
+							const TPlane3d& _krPlane)
+{
+	const double kdInterval = -		(DotProduct(_krRay.m_Start, _krPlane.m_Normal) - DotProduct(_krPlane.m_Point, _krPlane.m_Normal))
+								/	DotProduct(_krRay.m_Direction, _krPlane.m_Normal);
+
+	return(kdInterval);
+}
+
+const float GetInterval(	const TRay3f& _krRay,
+							const TPlane3f& _krPlane)
+{
+	const float kfInterval = -		(DotProduct(_krRay.m_Start, _krPlane.m_Normal) - DotProduct(_krPlane.m_Point, _krPlane.m_Normal))
+								/	DotProduct(_krRay.m_Direction, _krPlane.m_Normal);
+
+	return(kfInterval);
+}

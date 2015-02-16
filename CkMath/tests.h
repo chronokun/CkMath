@@ -12,6 +12,7 @@
 #include "tests_vector.h"
 #include "tests_matrix.h"
 #include "tests_quaternion.h"
+#include "tests_geometry.h"
 
 // Typedefs
 typedef const bool (*TestFuncType)(void);
@@ -74,7 +75,9 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Quaternion_AxisAngleQuaternion),
 	TEST(Test_Quaternion_QuaternionProduct),
 	TEST(Test_Quaternion_QuaternionRotate),
-	TEST(Test_Quaternion_Slerp)
+	TEST(Test_Quaternion_Slerp),
+
+	TEST(Test_Geometry_GetInterval)
 };
 
 #endif
