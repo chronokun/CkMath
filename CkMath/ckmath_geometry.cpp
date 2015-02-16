@@ -149,3 +149,22 @@ const bool IsIntersection(	const TRay3f& _krRay,
 {
 	return(DotProduct(_krRay.m_Direction, _krPlane.m_Normal) != 0.0f);
 }
+
+const TVector3d& GetIntersection(	TVector3d& _rResult,
+									const TRay3d& _krRay,
+									const TPlane3d& _krPlane)
+{
+	_rResult = Add(_rResult, _krRay.m_Start, ScalarMultiply(TVector3d(), _krRay.m_Direction, GetInterval(_krRay, _krPlane)));
+
+	return(_rResult);
+}
+
+const TVector3f& GetIntersection(	TVector3f& _rResult,
+									const TRay3f& _krRay,
+									const TPlane3f& _krPlane)
+{
+	_rResult = Add(_rResult, _krRay.m_Start, ScalarMultiply(TVector3f(), _krRay.m_Direction, GetInterval(_krRay, _krPlane)));
+
+	return(_rResult);
+}
+

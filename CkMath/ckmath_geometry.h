@@ -50,4 +50,12 @@ const bool IsIntersection(	const TRay3d& _krRay,
 const bool IsIntersection(	const TRay3f& _krRay,
 							const TPlane3f& _krPlane);
 
+const TVector3d& GetIntersection(	TVector3d& _rResult,
+									const TRay3d& _krRay,
+									const TPlane3d& _krPlane);
+
+const TVector3f& GetIntersection(	TVector3f& _rResult,
+									const TRay3f& _krRay,
+									const TPlane3f& _krPlane);
+
 #endif

@@ -78,7 +78,8 @@ static const TFuncStrPair s_kTestFunctions[] = {
 	TEST(Test_Quaternion_Slerp),
 
 	TEST(Test_Geometry_GetInterval),
-	TEST(Test_Geometry_IsIntersection)
+	TEST(Test_Geometry_IsIntersection),
+	TEST(Test_Geometry_GetIntersection)
 };
 
 #endif
