@@ -3,6 +3,8 @@
 //	Email:	chronokun@hotmail.com
 //
 
+// Library Includes
+#include <algorithm>
 // Local Includes
 #include "ckmath_scalar.h"
 #include "ckmath_vector.h"
@@ -166,5 +168,58 @@ const TVector3f& GetIntersection(	TVector3f& _rResult,
 	_rResult = Add(_rResult, _krRay.m_Start, ScalarMultiply(TVector3f(), _krRay.m_Direction, GetInterval(_krRay, _krPlane)));
 
 	return(_rResult);
+}
+
+const bool Intersection(	const TAABB3d& _krAABB,
+							const TRay3d& _krRay,
+							double& _rdIntervalMin,
+							double& _rdIntervalMax)
+{
+	double dMin = (_krAABB.m_MinPoint.m_dX - _krRay.m_Start.m_dX) / _krRay.m_Direction.m_dX;
+	double dMax = (_krAABB.m_MaxPoint.m_dX - _krRay.m_Start.m_dX) / _krRay.m_Direction.m_dX;
+	if(dMin > dMax)
+	{
+		std::swap(dMin, dMax);
+	}
+
+	double dyMin = (_krAABB.m_MinPoint.m_dY - _krRay.m_Start.m_dY) / _krRay.m_Direction.m_dY;
+	double dyMax = (_krAABB.m_MaxPoint.m_dY - _krRay.m_Start.m_dY) / _krRay.m_Direction.m_dY;
+	if(dyMin > dyMax)
+	{
+		std::swap(dyMin, dyMax);
+	}
+
+	if((dMin > dyMax) || (dyMin > dMax))
+	{
+		return(false);
+	}
+
+	dMin = std::max(dMin, dyMin);
+	dMax = std::min(dMax, dyMax);
+
+	double dzMin = (_krAABB.m_MinPoint.m_dZ - _krRay.m_Start.m_dZ) / _krRay.m_Direction.m_dZ;
+	double dzMax = (_krAABB.m_MaxPoint.m_dZ - _krRay.m_Start.m_dZ) / _krRay.m_Direction.m_dZ;
+	if(dzMin > dzMax)
+	{
+		std::swap(dzMin, dzMax);
+	}
+
+	if((dMin > dzMax) || (dzMin > dMax))
+	{
+		return(false);
+	}
+
+	dMin = std::max(dMin, dzMin);
+	dMax = std::min(dMax, dzMax);
+
+	if((dMin > _rdIntervalMax) || (dMax < _rdIntervalMin))
+	{
+		return(false);
+	}
+
+	_rdIntervalMin = std::max(_rdIntervalMin, dMin);
+	_rdIntervalMax = std::min(_rdIntervalMax, dMax);
+
+	return(true);
 }
 

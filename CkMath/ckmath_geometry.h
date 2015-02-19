@@ -11,7 +11,6 @@
 // Local Includes
 #include "ckmath_types.h"
 
-
 const bool IsIntersection(	const TPlane3d& _krA,
 							const TPlane3d& _krB,
 							const TPlane3d& _krC);
@@ -57,5 +56,10 @@ const TVector3d& GetIntersection(	TVector3d& _rResult,
 const TVector3f& GetIntersection(	TVector3f& _rResult,
 									const TRay3f& _krRay,
 									const TPlane3f& _krPlane);
+
+const bool Intersection(	const TAABB3d& _krAABB,
+							const TRay3d& _krRay,
+							double& _rdIntervalMin,
+							double& _rdIntervalMax);
 
 #endif
