@@ -195,10 +195,10 @@ const TVector4d& VectorMultiply(	TVector4d& _rResult,
 										const TMatrix4d& _krA,
 										const TVector4d& _krB)
 {
-	_rResult.m_dX = (_krA.m_d11 * _krB.m_dX) + (_krA.m_d12 * _krB.m_dY) + (_krA.m_d13 * _krB.m_dZ) + (_krA.m_d14 * _krB.m_dW);
-	_rResult.m_dY = (_krA.m_d21 * _krB.m_dX) + (_krA.m_d22 * _krB.m_dY) + (_krA.m_d23 * _krB.m_dZ) + (_krA.m_d24 * _krB.m_dW);
-	_rResult.m_dZ = (_krA.m_d31 * _krB.m_dX) + (_krA.m_d32 * _krB.m_dY) + (_krA.m_d33 * _krB.m_dZ) + (_krA.m_d34 * _krB.m_dW);
-	_rResult.m_dW = (_krA.m_d41 * _krB.m_dX) + (_krA.m_d42 * _krB.m_dY) + (_krA.m_d43 * _krB.m_dZ) + (_krA.m_d44 * _krB.m_dW);
+	_rResult.m_dX = (_krA.m_d11 * _krB.m_dX) + (_krA.m_d21 * _krB.m_dY) + (_krA.m_d31 * _krB.m_dZ) + (_krA.m_d41 * _krB.m_dW);
+	_rResult.m_dY = (_krA.m_d12 * _krB.m_dX) + (_krA.m_d22 * _krB.m_dY) + (_krA.m_d32 * _krB.m_dZ) + (_krA.m_d42 * _krB.m_dW);
+	_rResult.m_dZ = (_krA.m_d13 * _krB.m_dX) + (_krA.m_d23 * _krB.m_dY) + (_krA.m_d33 * _krB.m_dZ) + (_krA.m_d43 * _krB.m_dW);
+	_rResult.m_dW = (_krA.m_d14 * _krB.m_dX) + (_krA.m_d24 * _krB.m_dY) + (_krA.m_d34 * _krB.m_dZ) + (_krA.m_d44 * _krB.m_dW);
 
 	return(_rResult);
 }
@@ -207,10 +207,10 @@ const TVector4f& VectorMultiply(	TVector4f& _rResult,
 										const TMatrix4f& _krA,
 										const TVector4f& _krB)
 {
-	_rResult.m_fX = (_krA.m_f11 * _krB.m_fX) + (_krA.m_f12 * _krB.m_fY) + (_krA.m_f13 * _krB.m_fZ) + (_krA.m_f14 * _krB.m_fW);
-	_rResult.m_fY = (_krA.m_f21 * _krB.m_fX) + (_krA.m_f22 * _krB.m_fY) + (_krA.m_f23 * _krB.m_fZ) + (_krA.m_f24 * _krB.m_fW);
-	_rResult.m_fZ = (_krA.m_f31 * _krB.m_fX) + (_krA.m_f32 * _krB.m_fY) + (_krA.m_f33 * _krB.m_fZ) + (_krA.m_f34 * _krB.m_fW);
-	_rResult.m_fW = (_krA.m_f41 * _krB.m_fX) + (_krA.m_f42 * _krB.m_fY) + (_krA.m_f43 * _krB.m_fZ) + (_krA.m_f44 * _krB.m_fW);
+	_rResult.m_fX = (_krA.m_f11 * _krB.m_fX) + (_krA.m_f21 * _krB.m_fY) + (_krA.m_f31 * _krB.m_fZ) + (_krA.m_f41 * _krB.m_fW);
+	_rResult.m_fY = (_krA.m_f12 * _krB.m_fX) + (_krA.m_f22 * _krB.m_fY) + (_krA.m_f32 * _krB.m_fZ) + (_krA.m_f42 * _krB.m_fW);
+	_rResult.m_fZ = (_krA.m_f13 * _krB.m_fX) + (_krA.m_f23 * _krB.m_fY) + (_krA.m_f33 * _krB.m_fZ) + (_krA.m_f43 * _krB.m_fW);
+	_rResult.m_fW = (_krA.m_f14 * _krB.m_fX) + (_krA.m_f24 * _krB.m_fY) + (_krA.m_f34 * _krB.m_fZ) + (_krA.m_f44 * _krB.m_fW);
 
 	return(_rResult);
 }
@@ -891,10 +891,10 @@ const TMatrix4d& ScalingMatrix(	TMatrix4d& _rResult,
 										const double _kdY,
 										const double _kdZ)
 {
-	_rResult.m_d11 = _kdX; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = 0.0;
-	_rResult.m_d21 = 0.0; _rResult.m_d22 = _kdY; _rResult.m_d23 = 0.0; _rResult.m_d24 = 0.0;
-	_rResult.m_d31 = 0.0; _rResult.m_d32 = 0.0; _rResult.m_d33 = _kdZ; _rResult.m_d34 = 0.0;
-	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0; _rResult.m_d43 = 0.0; _rResult.m_d44 = 1.0;
+	_rResult.m_d11 = _kdX;	_rResult.m_d21 = 0.0;	_rResult.m_d31 = 0.0;	_rResult.m_d41 = 0.0;
+	_rResult.m_d12 = 0.0;	_rResult.m_d22 = _kdY;	_rResult.m_d32 = 0.0;	_rResult.m_d42 = 0.0;
+	_rResult.m_d13 = 0.0;	_rResult.m_d23 = 0.0;	_rResult.m_d33 = _kdZ;	_rResult.m_d43 = 0.0;
+	_rResult.m_d14 = 0.0;	_rResult.m_d24 = 0.0;	_rResult.m_d34 = 0.0;	_rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
@@ -904,10 +904,10 @@ const TMatrix4f& ScalingMatrix(	TMatrix4f& _rResult,
 										const float _kfY,
 										const float _kfZ)
 {
-	_rResult.m_f11 = _kfX; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = 0.0f; _rResult.m_f22 = _kfY; _rResult.m_f23 = 0.0f; _rResult.m_f24 = 0.0f;
-	_rResult.m_f31 = 0.0f; _rResult.m_f32 = 0.0f; _rResult.m_f33 = _kfZ; _rResult.m_f34 = 0.0f;
-	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f; _rResult.m_f43 = 0.0f; _rResult.m_f44 = 1.0f;
+	_rResult.m_f11 = _kfX; _rResult.m_f21 = 0.0f; _rResult.m_f31 = 0.0f; _rResult.m_f41 = 0.0f;
+	_rResult.m_f12 = 0.0f; _rResult.m_f22 = _kfY; _rResult.m_f32 = 0.0f; _rResult.m_f42 = 0.0f;
+	_rResult.m_f13 = 0.0f; _rResult.m_f23 = 0.0f; _rResult.m_f33 = _kfZ; _rResult.m_f43 = 0.0f;
+	_rResult.m_f14 = 0.0f; _rResult.m_f24 = 0.0f; _rResult.m_f34 = 0.0f; _rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }
@@ -918,11 +918,11 @@ const TMatrix4d& TransformationMatrix(TMatrix4d& _rResult,
 											const TVector3d& _krBasisZ,
 											const TVector3d& _krTranslation)
 {
-	_rResult.m_d11 = _krBasisX.m_dX; _rResult.m_d12 = _krBasisY.m_dX; _rResult.m_d13 = _krBasisZ.m_dX; _rResult.m_d14 = _krTranslation.m_dX;
-	_rResult.m_d21 = _krBasisX.m_dY; _rResult.m_d22 = _krBasisY.m_dY; _rResult.m_d23 = _krBasisZ.m_dY; _rResult.m_d24 = _krTranslation.m_dY;
-	_rResult.m_d31 = _krBasisX.m_dZ; _rResult.m_d32 = _krBasisY.m_dZ; _rResult.m_d33 = _krBasisZ.m_dZ; _rResult.m_d34 = _krTranslation.m_dZ;
+	_rResult.m_d11 = _krBasisX.m_dX; _rResult.m_d21 = _krBasisY.m_dX; _rResult.m_d31 = _krBasisZ.m_dX; _rResult.m_d41 = _krTranslation.m_dX;
+	_rResult.m_d12 = _krBasisX.m_dY; _rResult.m_d22 = _krBasisY.m_dY; _rResult.m_d32 = _krBasisZ.m_dY; _rResult.m_d42 = _krTranslation.m_dY;
+	_rResult.m_d13 = _krBasisX.m_dZ; _rResult.m_d23 = _krBasisY.m_dZ; _rResult.m_d33 = _krBasisZ.m_dZ; _rResult.m_d43 = _krTranslation.m_dZ;
 
-	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0; _rResult.m_d43 = 0.0; _rResult.m_d44 = 1.0;
+	_rResult.m_d14 = 0.0; _rResult.m_d24 = 0.0; _rResult.m_d34 = 0.0; _rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
@@ -933,11 +933,11 @@ const TMatrix4f& TransformationMatrix(TMatrix4f& _rResult,
 											const TVector3f& _krBasisZ,
 											const TVector3f& _krTranslation)
 {
-	_rResult.m_f11 = _krBasisX.m_fX; _rResult.m_f12 = _krBasisY.m_fX; _rResult.m_f13 = _krBasisZ.m_fX; _rResult.m_f14 = _krTranslation.m_fX;
-	_rResult.m_f21 = _krBasisX.m_fY; _rResult.m_f22 = _krBasisY.m_fY; _rResult.m_f23 = _krBasisZ.m_fY; _rResult.m_f24 = _krTranslation.m_fY;
-	_rResult.m_f31 = _krBasisX.m_fZ; _rResult.m_f32 = _krBasisY.m_fZ; _rResult.m_f33 = _krBasisZ.m_fZ; _rResult.m_f34 = _krTranslation.m_fZ;
+	_rResult.m_f11 = _krBasisX.m_fX; _rResult.m_f21 = _krBasisY.m_fX; _rResult.m_f31 = _krBasisZ.m_fX; _rResult.m_f41 = _krTranslation.m_fX;
+	_rResult.m_f12 = _krBasisX.m_fY; _rResult.m_f22 = _krBasisY.m_fY; _rResult.m_f32 = _krBasisZ.m_fY; _rResult.m_f42 = _krTranslation.m_fY;
+	_rResult.m_f13 = _krBasisX.m_fZ; _rResult.m_f23 = _krBasisY.m_fZ; _rResult.m_f33 = _krBasisZ.m_fZ; _rResult.m_f43 = _krTranslation.m_fZ;
 
-	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f; _rResult.m_f43 = 0.0f; _rResult.m_f44 = 1.0f;
+	_rResult.m_f14 = 0.0f; _rResult.m_f24 = 0.0f; _rResult.m_f34 = 0.0f; _rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }

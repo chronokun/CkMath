@@ -1018,9 +1018,9 @@ const bool Test_Matrix_AxisRotationMatrix()
 	const TVector4d kQRotationYd = AxisAngleQuaternion(TVector4d(), kAxisYd, kdAngle);
 	const TVector4d kQRotationZd = AxisAngleQuaternion(TVector4d(), kAxisZd, kdAngle);
 
-	const bool kbPassXd = Equal(AxisRotationXMatrix(TMatrix4d(), kdAngle), RotationMatrix(TMatrix4d(), kQRotationXd), s_kdEpsilon);
-	const bool kbPassYd = Equal(AxisRotationYMatrix(TMatrix4d(), kdAngle), RotationMatrix(TMatrix4d(), kQRotationYd), s_kdEpsilon);
-	const bool kbPassZd = Equal(AxisRotationZMatrix(TMatrix4d(), kdAngle), RotationMatrix(TMatrix4d(), kQRotationZd), s_kdEpsilon);
+	const bool kbPassXd = Equal(AxisRotationXMatrix(TMatrix4d(), -kdAngle), RotationMatrix(TMatrix4d(), kQRotationXd), s_kdEpsilon);
+	const bool kbPassYd = Equal(AxisRotationYMatrix(TMatrix4d(), -kdAngle), RotationMatrix(TMatrix4d(), kQRotationYd), s_kdEpsilon);
+	const bool kbPassZd = Equal(AxisRotationZMatrix(TMatrix4d(), -kdAngle), RotationMatrix(TMatrix4d(), kQRotationZd), s_kdEpsilon);
 
 	const TVector3f kAxisXf{1.0f, 0.0f, 0.0f};
 	const TVector3f kAxisYf{0.0f, 1.0f, 0.0f};
@@ -1028,9 +1028,9 @@ const bool Test_Matrix_AxisRotationMatrix()
 	
 	const float kfAngle = s_kfTau / 8.0f;
 	
-	const TVector4f kQRotationXf = AxisAngleQuaternion(TVector4f(), kAxisXf, kfAngle);
-	const TVector4f kQRotationYf = AxisAngleQuaternion(TVector4f(), kAxisYf, kfAngle);
-	const TVector4f kQRotationZf = AxisAngleQuaternion(TVector4f(), kAxisZf, kfAngle);
+	const TVector4f kQRotationXf = AxisAngleQuaternion(TVector4f(), kAxisXf, -kfAngle);
+	const TVector4f kQRotationYf = AxisAngleQuaternion(TVector4f(), kAxisYf, -kfAngle);
+	const TVector4f kQRotationZf = AxisAngleQuaternion(TVector4f(), kAxisZf, -kfAngle);
 
 	const bool kbPassXf = Equal(AxisRotationXMatrix(TMatrix4f(), kfAngle), RotationMatrix(TMatrix4f(), kQRotationXf), s_kfEpsilon);
 	const bool kbPassYf = Equal(AxisRotationYMatrix(TMatrix4f(), kfAngle), RotationMatrix(TMatrix4f(), kQRotationYf), s_kfEpsilon);
@@ -1046,12 +1046,12 @@ const bool Test_Matrix_AxisRotationMatrix()
 
 const bool Test_Matrix_PerspectiveMatrix()
 {
-	const TMatrix4d kAd = PerspectiveMatrix(TMatrix4d(), s_kdTau / 2.0, s_kdTau / 2.0, 4.0, 2.0);
+	const TMatrix4d kAd = PerspectiveMatrix(TMatrix4d(), s_kdTau / 2.0, 1.0, 2.0, 4.0);
 	const TMatrix4d kBd = PerspectiveMatrix(TMatrix4d(), -2.0, 2.0, -2.0, 2.0, 4.0, 2.0);
 
 	const bool kbPass_d = Equal(kAd, kBd, 0.01);
 
-	const TMatrix4f kAf = PerspectiveMatrix(TMatrix4f(), s_kfTau / 2.0f, s_kfTau / 2.0f, 4.0f, 2.0f);
+	const TMatrix4f kAf = PerspectiveMatrix(TMatrix4f(), s_kfTau / 2.0f, 1.0f, 2.0f, 4.0f);
 	const TMatrix4f kBf = PerspectiveMatrix(TMatrix4f(), -2.0f, 2.0f, -2.0f, 2.0f, 4.0f, 2.0f);
 
 	const bool kbPass_f = Equal(kAf, kBf, 0.01f);
