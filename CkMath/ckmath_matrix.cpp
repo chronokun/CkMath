@@ -867,21 +867,21 @@ const TMatrix4f& Inverse(	TMatrix4f& _rResult,
 const TMatrix4d& TranslationMatrix(	TMatrix4d& _rResult,
 											const TVector3d& _krVector)
 {
-	_rResult.m_d11 = 1.0; _rResult.m_d12 = 0.0; _rResult.m_d13 = 0.0; _rResult.m_d14 = _krVector.m_dX;
-	_rResult.m_d21 = 0.0; _rResult.m_d22 = 1.0; _rResult.m_d23 = 0.0; _rResult.m_d24 = _krVector.m_dY;
-	_rResult.m_d31 = 0.0; _rResult.m_d32 = 0.0; _rResult.m_d33 = 1.0; _rResult.m_d34 = _krVector.m_dZ;
-	_rResult.m_d41 = 0.0; _rResult.m_d42 = 0.0; _rResult.m_d43 = 0.0; _rResult.m_d44 = 1.0;
+	_rResult.m_d11 = 1.0; _rResult.m_d21 = 0.0; _rResult.m_d31 = 0.0; _rResult.m_d41 = _krVector.m_dX;
+	_rResult.m_d12 = 0.0; _rResult.m_d22 = 1.0; _rResult.m_d32 = 0.0; _rResult.m_d42 = _krVector.m_dY;
+	_rResult.m_d13 = 0.0; _rResult.m_d23 = 0.0; _rResult.m_d33 = 1.0; _rResult.m_d43 = _krVector.m_dZ;
+	_rResult.m_d14 = 0.0; _rResult.m_d24 = 0.0; _rResult.m_d34 = 0.0; _rResult.m_d44 = 1.0;
 
 	return(_rResult);
 }
 
 const TMatrix4f& TranslationMatrix(	TMatrix4f& _rResult,
-											const TVector3f& _krVector)
+									const TVector3f& _krVector)
 {
-	_rResult.m_f11 = 1.0f; _rResult.m_f12 = 0.0f; _rResult.m_f13 = 0.0f; _rResult.m_f14 = _krVector.m_fX;
-	_rResult.m_f21 = 0.0f; _rResult.m_f22 = 1.0f; _rResult.m_f23 = 0.0f; _rResult.m_f24 = _krVector.m_fY;
-	_rResult.m_f31 = 0.0f; _rResult.m_f32 = 0.0f; _rResult.m_f33 = 1.0f; _rResult.m_f34 = _krVector.m_fZ;
-	_rResult.m_f41 = 0.0f; _rResult.m_f42 = 0.0f; _rResult.m_f43 = 0.0f; _rResult.m_f44 = 1.0f;
+	_rResult.m_f11 = 1.0f; _rResult.m_f21 = 0.0f; _rResult.m_f31 = 0.0f; _rResult.m_f41 = _krVector.m_fX;
+	_rResult.m_f12 = 0.0f; _rResult.m_f22 = 1.0f; _rResult.m_f32 = 0.0f; _rResult.m_f42 = _krVector.m_fY;
+	_rResult.m_f13 = 0.0f; _rResult.m_f23 = 0.0f; _rResult.m_f33 = 1.0f; _rResult.m_f43 = _krVector.m_fZ;
+	_rResult.m_f14 = 0.0f; _rResult.m_f24 = 0.0f; _rResult.m_f34 = 0.0f; _rResult.m_f44 = 1.0f;
 
 	return(_rResult);
 }
@@ -1037,10 +1037,10 @@ const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
 											const double _kdBottom,	const double _kdTop,
 											const double _kdFar,	const double _kdNear)
 {
-	_rResult.m_d11 = ((2.0 * _kdNear) / (_kdRight - _kdLeft));	_rResult.m_d12 = 0.0;										_rResult.m_d13 = ((_kdRight + _kdLeft) / (_kdRight - _kdLeft));	_rResult.m_d14 = 0.0;
-	_rResult.m_d21 = 0.0;										_rResult.m_d22 = ((2.0 * _kdNear) / (_kdTop - _kdBottom));	_rResult.m_d23 = ((_kdTop + _kdBottom) / (_kdTop - _kdBottom));	_rResult.m_d24 = 0.0;
-	_rResult.m_d31 = 0.0;										_rResult.m_d32 = 0.0;										_rResult.m_d33 = (-(_kdFar + _kdNear) / (_kdFar - _kdNear));	_rResult.m_d34 = ((-2.0 * _kdFar * _kdNear) / (_kdFar - _kdNear));
-	_rResult.m_d41 = 0.0;										_rResult.m_d42 = 0.0;										_rResult.m_d43 = -1.0;											_rResult.m_d44 = 0.0;
+	_rResult.m_d11 = ((2.0 * _kdNear) / (_kdRight - _kdLeft));	_rResult.m_d21 = 0.0;										_rResult.m_d31 = ((_kdRight + _kdLeft) / (_kdRight - _kdLeft));	_rResult.m_d41 = 0.0;
+	_rResult.m_d12 = 0.0;										_rResult.m_d22 = ((2.0 * _kdNear) / (_kdTop - _kdBottom));	_rResult.m_d32 = ((_kdTop + _kdBottom) / (_kdTop - _kdBottom));	_rResult.m_d42 = 0.0;
+	_rResult.m_d13 = 0.0;										_rResult.m_d23 = 0.0;										_rResult.m_d33 = (-(_kdFar + _kdNear) / (_kdFar - _kdNear));	_rResult.m_d43 = ((-2.0 * _kdFar * _kdNear) / (_kdFar - _kdNear));
+	_rResult.m_d14 = 0.0;										_rResult.m_d24 = 0.0;										_rResult.m_d34 = -1.0;											_rResult.m_d44 = 0.0;
 
 	return(_rResult);
 }
@@ -1050,34 +1050,38 @@ const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
 											const float _kfBottom,	const float _kfTop,
 											const float _kfFar,		const float _kfNear)
 {
-	_rResult.m_f11 = ((2.0f * _kfNear) / (_kfRight - _kfLeft));	_rResult.m_f12 = 0.0f;										_rResult.m_f13 = ((_kfRight + _kfLeft) / (_kfRight - _kfLeft));	_rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = 0.0f;										_rResult.m_f22 = ((2.0f * _kfNear) / (_kfTop - _kfBottom));	_rResult.m_f23 = ((_kfTop + _kfBottom) / (_kfTop - _kfBottom));	_rResult.m_f24 = 0.0f;
-	_rResult.m_f31 = 0.0f;										_rResult.m_f32 = 0.0f;										_rResult.m_f33 = (-(_kfFar + _kfNear) / (_kfFar - _kfNear));	_rResult.m_f34 = ((-2.0f * _kfFar * _kfNear) / (_kfFar - _kfNear));
-	_rResult.m_f41 = 0.0f;										_rResult.m_f42 = 0.0f;										_rResult.m_f43 = -1.0f;											_rResult.m_f44 = 0.0f;
+	_rResult.m_f11 = ((2.0f * _kfNear) / (_kfRight - _kfLeft));	_rResult.m_f21 = 0.0f;										_rResult.m_f31 = ((_kfRight + _kfLeft) / (_kfRight - _kfLeft));	_rResult.m_f41 = 0.0f;
+	_rResult.m_f12 = 0.0f;										_rResult.m_f22 = ((2.0f * _kfNear) / (_kfTop - _kfBottom));	_rResult.m_f32 = ((_kfTop + _kfBottom) / (_kfTop - _kfBottom));	_rResult.m_f42 = 0.0f;
+	_rResult.m_f13 = 0.0f;										_rResult.m_f23 = 0.0f;										_rResult.m_f33 = (-(_kfFar + _kfNear) / (_kfFar - _kfNear));	_rResult.m_f43 = ((-2.0f * _kfFar * _kfNear) / (_kfFar - _kfNear));
+	_rResult.m_f14 = 0.0f;										_rResult.m_f24 = 0.0f;										_rResult.m_f34 = -1.0f;											_rResult.m_f44 = 0.0f;
 
 	return(_rResult);
 }
 
 const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
-											const double _kdFovX, const double _kdFovY,
-											const double _kdFar,	const double _kdNear)
+									const double _kdFovY, const double _kdAspect,
+									const double _kdNear, const double _kdFar)
 {
-	_rResult.m_d11 = ArcTan(_kdFovX / 2.0);	_rResult.m_d12 = 0.0;							_rResult.m_d13 = 0.0;											_rResult.m_d14 = 0.0;
-	_rResult.m_d21 = 0.0;							_rResult.m_d22 = ArcTan(_kdFovY / 2.0);	_rResult.m_d23 = 0.0;											_rResult.m_d24 = 0.0;
-	_rResult.m_d31 = 0.0;							_rResult.m_d32 = 0.0;							_rResult.m_d33 = (-(_kdFar + _kdNear) / (_kdFar - _kdNear));	_rResult.m_d34 = ((-2.0 * _kdFar * _kdNear) / (_kdFar - _kdNear));
-	_rResult.m_d41 = 0.0;							_rResult.m_d42 = 0.0;							_rResult.m_d43 = -1.0;											_rResult.m_d44 = 0.0;
+	const double kdF = 1.0/Tan(_kdFovY / 2.0);
+
+	_rResult.m_d11 = kdF / _kdAspect;	_rResult.m_d21 = 0.0;	_rResult.m_d31 = 0.0;											_rResult.m_d41 = 0.0;
+	_rResult.m_d12 = 0.0;				_rResult.m_d22 = kdF;	_rResult.m_d32 = 0.0;											_rResult.m_d42 = 0.0;
+	_rResult.m_d13 = 0.0;				_rResult.m_d23 = 0.0;	_rResult.m_d33 = ((_kdFar + _kdNear) / (_kdNear - _kdFar));		_rResult.m_d43 = ((2.0 * _kdFar * _kdNear) / (_kdNear - _kdFar));
+	_rResult.m_d14 = 0.0;				_rResult.m_d24 = 0.0;	_rResult.m_d34 = -1.0;											_rResult.m_d44 = 0.0;
 
 	return(_rResult);
 }
 
 const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
-											const float _kfFovX, const float _kfFovY,
-											const float _kfFar,	const float _kfNear)
+									const float _kfFovY, const float _kfAspect,
+									const float _kfNear, const float _kfFar)
 {
-	_rResult.m_f11 = ArcTan(_kfFovX / 2.0f);	_rResult.m_f12 = 0.0f;							_rResult.m_f13 = 0.0f;											_rResult.m_f14 = 0.0f;
-	_rResult.m_f21 = 0.0f;							_rResult.m_f22 = ArcTan(_kfFovY / 2.0f);	_rResult.m_f23 = 0.0f;											_rResult.m_f24 = 0.0f;
-	_rResult.m_f31 = 0.0f;							_rResult.m_f32 = 0.0f;							_rResult.m_f33 = (-(_kfFar + _kfNear) / (_kfFar - _kfNear));	_rResult.m_f34 = ((-2.0f * _kfFar * _kfNear) / (_kfFar - _kfNear));
-	_rResult.m_f41 = 0.0f;							_rResult.m_f42 = 0.0f;							_rResult.m_f43 = -1.0f;											_rResult.m_f44 = 0.0f;
+	const float kfF = 1.0f/Tan(_kfFovY / 2.0f);
+
+	_rResult.m_f11 = kfF / _kfAspect;	_rResult.m_f21 = 0.0f;	_rResult.m_f31 = 0.0f;											_rResult.m_f41 = 0.0f;
+	_rResult.m_f12 = 0.0f;				_rResult.m_f22 = kfF;	_rResult.m_f32 = 0.0f;											_rResult.m_f42 = 0.0f;
+	_rResult.m_f13 = 0.0f;				_rResult.m_f23 = 0.0f;	_rResult.m_f33 = ((_kfFar + _kfNear) / (_kfNear - _kfFar));		_rResult.m_f43 = ((2.0f * _kfFar * _kfNear) / (_kfNear - _kfFar));
+	_rResult.m_f14 = 0.0f;				_rResult.m_f24 = 0.0f;	_rResult.m_f34 = -1.0f;											_rResult.m_f44 = 0.0f;
 
 	return(_rResult);
 }

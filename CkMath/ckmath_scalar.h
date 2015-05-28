@@ -44,6 +44,11 @@ inline const double ArcTan2(const double _kdX, const double _kdY)
 	return(atan2(_kdX, _kdY));
 }
 
+inline const double Tan(const double _kdScalar)
+{
+	return(tan(_kdScalar));
+}
+
 inline const double Sine(const double _kdScalar)
 {
 	return(sin(_kdScalar));
@@ -88,6 +93,11 @@ inline const float ArcTan(const float _kfScalar)
 inline const float ArcTan2(const float _kfX, const float _kfY)
 {
 	return(atan2f(_kfX, _kfY));
+}
+
+inline const float Tan(const float _kfScalar)
+{
+	return(tanf(_kfScalar));
 }
 
 inline const float Sine(const float _kfScalar)

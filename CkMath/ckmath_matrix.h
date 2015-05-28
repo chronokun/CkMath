@@ -186,12 +186,12 @@ const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
 									const float _kfFar,		const float _kfNear);
 
 const TMatrix4d& PerspectiveMatrix(	TMatrix4d& _rResult,
-									const double _kdFovX, const double _kdFovY,
-									const double _kdFar,	const double _kdNear);
+									const double _kdFovY, const double _kdAspect,
+									const double _kdNear, const double _kdFar);
 
 const TMatrix4f& PerspectiveMatrix(	TMatrix4f& _rResult,
-									const float _kfFovX, const float _kfFovY,
-									const float _kfFar,	const float _kfNear);
+									const float _kfFovY, const float _kfAspect,
+									const float _kfNear, const float _kfFar);
 
 const TMatrix4d& OrthographicMatrix(TMatrix4d& _rResult,
 									const double _kdLeft,	const double _kdRight,
